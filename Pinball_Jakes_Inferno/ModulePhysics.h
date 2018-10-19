@@ -25,9 +25,9 @@ public:
 	int RayCast(int x1, int y1, int x2, int y2, float& normal_x, float& normal_y) const;
 
 public:
-	int width, height;
-	b2Body* body;
-	Module* listener;
+	int			width, height;
+	b2Body*		body;
+	Module*		listener;
 };
 
 // Module --------------------------------------
@@ -52,8 +52,10 @@ public:
 
 private:
 
-	bool debug;
-	b2World* world;
-	b2MouseJoint* mouse_joint;
-	b2Body* ground;
+	bool			debug;
+	b2World*		world = nullptr;
+	b2MouseJoint*	mouse_joint = nullptr;
+	b2Body*			ground = nullptr;
+	b2Body*			clicked = nullptr;
+	b2Vec2			mouse_position;
 };
