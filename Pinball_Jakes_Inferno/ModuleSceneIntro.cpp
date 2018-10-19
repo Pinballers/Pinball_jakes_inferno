@@ -23,10 +23,10 @@ bool ModuleSceneIntro::Start()
 
 	App->renderer->camera.x = App->renderer->camera.y = 0;
 
-	circle = App->textures->Load("pinball/wheel.png"); 
-	box = App->textures->Load("pinball/crate.png");
-	rick = App->textures->Load("pinball/rick_head.png");
-	bonus_fx = App->audio->LoadFx("pinball/bonus.wav");
+	circle = App->textures->Load("Sprites/wheel.png"); 
+	box = App->textures->Load("Sprites/crate.png");
+	rick = App->textures->Load("Sprites/rick_head.png");
+	bonus_fx = App->audio->LoadFx("Audio/bonus.wav");
 
 	return ret;
 }
