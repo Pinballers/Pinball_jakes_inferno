@@ -20,6 +20,7 @@ public:
 
 public:
 	p2List<PhysBody*>	background;
+	PhysBody*			background_chain = nullptr;
 	PhysBody*			left_flipper = nullptr;
 	b2RevoluteJoint*	right_flipper_joint = nullptr;
 	b2RevoluteJoint*	left_flipper_joint = nullptr;

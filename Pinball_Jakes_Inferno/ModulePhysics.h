@@ -49,7 +49,7 @@ public:
 	PhysBody* CreateFlipper(int x, int y, int* points, int size);
 
 
-
+	
 	PhysBody*		left_flipper = nullptr;
 	PhysBody*		right_flipper = nullptr;
 	PhysBody*		left_joint = nullptr;
