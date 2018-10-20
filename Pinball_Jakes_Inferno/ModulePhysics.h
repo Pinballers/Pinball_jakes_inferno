@@ -49,12 +49,6 @@ public:
 	PhysBody* CreateFlipper(int x, int y, int* points, int size);
 
 
-	
-	PhysBody*		left_flipper = nullptr;
-	PhysBody*		right_flipper = nullptr;
-	PhysBody*		left_joint = nullptr;
-	PhysBody*		right_joint = nullptr;
-
 	// b2ContactListener ---
 	void BeginContact(b2Contact* contact);
 	b2World*		world = nullptr;

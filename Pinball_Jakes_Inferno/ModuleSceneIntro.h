@@ -19,9 +19,9 @@ public:
 	void OnCollision(PhysBody* bodyA, PhysBody* bodyB);
 
 public:
-	p2List<PhysBody*>	background;
-	PhysBody*			background_chain = nullptr;
+	PhysBody*			background;
 	PhysBody*			left_flipper = nullptr;
+	PhysBody*			right_flipper = nullptr;
 	b2RevoluteJoint*	right_flipper_joint = nullptr;
 	b2RevoluteJoint*	left_flipper_joint = nullptr;
 
