@@ -186,15 +186,15 @@ PhysBody* ModulePhysics::CreateChain(int x, int y, int* points, int size)
 	return pbody;
 }
 
-PhysBody* ModulePhysics::CreateFlipper(int x, int y, int* points, int size)
+PhysBody* ModulePhysics::CreateStaticChain(int x, int y, int* points, int size)
 {
 	b2BodyDef body;
-	body.type = b2_dynamicBody;
+	body.type = b2_staticBody;
 	body.position.Set(PIXEL_TO_METERS(x), PIXEL_TO_METERS(y));
 
 	b2Body* b = world->CreateBody(&body);
-	b2PolygonShape flipper;
 
+	b2ChainShape shape;
 	b2Vec2* p = new b2Vec2[size / 2];
 
 	for (uint i = 0; i < size / 2; ++i)
@@ -203,11 +203,10 @@ PhysBody* ModulePhysics::CreateFlipper(int x, int y, int* points, int size)
 		p[i].y = PIXEL_TO_METERS(points[i * 2 + 1]);
 	}
 
-	flipper.Set(p, size / 2);
+	shape.CreateLoop(p, size / 2);
 
 	b2FixtureDef fixture;
-	fixture.shape = &flipper;
-	fixture.density = 1.0f;
+	fixture.shape = &shape;
 
 	b->CreateFixture(&fixture);
 
@@ -216,7 +215,7 @@ PhysBody* ModulePhysics::CreateFlipper(int x, int y, int* points, int size)
 	PhysBody* pbody = new PhysBody();
 	pbody->body = b;
 	b->SetUserData(pbody);
-	pbody->height = pbody->width = 0;
+	pbody->width = pbody->height = 0;
 
 	return pbody;
 }

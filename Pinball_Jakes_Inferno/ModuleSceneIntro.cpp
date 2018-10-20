@@ -37,7 +37,7 @@ bool ModuleSceneIntro::Start()
 
 
 	//Adding physic
-	background = App->physics->CreateChain(0, 0, background_points, 238);
+	background = App->physics->CreateStaticChain(25, 34, background_points, 238);
 	/*left_flipper = App->physics->CreateFlipper(112, 666, left_flipper_points, 20);
 	left_flipper->body->SetGravityScale(0.0f);
 
