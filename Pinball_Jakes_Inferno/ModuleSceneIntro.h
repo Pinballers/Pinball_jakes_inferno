@@ -22,8 +22,16 @@ public:
 	p2List<PhysBody*> boxes;
 	p2List<PhysBody*> ricks;
 
-	SDL_Texture* circle;
-	SDL_Texture* box;
-	SDL_Texture* rick;
+	//Sprites
+	SDL_Texture*	background;
+	SDL_Texture*	left_flipper;
+	SDL_Texture*	right_flipper;
+
+	SDL_Texture*	circle;
+	SDL_Texture*	box;
+	SDL_Texture*	rick;
+
+	//Audio
 	uint bonus_fx;
+	uint flipper_sound;
 };

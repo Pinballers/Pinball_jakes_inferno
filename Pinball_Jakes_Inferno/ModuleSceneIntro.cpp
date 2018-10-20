@@ -28,6 +28,14 @@ bool ModuleSceneIntro::Start()
 	rick = App->textures->Load("Sprites/rick_head.png");
 	bonus_fx = App->audio->LoadFx("Audio/bonus.wav");
 
+	//Sprites
+	background = App->textures->Load("Sprites/background.png");
+	left_flipper = App->textures->Load("Sprites/left_flipper.png");
+	right_flipper = App->textures->Load("Sprites/right_flipper.png");
+
+	//Audio
+	flipper_sound = App->audio->LoadFx("Game/Sounds/flipper_sound.wav");
+
 	return ret;
 }
 
@@ -42,6 +50,36 @@ bool ModuleSceneIntro::CleanUp()
 // Update: draw background
 update_status ModuleSceneIntro::Update()
 {
+	App->renderer->Blit(background, 0, 0);
+
+	if (App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT)
+	{
+		App->physics->left_flipper->body->ApplyForce({ 10, 80 }, { 0, 0 }, true);
+
+		if (App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_UP)
+		{
+			App->physics->left_flipper->body->ApplyForce({ -10, -80 }, { 0, 0 }, true);
+		}
+	}
+
+	if (App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
+	{
+		App->physics->right_flipper->body->ApplyForce({ -10, -80 }, { 0, 0 }, true);
+
+		if (App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_UP)
+		{
+			App->physics->right_flipper->body->ApplyForce({ 10, 80 }, { 0, 0 }, true);
+		}
+	}
+
+	if (App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_DOWN || (App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_DOWN))
+	{
+		App->audio->PlayFx(flipper_sound);
+	}
+
+	
+
+
 	if(App->input->GetKey(SDL_SCANCODE_1) == KEY_DOWN)
 	{
 		circles.add(App->physics->CreateCircle(App->input->GetMouseX(), App->input->GetMouseY(), 25));
