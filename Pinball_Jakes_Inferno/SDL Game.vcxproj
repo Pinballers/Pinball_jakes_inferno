@@ -68,7 +68,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>C:\Users\PCCom\Desktop\UNI CITM\SEGON CURS\DESENVOLUPAMENT\REPOSITORI AMB CERE\Pinball_jakes_inferno\Pinball_Jakes_Inferno\Box2D;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\PCCom\Desktop\UNI CITM\SEGON CURS\DESENVOLUPAMENT\REPOSITORI AMB CERE\Pinball_jakes_inferno\Pinball_Jakes_Inferno\Box2D\libx86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
