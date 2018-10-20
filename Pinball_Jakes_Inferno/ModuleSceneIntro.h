@@ -23,9 +23,9 @@ public:
 	p2List<PhysBody*> ricks;
 
 	//Sprites
-	SDL_Texture*	background;
-	SDL_Texture*	left_flipper;
-	SDL_Texture*	right_flipper;
+	SDL_Texture*	background = nullptr;
+	SDL_Texture*	left_flipper = nullptr;
+	SDL_Texture*	right_flipper = nullptr;
 
 	SDL_Texture*	circle;
 	SDL_Texture*	box;

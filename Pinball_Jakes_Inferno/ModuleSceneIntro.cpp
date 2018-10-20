@@ -50,7 +50,12 @@ bool ModuleSceneIntro::CleanUp()
 // Update: draw background
 update_status ModuleSceneIntro::Update()
 {
+	//Background
 	App->renderer->Blit(background, 0, 0);
+
+	//Flippers
+	/*App->renderer->Blit(left_flipper, 100, 447, NULL, 1.0f, App->physics->left_flipper->GetRotation(), 10, 10); 
+	App->renderer->Blit(right_flipper, 200, 447, NULL, 1.0f, App->physics->right_flipper->GetRotation(), 62, 9); 
 
 	if (App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT)
 	{
@@ -75,7 +80,7 @@ update_status ModuleSceneIntro::Update()
 	if (App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_DOWN || (App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_DOWN))
 	{
 		App->audio->PlayFx(flipper_sound);
-	}
+	}*/
 
 	
 

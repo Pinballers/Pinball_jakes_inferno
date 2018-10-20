@@ -35,6 +35,26 @@ bool ModulePhysics::Start()
 	b2BodyDef bd;
 	ground = world->CreateBody(&bd);
 
+
+	int background_points[2] = {
+		15,12
+	};
+
+
+	int left_flipper_points[2] = {
+		15,18
+	};
+
+	int right_flipper_points[2] = {
+		15,18
+	};
+
+	//CreateChain(0, 0, background_points, 2);
+	//left_flipper = CreateFlipper(100, 400, left_flipper_points, 2);
+	//right_flipper = CreateFlipper(200, 400, right_flipper_points, 2);
+	//left_joint = CreateCircle(100, 400, 3);
+	//right_joint = CreateCircle(200, 400, 3);
+
 	// big static circle as "ground" in the middle of the screen
 	int x = SCREEN_WIDTH / 2;
 	int y = SCREEN_HEIGHT / 1.5f;
@@ -181,6 +201,41 @@ PhysBody* ModulePhysics::CreateChain(int x, int y, int* points, int size)
 	pbody->body = b;
 	b->SetUserData(pbody);
 	pbody->width = pbody->height = 0;
+
+	return pbody;
+}
+
+PhysBody* ModulePhysics::CreateFlipper(int x, int y, int* points, int size)
+{
+	b2BodyDef body;
+	body.type = b2_dynamicBody;
+	body.position.Set(PIXEL_TO_METERS(x), PIXEL_TO_METERS(y));
+
+	b2Body* b = world->CreateBody(&body);
+	b2PolygonShape flipper;
+
+	b2Vec2* p = new b2Vec2[size / 2];
+
+	for (uint i = 0; i < size / 2; ++i)
+	{
+		p[i].x = PIXEL_TO_METERS(points[i * 2 + 0]);
+		p[i].y = PIXEL_TO_METERS(points[i * 2 + 1]);
+	}
+
+	flipper.Set(p, size / 2);
+
+	b2FixtureDef fixture;
+	fixture.shape = &flipper;
+	fixture.density = 1.0f;
+
+	b->CreateFixture(&fixture);
+
+	delete p;
+
+	PhysBody* pbody = new PhysBody();
+	pbody->body = b;
+	b->SetUserData(pbody);
+	pbody->height = pbody->width = 0;
 
 	return pbody;
 }
