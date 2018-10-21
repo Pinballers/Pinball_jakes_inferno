@@ -38,9 +38,9 @@ bool ModuleSceneIntro::Start()
 
 	//Adding physic Background and Flippers
 	background = App->physics->CreateStaticChain(25, 34, background_points, 238);
-	left_flipper = App->physics->CreateChain(98, 494, left_flipper_points, 20);
+	left_flipper = App->physics->CreateChain(123, 528, left_flipper_points, 20);
 	left_flipper->body->SetGravityScale(0.0f);
-	right_flipper = App->physics->CreateChain(226, 494, right_flipper_points, 22);
+	right_flipper = App->physics->CreateChain(251, 528, right_flipper_points, 22);
 	right_flipper->body->SetGravityScale(0.0f);
 
 	b2BodyDef bd;
