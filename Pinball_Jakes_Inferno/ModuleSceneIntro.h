@@ -38,7 +38,17 @@ public:
 	PhysBody*			right_piece2_bot = nullptr;
 
 	//Action elements
-	PhysBody*			circle = nullptr;
+	PhysBody*			circle1 = nullptr;
+	PhysBody*			circle2 = nullptr;
+	PhysBody*			circle3 = nullptr;
+	PhysBody*			circle4 = nullptr;
+	PhysBody*			circle5 = nullptr;
+	PhysBody*			circle6 = nullptr;
+	PhysBody*			circle7 = nullptr;
+	PhysBody*			circle8 = nullptr;
+	PhysBody*			circle9 = nullptr;
+	PhysBody*			circle10 = nullptr;
+	PhysBody*			circle11 = nullptr;
 
 	//Flippers
 	PhysBody*			left_flipper = nullptr;
