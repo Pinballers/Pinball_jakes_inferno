@@ -138,7 +138,7 @@ int ball[16] = {
 };
 
 // Pivot 0, 0
-int circle1[24] = {
+int circle_points[22] = {
 	3, 4,
 	8, 0,
 	19, 0,
@@ -150,7 +150,6 @@ int circle1[24] = {
 	1, 22,
 	-1, 12,
 	0, 7,
-	3, 4
 };
 
 // Pivot 0, 0

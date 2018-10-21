@@ -87,4 +87,12 @@ public:
 
 	//Audio
 	uint flipper_sound;
+
+private:
+	int					circle_radio = 13;
+
 };
+
+
+
+
