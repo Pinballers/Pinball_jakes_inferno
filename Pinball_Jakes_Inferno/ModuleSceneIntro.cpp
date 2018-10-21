@@ -7,6 +7,7 @@
 #include "ModuleAudio.h"
 #include "ModulePhysics.h"
 #include "ChainPoints.h"
+#include "ModulePlayer.h"
 
 ModuleSceneIntro::ModuleSceneIntro(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
@@ -32,12 +33,15 @@ bool ModuleSceneIntro::Start()
 	right_piece1_tex = App->textures->Load("Sprites/right_piece1.png");
 	left_piece2_tex = App->textures->Load("Sprites/left_piece2.png");
 	right_piece2_tex = App->textures->Load("Sprites/right_piece2.png");
+	left_piece2_on_tex = App->textures->Load("Sprites/left_piece2_on.png");
+	right_piece2_on_tex = App->textures->Load("Sprites/right_piece2_on.png");
 
 	left_wheel_piece_tex = App->textures->Load("Sprites/left_wheel_piece.png");
 	right_wheel_piece_tex = App->textures->Load("Sprites/right_wheel_piece.png");
 
 	circle_tex = App->textures->Load("Sprites/circle.png");
 	piece3_tex = App->textures->Load("Sprites/piece3.png");
+	piece3_on_tex = App->textures->Load("Sprites/piece3_on.png");
 
 	left_flipper_tex = App->textures->Load("Sprites/left_flipper.png");
 	right_flipper_tex = App->textures->Load("Sprites/right_flipper.png");
@@ -65,6 +69,7 @@ bool ModuleSceneIntro::Start()
 	right_piece1_bot = App->physics->CreateStaticChain(247, 939, right_piece1_points, 16);
 	left_piece2_bot = App->physics->CreateStaticChain(82, 934, left_piece2_points, 18);
 	right_piece2_bot = App->physics->CreateStaticChain(247, 934, right_piece2_points, 18);
+	
 
 	//Actions elements
 	circle_1 = App->physics->CreateStaticCircle(78 + circle_radio, 711 + circle_radio, circle_radio);
@@ -87,6 +92,18 @@ bool ModuleSceneIntro::Start()
 	piece3_6 = App->physics->CreateStaticChain(164, 126, piece3_points, 16);
 	piece3_7 = App->physics->CreateStaticChain(207, 126, piece3_points, 16);
 	piece3_8 = App->physics->CreateStaticChain(235, 141, piece3_points, 16);
+
+
+	left_piece2_action = App->physics->CreateRectangleSensor(100, 446, 11, 35);
+	right_piece2_action = App->physics->CreateRectangleSensor(270, 446, 11, 35);
+
+	left_piece2_bot_action = App->physics->CreateRectangleSensor(100, 947, 11, 35);
+	right_piece2_bot_action = App->physics->CreateRectangleSensor(270, 947, 11, 35);
+	
+	
+	
+
+	
 	
 
 
@@ -136,7 +153,7 @@ bool ModuleSceneIntro::Start()
 	right_flipper_def.bodyB = right_flipper->body;
 	right_flipper_def.Initialize(right_flipper_def.bodyA, right_flipper_def.bodyB, { PIXEL_TO_METERS(250), PIXEL_TO_METERS(520) });
 	right_flipper_def.enableLimit = true;
-	right_flipper_def.upperAngle = 0.20f * b2_pi; 
+	right_flipper_def.upperAngle = 0.15f * b2_pi; 
 	right_flipper_def.enableMotor = true;
 	right_flipper_def.maxMotorTorque = 10.0f;
 	right_flipper_def.motorSpeed = -10.0f;
@@ -251,10 +268,59 @@ update_status ModuleSceneIntro::Update()
 	//Bot static elements
 	App->renderer->Blit(left_piece1_tex, METERS_TO_PIXELS(left_piece1_bot->body->GetPosition().x), METERS_TO_PIXELS(left_piece1_bot->body->GetPosition().y));
 	App->renderer->Blit(right_piece1_tex, METERS_TO_PIXELS(right_piece1_bot->body->GetPosition().x), METERS_TO_PIXELS(right_piece1_bot->body->GetPosition().y));
-	App->renderer->Blit(left_piece2_tex, METERS_TO_PIXELS(left_piece2_bot->body->GetPosition().x), METERS_TO_PIXELS(left_piece2_bot->body->GetPosition().y));
-	App->renderer->Blit(right_piece2_tex, METERS_TO_PIXELS(right_piece2_bot->body->GetPosition().x), METERS_TO_PIXELS(right_piece2_bot->body->GetPosition().y));
+
+	
+		
+	
 
 	//Action elements
+	if (left_piece2_activated) {
+		App->renderer->Blit(left_piece2_on_tex, METERS_TO_PIXELS(left_piece2->body->GetPosition().x), METERS_TO_PIXELS(left_piece2->body->GetPosition().y));
+		cont_left_piece2--;
+		if (cont_left_piece2 <= 0) {
+			left_piece2_activated = false;
+			cont_left_piece2 = 20;
+		}
+
+	}
+	else
+		App->renderer->Blit(left_piece2_tex, METERS_TO_PIXELS(left_piece2->body->GetPosition().x), METERS_TO_PIXELS(left_piece2->body->GetPosition().y));
+
+	if (right_piece2_activated) {
+		App->renderer->Blit(right_piece2_on_tex, METERS_TO_PIXELS(right_piece2->body->GetPosition().x), METERS_TO_PIXELS(right_piece2->body->GetPosition().y));
+		cont_right_piece2--;
+		if (cont_right_piece2 <= 0) {
+			right_piece2_activated = false;
+			cont_right_piece2 = 20;
+		}
+
+	}
+	else
+		App->renderer->Blit(right_piece2_tex, METERS_TO_PIXELS(right_piece2->body->GetPosition().x), METERS_TO_PIXELS(right_piece2->body->GetPosition().y));
+
+	if (left_piece2_bot_activated) {
+		App->renderer->Blit(left_piece2_on_tex, METERS_TO_PIXELS(left_piece2_bot->body->GetPosition().x), METERS_TO_PIXELS(left_piece2_bot->body->GetPosition().y));
+		cont_left_piece2_bot--;
+		if (cont_left_piece2_bot <= 0) {
+			left_piece2_bot_activated = false;
+			cont_left_piece2_bot = 20;
+		}
+
+	}
+	else
+		App->renderer->Blit(left_piece2_tex, METERS_TO_PIXELS(left_piece2_bot->body->GetPosition().x), METERS_TO_PIXELS(left_piece2_bot->body->GetPosition().y));
+
+	if (right_piece2_bot_activated) {
+		App->renderer->Blit(right_piece2_on_tex, METERS_TO_PIXELS(right_piece2_bot->body->GetPosition().x), METERS_TO_PIXELS(right_piece2_bot->body->GetPosition().y));
+		cont_right_piece2_bot--;
+		if (cont_right_piece2_bot <= 0) {
+			right_piece2_bot_activated = false;
+			cont_right_piece2_bot = 20;
+		}
+
+	}
+	else
+		App->renderer->Blit(right_piece2_tex, METERS_TO_PIXELS(right_piece2_bot->body->GetPosition().x), METERS_TO_PIXELS(right_piece2_bot->body->GetPosition().y));
 
 	App->renderer->Blit(circle_tex, METERS_TO_PIXELS(circle_1->body->GetPosition().x) - circle_radio, METERS_TO_PIXELS(circle_1->body->GetPosition().y) - circle_radio);
 	App->renderer->Blit(circle_tex, METERS_TO_PIXELS(circle_2->body->GetPosition().x) - circle_radio, METERS_TO_PIXELS(circle_2->body->GetPosition().y) - circle_radio);
@@ -291,5 +357,25 @@ update_status ModuleSceneIntro::Update()
 
 void ModuleSceneIntro::OnCollision(PhysBody* bodyA, PhysBody* bodyB)
 {
-	//App->audio->PlayFx(flipper_sound);
+	if (bodyA == App->player->ball || bodyB == App->player->ball) {
+
+		if (bodyA == left_piece2_action || bodyB == left_piece2_action) {
+
+			left_piece2_activated = true;
+			App->audio->PlayFx(flipper_sound);
+		}
+		else if (bodyA == right_piece2_action || bodyB == right_piece2_action) {
+			right_piece2_activated = true;
+			App->audio->PlayFx(flipper_sound);
+		}else if (bodyA == left_piece2_bot_action || bodyB == left_piece2_bot_action) {
+			
+			left_piece2_bot_activated = true;
+			App->audio->PlayFx(flipper_sound);
+		}else if (bodyA == right_piece2_bot_action || bodyB == right_piece2_bot_action) {
+			right_piece2_bot_activated = true;
+			App->audio->PlayFx(flipper_sound);
+		}
+		
+		
+	}
 }

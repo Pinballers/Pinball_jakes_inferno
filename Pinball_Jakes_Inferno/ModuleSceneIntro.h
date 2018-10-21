@@ -58,6 +58,11 @@ public:
 	PhysBody*			piece3_7 = nullptr;
 	PhysBody*			piece3_8 = nullptr;
 
+	PhysBody*			left_piece2_action = nullptr;
+	PhysBody*			right_piece2_action = nullptr;
+	PhysBody*			left_piece2_bot_action = nullptr;
+	PhysBody*			right_piece2_bot_action = nullptr;
+
 	//Flippers
 	PhysBody*			left_flipper = nullptr;
 	PhysBody*			right_flipper = nullptr;
@@ -74,12 +79,15 @@ public:
 	SDL_Texture*		left_piece1_tex = nullptr;
 	SDL_Texture*		right_piece1_tex = nullptr;
 	SDL_Texture*		left_piece2_tex = nullptr;
+	SDL_Texture*		left_piece2_on_tex = nullptr;
 	SDL_Texture*		right_piece2_tex = nullptr;
+	SDL_Texture*		right_piece2_on_tex = nullptr;
 	SDL_Texture*		left_wheel_piece_tex = nullptr;
 	SDL_Texture*		right_wheel_piece_tex = nullptr;
 
 	SDL_Texture*		circle_tex = nullptr;
 	SDL_Texture*		piece3_tex = nullptr;
+	SDL_Texture*		piece3_on_tex = nullptr;
 
 	SDL_Texture*		left_flipper_tex = nullptr;
 	SDL_Texture*		right_flipper_tex = nullptr;
@@ -90,6 +98,16 @@ public:
 
 private:
 	int					circle_radio = 13;
+
+	bool				left_piece2_activated = false;
+	bool				right_piece2_activated = false;
+	bool				left_piece2_bot_activated = false;
+	bool				right_piece2_bot_activated = false;
+
+	int					cont_left_piece2 = 20;
+	int					cont_right_piece2 = 20;
+	int					cont_left_piece2_bot = 20;
+	int					cont_right_piece2_bot = 20;
 
 };
 
