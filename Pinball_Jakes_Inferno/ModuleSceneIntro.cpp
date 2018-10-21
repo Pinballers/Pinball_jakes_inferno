@@ -27,15 +27,19 @@ bool ModuleSceneIntro::Start()
 	
 
 	//Load Textures
-	background_tex = App->textures->Load("Sprites/background.png");
+	background_tex = App->textures->Load("Sprites/out_structure_1.png");
 	left_piece1_tex = App->textures->Load("Sprites/left_piece1.png");
 	right_piece1_tex = App->textures->Load("Sprites/right_piece1.png");
 	left_piece2_tex = App->textures->Load("Sprites/left_piece2.png");
 	right_piece2_tex = App->textures->Load("Sprites/right_piece2.png");
+
 	left_wheel_piece_tex = App->textures->Load("Sprites/left_wheel_piece.png");
 	right_wheel_piece_tex = App->textures->Load("Sprites/right_wheel_piece.png");
+
 	left_flipper_tex = App->textures->Load("Sprites/left_flipper.png");
 	right_flipper_tex = App->textures->Load("Sprites/right_flipper.png");
+
+	circle_tex = App->textures->Load("Sprites/circle.png");
 
 	//Load Audio
 	flipper_sound = App->audio->LoadFx("Audio/flipper_sound.wav");
@@ -46,29 +50,32 @@ bool ModuleSceneIntro::Start()
 	background = App->physics->CreateStaticChain(25, 34, background_points, 238);
 
 	//top static elements
-	left_piece1 = App->physics->CreateStaticChain(59, 939, left_piece1_points, 19);
-	right_piece1 = App->physics->CreateStaticChain(25, 34, right_piece1_points, 19);
-	left_piece2 = App->physics->CreateStaticChain(25, 34, left_piece2_points, 19);
-	right_piece2 = App->physics->CreateStaticChain(25, 34, right_piece2_points, 19);
-	left_wheel_piece = App->physics->CreateStaticChain(67, 90, left_wheel_piece_points, 19);
-	right_wheel_piece = App->physics->CreateStaticChain(235, 90, right_wheel_piece_points, 19);
+	left_piece1 = App->physics->CreateStaticChain(59, 441, left_piece1_points, 18);
+	right_piece1 = App->physics->CreateStaticChain(247, 441, right_piece1_points, 16);
+	left_piece2 = App->physics->CreateStaticChain(82, 436, left_piece2_points, 18);
+	right_piece2 = App->physics->CreateStaticChain(247, 436, right_piece2_points, 18);
+	left_wheel_piece = App->physics->CreateStaticChain(67, 90, left_wheel_piece_points, 52);
+	right_wheel_piece = App->physics->CreateStaticChain(235, 90, right_wheel_piece_points, 54);
 
 	//bot static elements
-	left_piece1_bot = App->physics->CreateStaticChain(59, 939, left_piece1_points, 19);
-	right_piece1_bot = App->physics->CreateStaticChain(25, 34, right_piece1_points, 19);
-	left_piece2_bot = App->physics->CreateStaticChain(25, 34, left_piece2_points, 19);
-	right_piece2_bot = App->physics->CreateStaticChain(25, 34, right_piece2_points, 19);
+	left_piece1_bot = App->physics->CreateStaticChain(59, 939, left_piece1_points, 18);
+	right_piece1_bot = App->physics->CreateStaticChain(247, 939, right_piece1_points, 16);
+	left_piece2_bot = App->physics->CreateStaticChain(82, 934, left_piece2_points, 18);
+	right_piece2_bot = App->physics->CreateStaticChain(247, 934, right_piece2_points, 18);
+
+	//Actions elements
+	circle = App->physics->CreateStaticCircle(200, 700, 14);
 	
 
 
 	//Flippers
-	left_flipper = App->physics->CreateChain(115, 521, left_flipper_points, 19);
+	left_flipper = App->physics->CreateChain(115, 521, left_flipper_points, 14);
 	left_flipper->body->SetGravityScale(0.0f);
-	right_flipper = App->physics->CreateChain(207, 521, right_flipper_points, 21);
+	right_flipper = App->physics->CreateChain(207, 521, right_flipper_points, 14);
 	right_flipper->body->SetGravityScale(0.0f);
-	left_flipper_bot = App->physics->CreateChain(115, 521, left_flipper_points, 19);
+	left_flipper_bot = App->physics->CreateChain(115, 1019, left_flipper_points, 14);
 	left_flipper_bot->body->SetGravityScale(0.0f);
-	right_flipper_bot = App->physics->CreateChain(207, 521, right_flipper_points, 21);
+	right_flipper_bot = App->physics->CreateChain(207, 1019, right_flipper_points, 14);
 	right_flipper_bot->body->SetGravityScale(0.0f);
 
 	b2BodyDef bd;
@@ -223,6 +230,8 @@ update_status ModuleSceneIntro::Update()
 	App->renderer->Blit(left_piece2_tex, METERS_TO_PIXELS(left_piece2_bot->body->GetPosition().x), METERS_TO_PIXELS(left_piece2_bot->body->GetPosition().y));
 	App->renderer->Blit(right_piece2_tex, METERS_TO_PIXELS(right_piece2_bot->body->GetPosition().x), METERS_TO_PIXELS(right_piece2_bot->body->GetPosition().y));
 
+	//Action elements
+	App->renderer->Blit(circle_tex, METERS_TO_PIXELS(circle->body->GetPosition().x), METERS_TO_PIXELS(circle->body->GetPosition().y));
 
 	//Flippers
 	App->renderer->Blit(left_flipper_tex, METERS_TO_PIXELS(left_flipper->body->GetPosition().x), METERS_TO_PIXELS(left_flipper->body->GetPosition().y), NULL, 1.0F, left_flipper->GetRotation(), PIXEL_TO_METERS(1), PIXEL_TO_METERS(1));
