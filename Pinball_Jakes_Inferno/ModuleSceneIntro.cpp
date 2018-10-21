@@ -38,9 +38,9 @@ bool ModuleSceneIntro::Start()
 
 	//Adding physic Background and Flippers
 	background = App->physics->CreateStaticChain(25, 34, background_points, 238);
-	left_flipper = App->physics->CreateChain(118, 520, left_flipper_points, 20);
+	left_flipper = App->physics->CreateChain(115, 521, left_flipper_points, 19);
 	left_flipper->body->SetGravityScale(0.0f);
-	right_flipper = App->physics->CreateChain(212, 520, right_flipper_points, 22);
+	right_flipper = App->physics->CreateChain(207, 521, right_flipper_points, 21);
 	right_flipper->body->SetGravityScale(0.0f);
 
 	b2BodyDef bd;
@@ -75,9 +75,9 @@ bool ModuleSceneIntro::Start()
 	b2RevoluteJointDef right_flipper_def;
 	right_flipper_def.bodyA = background->body;
 	right_flipper_def.bodyB = right_flipper->body;
-	right_flipper_def.Initialize(right_flipper_def.bodyA, right_flipper_def.bodyB, { PIXEL_TO_METERS(255), PIXEL_TO_METERS(520) });
+	right_flipper_def.Initialize(right_flipper_def.bodyA, right_flipper_def.bodyB, { PIXEL_TO_METERS(250), PIXEL_TO_METERS(520) });
 	right_flipper_def.enableLimit = true;
-	right_flipper_def.upperAngle = 0.15f * b2_pi; // 45 degrees
+	right_flipper_def.upperAngle = 0.19f * b2_pi; // 45 degrees
 	right_flipper_def.enableMotor = true;
 	right_flipper_def.maxMotorTorque = 10.0f;
 	right_flipper_def.motorSpeed = -10.0f;
@@ -90,6 +90,9 @@ bool ModuleSceneIntro::Start()
 bool ModuleSceneIntro::CleanUp()
 {
 	LOG("Unloading Intro scene");
+	App->textures->Unload(background_tex);
+	App->textures->Unload(left_flipper_tex);
+	App->textures->Unload(right_flipper_tex);
 
 	return true;
 }
@@ -140,8 +143,8 @@ update_status ModuleSceneIntro::Update()
 	//Background
 	App->renderer->Blit(background_tex, 0, 0);
 	//Flippers
-	App->renderer->Blit(left_flipper_tex, METERS_TO_PIXELS(left_flipper->body->GetPosition().x), METERS_TO_PIXELS(left_flipper->body->GetPosition().y), NULL, 1.0F, left_flipper->GetRotation(), PIXEL_TO_METERS(2), PIXEL_TO_METERS(2));
-	App->renderer->Blit(right_flipper_tex, METERS_TO_PIXELS(right_flipper->body->GetPosition().x), METERS_TO_PIXELS(right_flipper->body->GetPosition().y), NULL, 1.0F, right_flipper->GetRotation(), PIXEL_TO_METERS(2), PIXEL_TO_METERS(2));
+	App->renderer->Blit(left_flipper_tex, METERS_TO_PIXELS(left_flipper->body->GetPosition().x), METERS_TO_PIXELS(left_flipper->body->GetPosition().y), NULL, 1.0F, left_flipper->GetRotation(), PIXEL_TO_METERS(1), PIXEL_TO_METERS(1));
+	App->renderer->Blit(right_flipper_tex, METERS_TO_PIXELS(right_flipper->body->GetPosition().x), METERS_TO_PIXELS(right_flipper->body->GetPosition().y), NULL, 1.0F, right_flipper->GetRotation(), PIXEL_TO_METERS(1), PIXEL_TO_METERS(1));
 	
 
 	
