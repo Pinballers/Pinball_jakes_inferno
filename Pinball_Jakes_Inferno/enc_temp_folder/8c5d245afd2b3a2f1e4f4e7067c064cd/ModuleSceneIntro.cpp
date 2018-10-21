@@ -42,23 +42,14 @@ bool ModuleSceneIntro::Start()
 
 
 
-	//Adding physic Background 
+	//Adding physic Background and statics elements
 	background = App->physics->CreateStaticChain(25, 34, background_points, 238);
-
-	//top static elements
 	left_piece1 = App->physics->CreateStaticChain(59, 939, left_piece1_points, 19);
 	right_piece1 = App->physics->CreateStaticChain(25, 34, right_piece1_points, 19);
 	left_piece2 = App->physics->CreateStaticChain(25, 34, left_piece2_points, 19);
 	right_piece2 = App->physics->CreateStaticChain(25, 34, right_piece2_points, 19);
 	left_wheel_piece = App->physics->CreateStaticChain(67, 90, left_wheel_piece_points, 19);
 	right_wheel_piece = App->physics->CreateStaticChain(235, 90, right_wheel_piece_points, 19);
-
-	//bot static elements
-	left_piece1_bot = App->physics->CreateStaticChain(59, 939, left_piece1_points, 19);
-	right_piece1_bot = App->physics->CreateStaticChain(25, 34, right_piece1_points, 19);
-	left_piece2_bot = App->physics->CreateStaticChain(25, 34, left_piece2_points, 19);
-	right_piece2_bot = App->physics->CreateStaticChain(25, 34, right_piece2_points, 19);
-	
 
 
 	//Flippers
@@ -206,24 +197,14 @@ update_status ModuleSceneIntro::Update()
 	mouse.y = App->input->GetMouseY();
 
 	// All draw functions ------------------------------------------------------
-	//Background 
+	//Background and statics elements
 	App->renderer->Blit(background_tex, METERS_TO_PIXELS(background->body->GetPosition().x) - 25, METERS_TO_PIXELS(background->body->GetPosition().y) - 34);
-
-	//Top static elements
 	App->renderer->Blit(left_piece1_tex, METERS_TO_PIXELS(left_piece1->body->GetPosition().x), METERS_TO_PIXELS(left_piece1->body->GetPosition().y));
 	App->renderer->Blit(right_piece1_tex, METERS_TO_PIXELS(right_piece1->body->GetPosition().x), METERS_TO_PIXELS(right_piece1->body->GetPosition().y));
 	App->renderer->Blit(left_piece2_tex, METERS_TO_PIXELS(left_piece2->body->GetPosition().x), METERS_TO_PIXELS(left_piece2->body->GetPosition().y));
 	App->renderer->Blit(right_piece2_tex, METERS_TO_PIXELS(right_piece2->body->GetPosition().x), METERS_TO_PIXELS(right_piece2->body->GetPosition().y));
 	App->renderer->Blit(left_wheel_piece_tex, METERS_TO_PIXELS(left_wheel_piece->body->GetPosition().x), METERS_TO_PIXELS(left_wheel_piece->body->GetPosition().y));
 	App->renderer->Blit(right_wheel_piece_tex, METERS_TO_PIXELS(right_wheel_piece->body->GetPosition().x), METERS_TO_PIXELS(right_wheel_piece->body->GetPosition().y));
-
-	//Bot static elements
-	App->renderer->Blit(left_piece1_tex, METERS_TO_PIXELS(left_piece1_bot->body->GetPosition().x), METERS_TO_PIXELS(left_piece1_bot->body->GetPosition().y));
-	App->renderer->Blit(right_piece1_tex, METERS_TO_PIXELS(right_piece1_bot->body->GetPosition().x), METERS_TO_PIXELS(right_piece1_bot->body->GetPosition().y));
-	App->renderer->Blit(left_piece2_tex, METERS_TO_PIXELS(left_piece2_bot->body->GetPosition().x), METERS_TO_PIXELS(left_piece2_bot->body->GetPosition().y));
-	App->renderer->Blit(right_piece2_tex, METERS_TO_PIXELS(right_piece2_bot->body->GetPosition().x), METERS_TO_PIXELS(right_piece2_bot->body->GetPosition().y));
-
-
 	//Flippers
 	App->renderer->Blit(left_flipper_tex, METERS_TO_PIXELS(left_flipper->body->GetPosition().x), METERS_TO_PIXELS(left_flipper->body->GetPosition().y), NULL, 1.0F, left_flipper->GetRotation(), PIXEL_TO_METERS(1), PIXEL_TO_METERS(1));
 	App->renderer->Blit(right_flipper_tex, METERS_TO_PIXELS(right_flipper->body->GetPosition().x), METERS_TO_PIXELS(right_flipper->body->GetPosition().y), NULL, 1.0F, right_flipper->GetRotation(), PIXEL_TO_METERS(1), PIXEL_TO_METERS(1));

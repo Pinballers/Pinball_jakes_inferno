@@ -20,22 +20,14 @@ public:
 
 public:
 
-	//Background 
+	//Background and static elements
 	PhysBody*			background = nullptr;
-
-	//Top static elements
 	PhysBody*			left_piece1 = nullptr;
 	PhysBody*			right_piece1 = nullptr;
 	PhysBody*			left_piece2 = nullptr;
 	PhysBody*			right_piece2 = nullptr;
 	PhysBody*			left_wheel_piece = nullptr;
 	PhysBody*			right_wheel_piece = nullptr;
-
-	//Bot static elements
-	PhysBody*			left_piece1_bot = nullptr;
-	PhysBody*			right_piece1_bot = nullptr;
-	PhysBody*			left_piece2_bot = nullptr;
-	PhysBody*			right_piece2_bot = nullptr;
 
 	//Flippers
 	PhysBody*			left_flipper = nullptr;
