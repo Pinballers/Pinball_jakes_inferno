@@ -19,7 +19,7 @@ public:
 	void OnCollision(PhysBody* bodyA, PhysBody* bodyB);
 
 public:
-	PhysBody*			background;
+	PhysBody*			background = nullptr;
 	PhysBody*			left_flipper = nullptr;
 	PhysBody*			right_flipper = nullptr;
 	b2RevoluteJoint*	right_flipper_joint = nullptr;
