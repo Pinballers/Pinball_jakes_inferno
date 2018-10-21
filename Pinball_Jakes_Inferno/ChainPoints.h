@@ -282,7 +282,7 @@ int left_wheel_piece_points[52] = {
 
 
 // Pivot 0, 0
-int piece_3[18] = {
+int piece3_points[16] = {
 	5, 31,
 	0, 27,
 	0, 2,
@@ -291,7 +291,6 @@ int piece_3[18] = {
 	14, 3,
 	14, 26,
 	11, 31,
-	5, 31
 };
 
 // Pivot 0, 0

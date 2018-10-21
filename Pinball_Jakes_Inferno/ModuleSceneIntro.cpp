@@ -36,10 +36,13 @@ bool ModuleSceneIntro::Start()
 	left_wheel_piece_tex = App->textures->Load("Sprites/left_wheel_piece.png");
 	right_wheel_piece_tex = App->textures->Load("Sprites/right_wheel_piece.png");
 
+	circle_tex = App->textures->Load("Sprites/circle.png");
+	piece3_tex = App->textures->Load("Sprites/piece3.png");
+
 	left_flipper_tex = App->textures->Load("Sprites/left_flipper.png");
 	right_flipper_tex = App->textures->Load("Sprites/right_flipper.png");
 
-	circle_tex = App->textures->Load("Sprites/circle.png");
+	
 
 	//Load Audio
 	flipper_sound = App->audio->LoadFx("Audio/flipper_sound.wav");
@@ -64,17 +67,26 @@ bool ModuleSceneIntro::Start()
 	right_piece2_bot = App->physics->CreateStaticChain(247, 934, right_piece2_points, 18);
 
 	//Actions elements
-	circle1 = App->physics->CreateStaticCircle(78, 711, 14);
-	circle2 = App->physics->CreateStaticCircle(132, 656, 14);
-	circle3 = App->physics->CreateStaticCircle(132, 774, 14);
-	circle4 = App->physics->CreateStaticCircle(212, 656, 14);
-	circle5 = App->physics->CreateStaticCircle(212, 774, 14);
-	circle6 = App->physics->CreateStaticCircle(265, 711, 14);
-	circle7 = App->physics->CreateStaticCircle(99, 395, 14);
-	circle8 = App->physics->CreateStaticCircle(123, 204, 14);
-	circle9 = App->physics->CreateStaticCircle(171, 319, 14);
-	circle10 = App->physics->CreateStaticCircle(221, 204, 14);
-	circle11 = App->physics->CreateStaticCircle(243, 395, 14);
+	circle_1 = App->physics->CreateStaticCircle(78, 711, 14);
+	circle_2 = App->physics->CreateStaticCircle(132, 656, 14);
+	circle_3 = App->physics->CreateStaticCircle(132, 774, 14);
+	circle_4 = App->physics->CreateStaticCircle(212, 656, 14);
+	circle_5 = App->physics->CreateStaticCircle(212, 774, 14);
+	circle_6 = App->physics->CreateStaticCircle(265, 711, 14);
+	circle_7 = App->physics->CreateStaticCircle(99, 395, 14);
+	circle_8 = App->physics->CreateStaticCircle(123, 204, 14);
+	circle_9 = App->physics->CreateStaticCircle(171, 319, 14);
+	circle_10 = App->physics->CreateStaticCircle(221, 204, 14);
+	circle_11 = App->physics->CreateStaticCircle(243, 395, 14);
+
+	piece3_1 = App->physics->CreateStaticChain(83, 632, piece3_points, 16);
+	piece3_2 = App->physics->CreateStaticChain(112, 608, piece3_points, 16);
+	piece3_3 = App->physics->CreateStaticChain(245, 608, piece3_points, 16);
+	piece3_4 = App->physics->CreateStaticChain(274, 632, piece3_points, 16);
+	piece3_5 = App->physics->CreateStaticChain(136, 141, piece3_points, 16);
+	piece3_6 = App->physics->CreateStaticChain(164, 126, piece3_points, 16);
+	piece3_7 = App->physics->CreateStaticChain(207, 126, piece3_points, 16);
+	piece3_8 = App->physics->CreateStaticChain(235, 141, piece3_points, 16);
 	
 
 
@@ -243,17 +255,26 @@ update_status ModuleSceneIntro::Update()
 	App->renderer->Blit(right_piece2_tex, METERS_TO_PIXELS(right_piece2_bot->body->GetPosition().x), METERS_TO_PIXELS(right_piece2_bot->body->GetPosition().y));
 
 	//Action elements
-	App->renderer->Blit(circle_tex, METERS_TO_PIXELS(circle1->body->GetPosition().x), METERS_TO_PIXELS(circle1->body->GetPosition().y));
-	App->renderer->Blit(circle_tex, METERS_TO_PIXELS(circle2->body->GetPosition().x), METERS_TO_PIXELS(circle2->body->GetPosition().y));
-	App->renderer->Blit(circle_tex, METERS_TO_PIXELS(circle3->body->GetPosition().x), METERS_TO_PIXELS(circle3->body->GetPosition().y));
-	App->renderer->Blit(circle_tex, METERS_TO_PIXELS(circle4->body->GetPosition().x), METERS_TO_PIXELS(circle4->body->GetPosition().y));
-	App->renderer->Blit(circle_tex, METERS_TO_PIXELS(circle5->body->GetPosition().x), METERS_TO_PIXELS(circle5->body->GetPosition().y));
-	App->renderer->Blit(circle_tex, METERS_TO_PIXELS(circle6->body->GetPosition().x), METERS_TO_PIXELS(circle6->body->GetPosition().y));
-	App->renderer->Blit(circle_tex, METERS_TO_PIXELS(circle7->body->GetPosition().x), METERS_TO_PIXELS(circle7->body->GetPosition().y));
-	App->renderer->Blit(circle_tex, METERS_TO_PIXELS(circle8->body->GetPosition().x), METERS_TO_PIXELS(circle8->body->GetPosition().y));
-	App->renderer->Blit(circle_tex, METERS_TO_PIXELS(circle9->body->GetPosition().x), METERS_TO_PIXELS(circle9->body->GetPosition().y));
-	App->renderer->Blit(circle_tex, METERS_TO_PIXELS(circle10->body->GetPosition().x), METERS_TO_PIXELS(circle10->body->GetPosition().y));
-	App->renderer->Blit(circle_tex, METERS_TO_PIXELS(circle11->body->GetPosition().x), METERS_TO_PIXELS(circle11->body->GetPosition().y));
+	App->renderer->Blit(circle_tex, METERS_TO_PIXELS(circle_1->body->GetPosition().x), METERS_TO_PIXELS(circle_1->body->GetPosition().y));
+	App->renderer->Blit(circle_tex, METERS_TO_PIXELS(circle_2->body->GetPosition().x), METERS_TO_PIXELS(circle_2->body->GetPosition().y));
+	App->renderer->Blit(circle_tex, METERS_TO_PIXELS(circle_3->body->GetPosition().x), METERS_TO_PIXELS(circle_3->body->GetPosition().y));
+	App->renderer->Blit(circle_tex, METERS_TO_PIXELS(circle_4->body->GetPosition().x), METERS_TO_PIXELS(circle_4->body->GetPosition().y));
+	App->renderer->Blit(circle_tex, METERS_TO_PIXELS(circle_5->body->GetPosition().x), METERS_TO_PIXELS(circle_5->body->GetPosition().y));
+	App->renderer->Blit(circle_tex, METERS_TO_PIXELS(circle_6->body->GetPosition().x), METERS_TO_PIXELS(circle_6->body->GetPosition().y));
+	App->renderer->Blit(circle_tex, METERS_TO_PIXELS(circle_7->body->GetPosition().x), METERS_TO_PIXELS(circle_7->body->GetPosition().y));
+	App->renderer->Blit(circle_tex, METERS_TO_PIXELS(circle_8->body->GetPosition().x), METERS_TO_PIXELS(circle_8->body->GetPosition().y));
+	App->renderer->Blit(circle_tex, METERS_TO_PIXELS(circle_9->body->GetPosition().x), METERS_TO_PIXELS(circle_9->body->GetPosition().y));
+	App->renderer->Blit(circle_tex, METERS_TO_PIXELS(circle_10->body->GetPosition().x), METERS_TO_PIXELS(circle_10->body->GetPosition().y));
+	App->renderer->Blit(circle_tex, METERS_TO_PIXELS(circle_11->body->GetPosition().x), METERS_TO_PIXELS(circle_11->body->GetPosition().y));
+
+	App->renderer->Blit(piece3_tex, METERS_TO_PIXELS(piece3_1->body->GetPosition().x), METERS_TO_PIXELS(piece3_1->body->GetPosition().y));
+	App->renderer->Blit(piece3_tex, METERS_TO_PIXELS(piece3_2->body->GetPosition().x), METERS_TO_PIXELS(piece3_2->body->GetPosition().y));
+	App->renderer->Blit(piece3_tex, METERS_TO_PIXELS(piece3_3->body->GetPosition().x), METERS_TO_PIXELS(piece3_3->body->GetPosition().y));
+	App->renderer->Blit(piece3_tex, METERS_TO_PIXELS(piece3_4->body->GetPosition().x), METERS_TO_PIXELS(piece3_4->body->GetPosition().y));
+	App->renderer->Blit(piece3_tex, METERS_TO_PIXELS(piece3_5->body->GetPosition().x), METERS_TO_PIXELS(piece3_5->body->GetPosition().y));
+	App->renderer->Blit(piece3_tex, METERS_TO_PIXELS(piece3_6->body->GetPosition().x), METERS_TO_PIXELS(piece3_6->body->GetPosition().y));
+	App->renderer->Blit(piece3_tex, METERS_TO_PIXELS(piece3_7->body->GetPosition().x), METERS_TO_PIXELS(piece3_7->body->GetPosition().y));
+	App->renderer->Blit(piece3_tex, METERS_TO_PIXELS(piece3_8->body->GetPosition().x), METERS_TO_PIXELS(piece3_8->body->GetPosition().y));
 
 	//Flippers
 	App->renderer->Blit(left_flipper_tex, METERS_TO_PIXELS(left_flipper->body->GetPosition().x), METERS_TO_PIXELS(left_flipper->body->GetPosition().y), NULL, 1.0F, left_flipper->GetRotation(), PIXEL_TO_METERS(1), PIXEL_TO_METERS(1));

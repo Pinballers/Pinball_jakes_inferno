@@ -38,17 +38,25 @@ public:
 	PhysBody*			right_piece2_bot = nullptr;
 
 	//Action elements
-	PhysBody*			circle1 = nullptr;
-	PhysBody*			circle2 = nullptr;
-	PhysBody*			circle3 = nullptr;
-	PhysBody*			circle4 = nullptr;
-	PhysBody*			circle5 = nullptr;
-	PhysBody*			circle6 = nullptr;
-	PhysBody*			circle7 = nullptr;
-	PhysBody*			circle8 = nullptr;
-	PhysBody*			circle9 = nullptr;
-	PhysBody*			circle10 = nullptr;
-	PhysBody*			circle11 = nullptr;
+	PhysBody*			circle_1 = nullptr;
+	PhysBody*			circle_2 = nullptr;
+	PhysBody*			circle_3 = nullptr;
+	PhysBody*			circle_4 = nullptr;
+	PhysBody*			circle_5 = nullptr;
+	PhysBody*			circle_6 = nullptr;
+	PhysBody*			circle_7 = nullptr;
+	PhysBody*			circle_8 = nullptr;
+	PhysBody*			circle_9 = nullptr;
+	PhysBody*			circle_10 = nullptr;
+	PhysBody*			circle_11 = nullptr;
+	PhysBody*			piece3_1 = nullptr;
+	PhysBody*			piece3_2 = nullptr;
+	PhysBody*			piece3_3 = nullptr;
+	PhysBody*			piece3_4 = nullptr;
+	PhysBody*			piece3_5 = nullptr;
+	PhysBody*			piece3_6 = nullptr;
+	PhysBody*			piece3_7 = nullptr;
+	PhysBody*			piece3_8 = nullptr;
 
 	//Flippers
 	PhysBody*			left_flipper = nullptr;
@@ -71,6 +79,7 @@ public:
 	SDL_Texture*		right_wheel_piece_tex = nullptr;
 
 	SDL_Texture*		circle_tex = nullptr;
+	SDL_Texture*		piece3_tex = nullptr;
 
 	SDL_Texture*		left_flipper_tex = nullptr;
 	SDL_Texture*		right_flipper_tex = nullptr;
