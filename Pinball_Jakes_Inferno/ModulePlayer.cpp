@@ -44,11 +44,11 @@ bool ModulePlayer::Start()
 	//Flippers
 	left_flipper = App->physics->CreateChain(115, 521, left_flipper_points, 14);
 	left_flipper->body->SetGravityScale(0.0f);
-	right_flipper = App->physics->CreateChain(207, 521, right_flipper_points, 14);
+	right_flipper = App->physics->CreateChain(205, 521, right_flipper_points, 14);
 	right_flipper->body->SetGravityScale(0.0f);
 	left_flipper_bot = App->physics->CreateChain(115, 1019, left_flipper_points, 14);
 	left_flipper_bot->body->SetGravityScale(0.0f);
-	right_flipper_bot = App->physics->CreateChain(207, 1019, right_flipper_points, 14);
+	right_flipper_bot = App->physics->CreateChain(205, 1019, right_flipper_points, 14);
 	right_flipper_bot->body->SetGravityScale(0.0f);
 
 	b2BodyDef bd;
@@ -74,7 +74,7 @@ bool ModulePlayer::Start()
 	b2RevoluteJointDef left_flipper_def;
 	left_flipper_def.bodyA = App->scene_intro->background->body;
 	left_flipper_def.bodyB = left_flipper->body;
-	left_flipper_def.Initialize(left_flipper_def.bodyA, left_flipper_def.bodyB, { PIXEL_TO_METERS(110), PIXEL_TO_METERS(520) });
+	left_flipper_def.Initialize(left_flipper_def.bodyA, left_flipper_def.bodyB, { PIXEL_TO_METERS(120), PIXEL_TO_METERS(520) });
 	left_flipper_def.enableLimit = true;
 	left_flipper_def.lowerAngle = -0.15f * b2_pi;
 	left_flipper_def.enableMotor = true;
@@ -87,7 +87,7 @@ bool ModulePlayer::Start()
 	right_flipper_def.bodyB = right_flipper->body;
 	right_flipper_def.Initialize(right_flipper_def.bodyA, right_flipper_def.bodyB, { PIXEL_TO_METERS(250), PIXEL_TO_METERS(520) });
 	right_flipper_def.enableLimit = true;
-	right_flipper_def.upperAngle = 0.15f * b2_pi;
+	right_flipper_def.upperAngle = 0.19f * b2_pi;
 	right_flipper_def.enableMotor = true;
 	right_flipper_def.maxMotorTorque = 10.0f;
 	right_flipper_def.motorSpeed = -10.0f;
@@ -96,7 +96,7 @@ bool ModulePlayer::Start()
 	b2RevoluteJointDef left_flipper_bot_def;
 	left_flipper_bot_def.bodyA = App->scene_intro->background->body;
 	left_flipper_bot_def.bodyB = left_flipper_bot->body;
-	left_flipper_bot_def.Initialize(left_flipper_bot_def.bodyA, left_flipper_bot_def.bodyB, { PIXEL_TO_METERS(110), PIXEL_TO_METERS(1018) });
+	left_flipper_bot_def.Initialize(left_flipper_bot_def.bodyA, left_flipper_bot_def.bodyB, { PIXEL_TO_METERS(120), PIXEL_TO_METERS(1018) });
 	left_flipper_bot_def.enableLimit = true;
 	left_flipper_bot_def.lowerAngle = -0.15f * b2_pi;
 	left_flipper_bot_def.enableMotor = true;
@@ -109,7 +109,7 @@ bool ModulePlayer::Start()
 	right_flipper_bot_def.bodyB = right_flipper_bot->body;
 	right_flipper_bot_def.Initialize(right_flipper_bot_def.bodyA, right_flipper_bot_def.bodyB, { PIXEL_TO_METERS(250), PIXEL_TO_METERS(1018) });
 	right_flipper_bot_def.enableLimit = true;
-	right_flipper_bot_def.upperAngle = 0.19f * b2_pi; // 45 degrees
+	right_flipper_bot_def.upperAngle = 0.19f * b2_pi;
 	right_flipper_bot_def.enableMotor = true;
 	right_flipper_bot_def.maxMotorTorque = 10.0f;
 	right_flipper_bot_def.motorSpeed = -10.0f;
