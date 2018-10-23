@@ -28,5 +28,6 @@ public:
 	//Springy
 	PhysBody*			springy = nullptr;
 	b2MouseJoint*		springy_joint = nullptr;
+	uint				dead_cont = 0;
 	
 };
