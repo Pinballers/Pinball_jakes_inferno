@@ -7,6 +7,7 @@
 #include "ModuleSceneIntro.h"
 #include "ModuleRender.h"
 #include "ModuleInput.h"
+#include "ChainPointsPlayer.h"
 
 ModulePlayer::ModulePlayer(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
@@ -20,8 +21,12 @@ bool ModulePlayer::Start()
 {
 	LOG("Loading player");
 	ball_tex = App->textures->Load("Sprites/ball.png");
-	ball_sound = App->audio->LoadFx("Audio/ball_sound.wav");
+	left_flipper_tex = App->textures->Load("Sprites/left_flipper.png");
+	right_flipper_tex = App->textures->Load("Sprites/right_flipper.png");
 
+	
+	ball_sound = App->audio->LoadFx("Audio/ball_sound.wav");
+	flipper_sound = App->audio->LoadFx("Audio/flipper_sound.wav");
 
 	//Springy
 	springy = App->physics->CreateRectangle(344, 994, 8, 18);
@@ -34,6 +39,82 @@ bool ModulePlayer::Start()
 	def.maxForce = 1000.0f * springy->body->GetMass();
 	springy_joint = (b2MouseJoint*)App->physics->world->CreateJoint(&def);
 
+
+
+	//Flippers
+	left_flipper = App->physics->CreateChain(115, 521, left_flipper_points, 14);
+	left_flipper->body->SetGravityScale(0.0f);
+	right_flipper = App->physics->CreateChain(207, 521, right_flipper_points, 14);
+	right_flipper->body->SetGravityScale(0.0f);
+	left_flipper_bot = App->physics->CreateChain(115, 1019, left_flipper_points, 14);
+	left_flipper_bot->body->SetGravityScale(0.0f);
+	right_flipper_bot = App->physics->CreateChain(207, 1019, right_flipper_points, 14);
+	right_flipper_bot->body->SetGravityScale(0.0f);
+
+	b2BodyDef bd;
+	bd.type = b2_dynamicBody;
+	b2Body* b = App->physics->world->CreateBody(&bd);
+
+	b2PolygonShape dshape;
+	dshape.SetAsBox(PIXEL_TO_METERS(32), PIXEL_TO_METERS(16));
+
+	b2FixtureDef dummyfix;
+	dummyfix.shape = &dshape;
+	dummyfix.density = 1.0f;
+
+	b->CreateFixture(&dummyfix);
+
+	b2MassData* massdata = new b2MassData();
+	b->GetMassData(massdata);
+	left_flipper->body->SetMassData(massdata);
+	right_flipper->body->SetMassData(massdata);
+	left_flipper_bot->body->SetMassData(massdata);
+	right_flipper_bot->body->SetMassData(massdata);
+
+	b2RevoluteJointDef left_flipper_def;
+	left_flipper_def.bodyA = App->scene_intro->background->body;
+	left_flipper_def.bodyB = left_flipper->body;
+	left_flipper_def.Initialize(left_flipper_def.bodyA, left_flipper_def.bodyB, { PIXEL_TO_METERS(110), PIXEL_TO_METERS(520) });
+	left_flipper_def.enableLimit = true;
+	left_flipper_def.lowerAngle = -0.15f * b2_pi;
+	left_flipper_def.enableMotor = true;
+	left_flipper_def.maxMotorTorque = 10.0f;
+	left_flipper_def.motorSpeed = 10.0f;
+	left_flipper_joint = (b2RevoluteJoint*)App->physics->world->CreateJoint(&left_flipper_def);
+
+	b2RevoluteJointDef right_flipper_def;
+	right_flipper_def.bodyA = App->scene_intro->background->body;
+	right_flipper_def.bodyB = right_flipper->body;
+	right_flipper_def.Initialize(right_flipper_def.bodyA, right_flipper_def.bodyB, { PIXEL_TO_METERS(250), PIXEL_TO_METERS(520) });
+	right_flipper_def.enableLimit = true;
+	right_flipper_def.upperAngle = 0.15f * b2_pi;
+	right_flipper_def.enableMotor = true;
+	right_flipper_def.maxMotorTorque = 10.0f;
+	right_flipper_def.motorSpeed = -10.0f;
+	right_flipper_joint = (b2RevoluteJoint*)App->physics->world->CreateJoint(&right_flipper_def);
+
+	b2RevoluteJointDef left_flipper_bot_def;
+	left_flipper_bot_def.bodyA = App->scene_intro->background->body;
+	left_flipper_bot_def.bodyB = left_flipper_bot->body;
+	left_flipper_bot_def.Initialize(left_flipper_bot_def.bodyA, left_flipper_bot_def.bodyB, { PIXEL_TO_METERS(110), PIXEL_TO_METERS(1018) });
+	left_flipper_bot_def.enableLimit = true;
+	left_flipper_bot_def.lowerAngle = -0.15f * b2_pi;
+	left_flipper_bot_def.enableMotor = true;
+	left_flipper_bot_def.maxMotorTorque = 10.0f;
+	left_flipper_bot_def.motorSpeed = 10.0f;
+	left_flipper_bot_joint = (b2RevoluteJoint*)App->physics->world->CreateJoint(&left_flipper_bot_def);
+
+	b2RevoluteJointDef right_flipper_bot_def;
+	right_flipper_bot_def.bodyA = App->scene_intro->background->body;
+	right_flipper_bot_def.bodyB = right_flipper_bot->body;
+	right_flipper_bot_def.Initialize(right_flipper_bot_def.bodyA, right_flipper_bot_def.bodyB, { PIXEL_TO_METERS(250), PIXEL_TO_METERS(1018) });
+	right_flipper_bot_def.enableLimit = true;
+	right_flipper_bot_def.upperAngle = 0.19f * b2_pi; // 45 degrees
+	right_flipper_bot_def.enableMotor = true;
+	right_flipper_bot_def.maxMotorTorque = 10.0f;
+	right_flipper_bot_def.motorSpeed = -10.0f;
+	right_flipper_bot_joint = (b2RevoluteJoint*)App->physics->world->CreateJoint(&right_flipper_bot_def);
+
 	return true;
 }
 
@@ -42,6 +123,8 @@ bool ModulePlayer::CleanUp()
 {
 	LOG("Unloading player");
 	App->textures->Unload(ball_tex);
+	App->textures->Unload(left_flipper_tex);
+	App->textures->Unload(right_flipper_tex);
 	return true;
 }
 
@@ -58,6 +141,42 @@ update_status ModulePlayer::Update()
 	{
 		springy_joint->SetTarget({ PIXEL_TO_METERS(344), PIXEL_TO_METERS(994) });
 		springy_joint->SetFrequency(20.0f);
+	}
+
+	if (App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT)
+	{
+		left_flipper->body->ApplyForce({ 10, 80 }, { 0, 0 }, true);
+		left_flipper->body->ApplyTorque(-500, true);
+
+		left_flipper_bot->body->ApplyForce({ 10, 80 }, { 0, 0 }, true);
+		left_flipper_bot->body->ApplyTorque(-500, true);
+
+		if (App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_UP)
+		{
+			left_flipper->body->ApplyForce({ -10, -80 }, { 0, 0 }, true);
+			left_flipper_bot->body->ApplyForce({ -10, -80 }, { 0, 0 }, true);
+		}
+	}
+
+	if (App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
+	{
+		right_flipper->body->ApplyForce({ 10, 80 }, { 0, 0 }, true);
+		right_flipper->body->ApplyTorque(500, true);
+
+		right_flipper_bot->body->ApplyForce({ 10, 80 }, { 0, 0 }, true);
+		right_flipper_bot->body->ApplyTorque(500, true);
+
+		if (App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_UP)
+		{
+
+			right_flipper->body->ApplyForce({ -10, -80 }, { 0, 0 }, true);
+			right_flipper_bot->body->ApplyForce({ -10, -80 }, { 0, 0 }, true);
+		}
+	}
+
+	if (App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_DOWN || (App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_DOWN))
+	{
+		App->audio->PlayFx(flipper_sound);
 	}
 
 
@@ -86,6 +205,12 @@ update_status ModulePlayer::Update()
 		
 	}
 	App->renderer->Blit(ball_tex, ball_position_x, ball_position_y, NULL, 1.0f, ball->GetRotation());
+
+	//Flippers
+	App->renderer->Blit(left_flipper_tex, METERS_TO_PIXELS(left_flipper->body->GetPosition().x), METERS_TO_PIXELS(left_flipper->body->GetPosition().y), NULL, 1.0F, left_flipper->GetRotation(), PIXEL_TO_METERS(1), PIXEL_TO_METERS(1));
+	App->renderer->Blit(right_flipper_tex, METERS_TO_PIXELS(right_flipper->body->GetPosition().x), METERS_TO_PIXELS(right_flipper->body->GetPosition().y), NULL, 1.0F, right_flipper->GetRotation(), PIXEL_TO_METERS(1), PIXEL_TO_METERS(1));
+	App->renderer->Blit(left_flipper_tex, METERS_TO_PIXELS(left_flipper_bot->body->GetPosition().x), METERS_TO_PIXELS(left_flipper_bot->body->GetPosition().y), NULL, 1.0F, left_flipper_bot->GetRotation(), PIXEL_TO_METERS(1), PIXEL_TO_METERS(1));
+	App->renderer->Blit(right_flipper_tex, METERS_TO_PIXELS(right_flipper_bot->body->GetPosition().x), METERS_TO_PIXELS(right_flipper_bot->body->GetPosition().y), NULL, 1.0F, right_flipper_bot->GetRotation(), PIXEL_TO_METERS(1), PIXEL_TO_METERS(1));
 
 
 	return UPDATE_CONTINUE;

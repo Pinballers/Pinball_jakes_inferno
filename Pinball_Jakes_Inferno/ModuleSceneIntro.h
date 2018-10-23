@@ -5,8 +5,6 @@
 #include "Globals.h"
 
 class PhysBody;
-class b2RevoluteJoint;
-
 
 class ModuleSceneIntro : public Module
 {
@@ -83,15 +81,7 @@ public:
 	PhysBody*			green_light_off_17 = nullptr;
 	PhysBody*			green_light_off_18 = nullptr;
 
-	//Flippers
-	PhysBody*			left_flipper = nullptr;
-	PhysBody*			right_flipper = nullptr;
-	PhysBody*			left_flipper_bot = nullptr;
-	PhysBody*			right_flipper_bot = nullptr;
-	b2RevoluteJoint*	right_flipper_joint = nullptr;
-	b2RevoluteJoint*	left_flipper_joint = nullptr;
-	b2RevoluteJoint*	right_flipper_bot_joint = nullptr;
-	b2RevoluteJoint*	left_flipper_bot_joint = nullptr;
+	
 
 
 	//Sprites
@@ -114,12 +104,9 @@ public:
 	SDL_Texture*		piece3_tex = nullptr;
 	SDL_Texture*		piece3_on_tex = nullptr;
 
-	SDL_Texture*		left_flipper_tex = nullptr;
-	SDL_Texture*		right_flipper_tex = nullptr;
-
-
 	//Audio
-	uint flipper_sound;
+	uint				bumper_sound;
+
 
 private:
 	int					circle_radio = 13;
