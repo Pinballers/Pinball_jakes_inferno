@@ -137,10 +137,28 @@ private:
 	bool				green_light_off_activated_17 = false;
 	bool				green_light_off_activated_18 = false;
 
+
+	bool				piece3_1_activated = false;
+	bool				piece3_2_activated = false;
+	bool				piece3_3_activated = false;
+	bool				piece3_4_activated = false;
+	bool				piece3_5_activated = false;
+	bool				piece3_6_activated = false;
+	bool				piece3_7_activated = false;
+	bool				piece3_8_activated = false;
+
 	int					cont_left_piece2 = 20;
 	int					cont_right_piece2 = 20;
 	int					cont_left_piece2_bot = 20;
 	int					cont_right_piece2_bot = 20;
+	int					cont_piece3_1 = 20;
+	int					cont_piece3_2 = 20;
+	int					cont_piece3_3 = 20;
+	int					cont_piece3_4 = 20;
+	int					cont_piece3_5 = 20;
+	int					cont_piece3_6 = 20;
+	int					cont_piece3_7 = 20;
+	int					cont_piece3_8 = 20;
 
 	//int					cont_green_light_off_1 = 20;
 

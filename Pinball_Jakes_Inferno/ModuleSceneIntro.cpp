@@ -228,220 +228,200 @@ update_status ModuleSceneIntro::Update()
 	//SENSOR GREEN LIGHT 1 FALTA CONDICION DE REINICIO DE GREEN ON!!!
 	if (green_light_off_activated_1) {
 		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_1->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_1->body->GetPosition().y) - circle_radio_green);
-		/*cont_green_light_off_1--;
-		if (cont_green_light_off_1 <= 0) {
-			green_light_off_activated_1 = false;
-			cont_green_light_off_1 = 20;
-		}*/
-
 	}
 	else
 		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_1->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_1->body->GetPosition().y) - circle_radio_green);
 	
 	if (green_light_off_activated_2) {
 		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_2->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_2->body->GetPosition().y) - circle_radio_green);
-		/*cont_green_light_off_1--;
-		if (cont_green_light_off_1 <= 0) {
-			green_light_off_activated_1 = false;
-			cont_green_light_off_1 = 20;
-		}*/
-
 	}
 	else
 		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_2->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_2->body->GetPosition().y) - circle_radio_green);
 	
 	if (green_light_off_activated_3) {
 		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_3->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_3->body->GetPosition().y) - circle_radio_green);
-		/*cont_green_light_off_1--;
-		if (cont_green_light_off_1 <= 0) {
-			green_light_off_activated_1 = false;
-			cont_green_light_off_1 = 20;
-		}*/
-
 	}
 	else
 		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_3->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_3->body->GetPosition().y) - circle_radio_green);
 	
 	if (green_light_off_activated_4) {
 		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_4->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_4->body->GetPosition().y) - circle_radio_green);
-		/*cont_green_light_off_1--;
-		if (cont_green_light_off_1 <= 0) {
-			green_light_off_activated_1 = false;
-			cont_green_light_off_1 = 20;
-		}*/
-
 	}
 	else
 		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_4->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_4->body->GetPosition().y) - circle_radio_green);
 	
 	if (green_light_off_activated_5) {
 		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_5->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_5->body->GetPosition().y) - circle_radio_green);
-		/*cont_green_light_off_1--;
-		if (cont_green_light_off_1 <= 0) {
-			green_light_off_activated_1 = false;
-			cont_green_light_off_1 = 20;
-		}*/
-
 	}
 	else
 		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_5->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_5->body->GetPosition().y) - circle_radio_green);
 	
 	if (green_light_off_activated_6) {
 		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_6->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_6->body->GetPosition().y) - circle_radio_green);
-		/*cont_green_light_off_1--;
-		if (cont_green_light_off_1 <= 0) {
-			green_light_off_activated_1 = false;
-			cont_green_light_off_1 = 20;
-		}*/
-
 	}
 	else
 		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_6->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_6->body->GetPosition().y) - circle_radio_green);
 	
 	if (green_light_off_activated_7) {
 		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_7->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_7->body->GetPosition().y) - circle_radio_green);
-		/*cont_green_light_off_1--;
-		if (cont_green_light_off_1 <= 0) {
-			green_light_off_activated_1 = false;
-			cont_green_light_off_1 = 20;
-		}*/
-
 	}
 	else
 		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_7->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_7->body->GetPosition().y) - circle_radio_green);
 	
 	if (green_light_off_activated_8) {
 		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_8->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_8->body->GetPosition().y) - circle_radio_green);
-		/*cont_green_light_off_1--;
-		if (cont_green_light_off_1 <= 0) {
-			green_light_off_activated_1 = false;
-			cont_green_light_off_1 = 20;
-		}*/
-
 	}
 	else
 		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_8->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_8->body->GetPosition().y) - circle_radio_green);
 	
 	if (green_light_off_activated_9) {
 		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_9->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_9->body->GetPosition().y) - circle_radio_green);
-		/*cont_green_light_off_1--;
-		if (cont_green_light_off_1 <= 0) {
-			green_light_off_activated_1 = false;
-			cont_green_light_off_1 = 20;
-		}*/
-
 	}
 	else
 		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_9->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_9->body->GetPosition().y) - circle_radio_green);
 	
 	if (green_light_off_activated_10) {
 		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_10->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_10->body->GetPosition().y) - circle_radio_green);
-		/*cont_green_light_off_1--;
-		if (cont_green_light_off_1 <= 0) {
-			green_light_off_activated_1 = false;
-			cont_green_light_off_1 = 20;
-		}*/
-
 	}
 	else
 		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_10->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_10->body->GetPosition().y) - circle_radio_green);
 	
 	if (green_light_off_activated_11) {
 		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_11->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_11->body->GetPosition().y) - circle_radio_green);
-		/*cont_green_light_off_1--;
-		if (cont_green_light_off_1 <= 0) {
-			green_light_off_activated_1 = false;
-			cont_green_light_off_1 = 20;
-		}*/
-
 	}
 	else
 		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_11->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_11->body->GetPosition().y) - circle_radio_green);
 	
 	if (green_light_off_activated_12) {
 		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_12->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_12->body->GetPosition().y) - circle_radio_green);
-		/*cont_green_light_off_1--;
-		if (cont_green_light_off_1 <= 0) {
-			green_light_off_activated_1 = false;
-			cont_green_light_off_1 = 20;
-		}*/
-
 	}
 	else
 		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_12->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_12->body->GetPosition().y) - circle_radio_green);
 	
 	if (green_light_off_activated_13) {
 		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_13->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_13->body->GetPosition().y) - circle_radio_green);
-		/*cont_green_light_off_1--;
-		if (cont_green_light_off_1 <= 0) {
-			green_light_off_activated_1 = false;
-			cont_green_light_off_1 = 20;
-		}*/
-
 	}
 	else
 		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_13->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_13->body->GetPosition().y) - circle_radio_green);
 	
 	if (green_light_off_activated_14) {
 		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_14->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_14->body->GetPosition().y) - circle_radio_green);
-		/*cont_green_light_off_1--;
-		if (cont_green_light_off_1 <= 0) {
-			green_light_off_activated_1 = false;
-			cont_green_light_off_1 = 20;
-		}*/
-
 	}
 	else
 		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_14->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_14->body->GetPosition().y) - circle_radio_green);
 	
 	if (green_light_off_activated_15) {
 		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_15->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_15->body->GetPosition().y) - circle_radio_green);
-		/*cont_green_light_off_1--;
-		if (cont_green_light_off_1 <= 0) {
-			green_light_off_activated_1 = false;
-			cont_green_light_off_1 = 20;
-		}*/
-
 	}
 	else
 		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_15->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_15->body->GetPosition().y) - circle_radio_green);
 	
 	if (green_light_off_activated_16) {
 		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_16->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_16->body->GetPosition().y) - circle_radio_green);
-		/*cont_green_light_off_1--;
-		if (cont_green_light_off_1 <= 0) {
-			green_light_off_activated_1 = false;
-			cont_green_light_off_1 = 20;
-		}*/
-
 	}
 	else
 		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_16->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_16->body->GetPosition().y) - circle_radio_green);
 	
 	if (green_light_off_activated_17) {
 		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_17->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_17->body->GetPosition().y) - circle_radio_green);
-		/*cont_green_light_off_1--;
-		if (cont_green_light_off_1 <= 0) {
-			green_light_off_activated_1 = false;
-			cont_green_light_off_1 = 20;
-		}*/
-
 	}
 	else
 		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_17->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_17->body->GetPosition().y) - circle_radio_green);
 	
 	if (green_light_off_activated_18) {
 		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_18->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_18->body->GetPosition().y) - circle_radio_green);
-		/*cont_green_light_off_1--;
-		if (cont_green_light_off_1 <= 0) {
-			green_light_off_activated_1 = false;
-			cont_green_light_off_1 = 20;
-		}*/
-
 	}
 	else
 		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_18->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_18->body->GetPosition().y) - circle_radio_green);
 
+	//Piece3 activation mode
+	if (piece3_1_activated) {
+		App->renderer->Blit(piece3_on_tex, METERS_TO_PIXELS(piece3_1->body->GetPosition().x), METERS_TO_PIXELS(piece3_1->body->GetPosition().y));
+		cont_piece3_1--;
+		if (cont_piece3_1 <= 0) {
+			piece3_1_activated = false;
+			cont_piece3_1 = 20;
+		}
+	}
+	else
+		App->renderer->Blit(piece3_tex, METERS_TO_PIXELS(piece3_1->body->GetPosition().x), METERS_TO_PIXELS(piece3_1->body->GetPosition().y));
+
+	if (piece3_2_activated) {
+		App->renderer->Blit(piece3_on_tex, METERS_TO_PIXELS(piece3_2->body->GetPosition().x), METERS_TO_PIXELS(piece3_2->body->GetPosition().y));
+		cont_piece3_2--;
+		if (cont_piece3_2 <= 0) {
+			piece3_2_activated = false;
+			cont_piece3_2 = 20;
+		}
+	}
+	else
+		App->renderer->Blit(piece3_tex, METERS_TO_PIXELS(piece3_2->body->GetPosition().x), METERS_TO_PIXELS(piece3_2->body->GetPosition().y));
+
+	if (piece3_3_activated) {
+		App->renderer->Blit(piece3_on_tex, METERS_TO_PIXELS(piece3_3->body->GetPosition().x), METERS_TO_PIXELS(piece3_3->body->GetPosition().y));
+		cont_piece3_3--;
+		if (cont_piece3_3 <= 0) {
+			piece3_3_activated = false;
+			cont_piece3_3 = 20;
+		}
+	}
+	else
+		App->renderer->Blit(piece3_tex, METERS_TO_PIXELS(piece3_3->body->GetPosition().x), METERS_TO_PIXELS(piece3_3->body->GetPosition().y));
+
+	if (piece3_4_activated) {
+		App->renderer->Blit(piece3_on_tex, METERS_TO_PIXELS(piece3_4->body->GetPosition().x), METERS_TO_PIXELS(piece3_4->body->GetPosition().y));
+		cont_piece3_4--;
+		if (cont_piece3_4 <= 0) {
+			piece3_4_activated = false;
+			cont_piece3_4 = 20;
+		}
+	}
+	else
+		App->renderer->Blit(piece3_tex, METERS_TO_PIXELS(piece3_4->body->GetPosition().x), METERS_TO_PIXELS(piece3_4->body->GetPosition().y));
+
+	if (piece3_5_activated) {
+		App->renderer->Blit(piece3_on_tex, METERS_TO_PIXELS(piece3_5->body->GetPosition().x), METERS_TO_PIXELS(piece3_5->body->GetPosition().y));
+		cont_piece3_5--;
+		if (cont_piece3_5 <= 0) {
+			piece3_5_activated = false;
+			cont_piece3_5 = 20;
+		}
+	}
+	else
+		App->renderer->Blit(piece3_tex, METERS_TO_PIXELS(piece3_5->body->GetPosition().x), METERS_TO_PIXELS(piece3_5->body->GetPosition().y));
+
+	if (piece3_6_activated) {
+		App->renderer->Blit(piece3_on_tex, METERS_TO_PIXELS(piece3_6->body->GetPosition().x), METERS_TO_PIXELS(piece3_6->body->GetPosition().y));
+		cont_piece3_6--;
+		if (cont_piece3_6 <= 0) {
+			piece3_6_activated = false;
+			cont_piece3_6 = 20;
+		}
+	}
+	else
+		App->renderer->Blit(piece3_tex, METERS_TO_PIXELS(piece3_6->body->GetPosition().x), METERS_TO_PIXELS(piece3_6->body->GetPosition().y));
+
+	if (piece3_7_activated) {
+		App->renderer->Blit(piece3_on_tex, METERS_TO_PIXELS(piece3_7->body->GetPosition().x), METERS_TO_PIXELS(piece3_7->body->GetPosition().y));
+		cont_piece3_7--;
+		if (cont_piece3_7 <= 0) {
+			piece3_7_activated = false;
+			cont_piece3_7 = 20;
+		}
+	}
+	else
+		App->renderer->Blit(piece3_tex, METERS_TO_PIXELS(piece3_7->body->GetPosition().x), METERS_TO_PIXELS(piece3_7->body->GetPosition().y));
+
+	if (piece3_8_activated) {
+		App->renderer->Blit(piece3_on_tex, METERS_TO_PIXELS(piece3_8->body->GetPosition().x), METERS_TO_PIXELS(piece3_8->body->GetPosition().y));
+		cont_piece3_8--;
+		if (cont_piece3_8 <= 0) {
+			piece3_8_activated = false;
+			cont_piece3_8 = 20;
+		}
+	}
+	else
+		App->renderer->Blit(piece3_tex, METERS_TO_PIXELS(piece3_8->body->GetPosition().x), METERS_TO_PIXELS(piece3_8->body->GetPosition().y));
 	
 
 
@@ -457,39 +437,7 @@ update_status ModuleSceneIntro::Update()
 	App->renderer->Blit(circle_tex, METERS_TO_PIXELS(circle_10->body->GetPosition().x) - circle_radio, METERS_TO_PIXELS(circle_10->body->GetPosition().y) - circle_radio);
 	App->renderer->Blit(circle_tex, METERS_TO_PIXELS(circle_11->body->GetPosition().x) - circle_radio, METERS_TO_PIXELS(circle_11->body->GetPosition().y) - circle_radio);
 
-	/*App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_1->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_1->body->GetPosition().y) - circle_radio_green);
-	App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_2->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_2->body->GetPosition().y) - circle_radio_green);
-	App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_3->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_3->body->GetPosition().y) - circle_radio_green);
-	App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_4->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_4->body->GetPosition().y) - circle_radio_green);
-	App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_5->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_5->body->GetPosition().y) - circle_radio_green);
-	App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_6->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_6->body->GetPosition().y) - circle_radio_green);
-	App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_7->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_7->body->GetPosition().y) - circle_radio_green);
-	App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_8->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_8->body->GetPosition().y) - circle_radio_green);
-	App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_9->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_9->body->GetPosition().y) - circle_radio_green);
-	App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_10->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_10->body->GetPosition().y) - circle_radio_green);
-	App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_11->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_11->body->GetPosition().y) - circle_radio_green);
-	App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_12->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_12->body->GetPosition().y) - circle_radio_green);
-	App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_13->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_13->body->GetPosition().y) - circle_radio_green);
-	App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_14->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_14->body->GetPosition().y) - circle_radio_green);
-	App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_15->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_15->body->GetPosition().y) - circle_radio_green);
-	App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_16->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_16->body->GetPosition().y) - circle_radio_green);
-	App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_17->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_17->body->GetPosition().y) - circle_radio_green);
-	App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_18->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_18->body->GetPosition().y) - circle_radio_green);*/
 
-
-	App->renderer->Blit(piece3_tex, METERS_TO_PIXELS(piece3_1->body->GetPosition().x), METERS_TO_PIXELS(piece3_1->body->GetPosition().y));
-	App->renderer->Blit(piece3_tex, METERS_TO_PIXELS(piece3_2->body->GetPosition().x), METERS_TO_PIXELS(piece3_2->body->GetPosition().y));
-	App->renderer->Blit(piece3_tex, METERS_TO_PIXELS(piece3_3->body->GetPosition().x), METERS_TO_PIXELS(piece3_3->body->GetPosition().y));
-	App->renderer->Blit(piece3_tex, METERS_TO_PIXELS(piece3_4->body->GetPosition().x), METERS_TO_PIXELS(piece3_4->body->GetPosition().y));
-	App->renderer->Blit(piece3_tex, METERS_TO_PIXELS(piece3_5->body->GetPosition().x), METERS_TO_PIXELS(piece3_5->body->GetPosition().y));
-	App->renderer->Blit(piece3_tex, METERS_TO_PIXELS(piece3_6->body->GetPosition().x), METERS_TO_PIXELS(piece3_6->body->GetPosition().y));
-	App->renderer->Blit(piece3_tex, METERS_TO_PIXELS(piece3_7->body->GetPosition().x), METERS_TO_PIXELS(piece3_7->body->GetPosition().y));
-	App->renderer->Blit(piece3_tex, METERS_TO_PIXELS(piece3_8->body->GetPosition().x), METERS_TO_PIXELS(piece3_8->body->GetPosition().y));
-
-	
-	
-
-	
 
 	return UPDATE_CONTINUE;
 }
@@ -502,24 +450,24 @@ void ModuleSceneIntro::OnCollision(PhysBody* bodyA, PhysBody* bodyB, b2Contact* 
 	if (bodyA == App->player->ball || bodyB == App->player->ball) {
 		//Piece2----------------------------------
 		if (bodyA == left_piece2_action || bodyB == left_piece2_action) {
-			bodyA->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
+			bodyA->body->ApplyForce(10 * worldManifold.normal, worldManifold.points[0], true);
+			bodyB->body->ApplyForce(10 * worldManifold.normal, worldManifold.points[0], true);
 			left_piece2_activated = true;
 			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == right_piece2_action || bodyB == right_piece2_action) {
-			bodyA->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
+			bodyA->body->ApplyForce(0.01f * worldManifold.normal, worldManifold.points[0], true);
+			bodyB->body->ApplyForce(0.01f * worldManifold.normal, worldManifold.points[0], true);
 			right_piece2_activated = true;
 			App->audio->PlayFx(bumper_sound);
 		}else if (bodyA == left_piece2_bot_action || bodyB == left_piece2_bot_action) {
-			bodyA->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
+			bodyA->body->ApplyForce(0.01f * worldManifold.normal, worldManifold.points[0], true);
+			bodyB->body->ApplyForce(0.01f * worldManifold.normal, worldManifold.points[0], true);
 			left_piece2_bot_activated = true;
 			App->audio->PlayFx(bumper_sound);
 		}else if (bodyA == right_piece2_bot_action || bodyB == right_piece2_bot_action) {
-			bodyA->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
+			bodyA->body->ApplyForce(0.01f * worldManifold.normal, worldManifold.points[0], true);
+			bodyB->body->ApplyForce(0.01f * worldManifold.normal, worldManifold.points[0], true);
 			right_piece2_bot_activated = true;
 			App->audio->PlayFx(bumper_sound);
 		}//Green lights--------------------------------
@@ -596,63 +544,90 @@ void ModuleSceneIntro::OnCollision(PhysBody* bodyA, PhysBody* bodyB, b2Contact* 
 			App->audio->PlayFx(bumper_sound);
 		}//Bumpers--------------------------------
 		else if (bodyA == circle_1 || bodyB == circle_1) {
-			bodyA->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
+			bodyA->body->ApplyForce(50 * worldManifold.normal, worldManifold.points[0], true);
+			bodyB->body->ApplyForce(50 * worldManifold.normal, worldManifold.points[0], true);
 			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == circle_2 || bodyB == circle_2) {
-			bodyA->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
+			bodyA->body->ApplyForce(50 * worldManifold.normal, worldManifold.points[0], true);
+			bodyB->body->ApplyForce(50 * worldManifold.normal, worldManifold.points[0], true);
 			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == circle_3 || bodyB == circle_3) {
-			bodyA->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
-			App->audio->PlayFx(bumper_sound);
-		}
-		else if (bodyA == circle_3 || bodyB == circle_3) {
-			bodyA->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
+			bodyA->body->ApplyForce(50 * worldManifold.normal, worldManifold.points[0], true);
+			bodyB->body->ApplyForce(50 * worldManifold.normal, worldManifold.points[0], true);
 			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == circle_4 || bodyB == circle_4) {
-			bodyA->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
+			bodyA->body->ApplyForce(50 * worldManifold.normal, worldManifold.points[0], true);
+			bodyB->body->ApplyForce(50 * worldManifold.normal, worldManifold.points[0], true);
 			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == circle_5 || bodyB == circle_5) {
-			bodyA->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
+			bodyA->body->ApplyForce(50 * worldManifold.normal, worldManifold.points[0], true);
+			bodyB->body->ApplyForce(50 * worldManifold.normal, worldManifold.points[0], true);
 			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == circle_6 || bodyB == circle_6) {
-			bodyA->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
+			bodyA->body->ApplyForce(50 * worldManifold.normal, worldManifold.points[0], true);
+			bodyB->body->ApplyForce(50 * worldManifold.normal, worldManifold.points[0], true);
 			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == circle_7 || bodyB == circle_7) {
-			bodyA->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
+			bodyA->body->ApplyForce(50 * worldManifold.normal, worldManifold.points[0], true);
+			bodyB->body->ApplyForce(50 * worldManifold.normal, worldManifold.points[0], true);
 			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == circle_8 || bodyB == circle_8) {
-			bodyA->body->ApplyForce(10 * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(10 * worldManifold.normal, worldManifold.points[0], true);
+			bodyA->body->ApplyForce(50 * worldManifold.normal, worldManifold.points[0], true);
+			bodyB->body->ApplyForce(50 * worldManifold.normal, worldManifold.points[0], true);
 			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == circle_9 || bodyB == circle_9) {
-			bodyA->body->ApplyForce(10 * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(10 * worldManifold.normal, worldManifold.points[0], true);
+			bodyA->body->ApplyForce(50 * worldManifold.normal, worldManifold.points[0], true);
+			bodyB->body->ApplyForce(50 * worldManifold.normal, worldManifold.points[0], true);
 			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == circle_10 || bodyB == circle_10) {
-			bodyA->body->ApplyForce(10 * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(10 * worldManifold.normal, worldManifold.points[0], true);
+			bodyA->body->ApplyForce(50 * worldManifold.normal, worldManifold.points[0], true);
+			bodyB->body->ApplyForce(50 * worldManifold.normal, worldManifold.points[0], true);
 			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == circle_11 || bodyB == circle_11) {
-			bodyA->body->ApplyForce(10 * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(10 * worldManifold.normal, worldManifold.points[0], true);
+			bodyA->body->ApplyForce(50 * worldManifold.normal, worldManifold.points[0], true);
+			bodyB->body->ApplyForce(50 * worldManifold.normal, worldManifold.points[0], true);
+			App->audio->PlayFx(bumper_sound);
+		}//Piece3-------------------------------
+		else if (bodyA == piece3_1 || bodyB == piece3_1) {
+			piece3_1_activated = true;
+			App->audio->PlayFx(bumper_sound);
+		}
+		else if (bodyA == piece3_2 || bodyB == piece3_2) {
+			piece3_2_activated = true;
+			App->audio->PlayFx(bumper_sound);
+		}
+		else if (bodyA == piece3_3 || bodyB == piece3_3) {
+			piece3_3_activated = true;
+			App->audio->PlayFx(bumper_sound);
+		}
+		else if (bodyA == piece3_4 || bodyB == piece3_4) {
+			piece3_4_activated = true;
+			App->audio->PlayFx(bumper_sound);
+		}
+		else if (bodyA == piece3_5 || bodyB == piece3_5) {
+			piece3_5_activated = true;
+			App->audio->PlayFx(bumper_sound);
+		}
+		else if (bodyA == piece3_6 || bodyB == piece3_6) {
+			piece3_6_activated = true;
+			App->audio->PlayFx(bumper_sound);
+		}
+		else if (bodyA == piece3_7 || bodyB == piece3_7) {
+			piece3_7_activated = true;
+			App->audio->PlayFx(bumper_sound);
+		}
+		else if (bodyA == piece3_8 || bodyB == piece3_8) {
+			piece3_8_activated = true;
 			App->audio->PlayFx(bumper_sound);
 		}
 
