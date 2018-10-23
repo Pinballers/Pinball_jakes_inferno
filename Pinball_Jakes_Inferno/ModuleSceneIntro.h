@@ -159,6 +159,24 @@ private:
 	int					cont_piece3_6 = 20;
 	int					cont_piece3_7 = 20;
 	int					cont_piece3_8 = 20;
+	int					cont_green_light_1 = 2000;
+	int					cont_green_light_2 = 2000;
+	int					cont_green_light_3 = 2000;
+	int					cont_green_light_4 = 2000;
+	int					cont_green_light_5 = 2000;
+	int					cont_green_light_6 = 2000;
+	int					cont_green_light_7 = 2000;
+	int					cont_green_light_8 = 2000;
+	int					cont_green_light_9 = 2000;
+	int					cont_green_light_10 = 2000;
+	int					cont_green_light_11 = 2000;
+	int					cont_green_light_12 = 2000;
+	int					cont_green_light_13 = 2000;
+	int					cont_green_light_14 = 2000;
+	int					cont_green_light_15 = 2000;
+	int					cont_green_light_16 = 2000;
+	int					cont_green_light_17 = 2000;
+	int					cont_green_light_18 = 2000;
 
 
 	uint				circle_force = 20;
