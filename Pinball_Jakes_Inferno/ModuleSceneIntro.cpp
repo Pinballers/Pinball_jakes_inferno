@@ -11,7 +11,7 @@
 
 ModuleSceneIntro::ModuleSceneIntro(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
-	
+
 }
 
 ModuleSceneIntro::~ModuleSceneIntro()
@@ -122,18 +122,14 @@ bool ModuleSceneIntro::Start()
 	green_light_off_18 = App->physics->CreateCircleSensor(227 + circle_radio_green, 580 + circle_radio_green, circle_radio_green);	
 
 
-	left_piece2_action = App->physics->CreateRectangleSensor(100, 446, 11, 35);
-	right_piece2_action = App->physics->CreateRectangleSensor(270, 446, 11, 35);
+	left_piece2_action = App->physics->CreateCircleSensor(105, 465, 18);
+	right_piece2_action = App->physics->CreateCircleSensor(270, 465, 18);
 
-	left_piece2_bot_action = App->physics->CreateRectangleSensor(100, 947, 11, 35);
-	right_piece2_bot_action = App->physics->CreateRectangleSensor(270, 947, 11, 35);
+	left_piece2_bot_action = App->physics->CreateCircleSensor(105, 965, 18);
+	right_piece2_bot_action = App->physics->CreateCircleSensor(270, 965, 18);
 	
 	
 	
-
-	
-	
-
 
 	//Flippers
 	left_flipper = App->physics->CreateChain(115, 521, left_flipper_points, 14);
@@ -211,6 +207,9 @@ bool ModuleSceneIntro::Start()
 
 
 
+
+
+
 	return ret;
 }
 
@@ -235,8 +234,7 @@ bool ModuleSceneIntro::CleanUp()
 // Update: draw background
 update_status ModuleSceneIntro::Update()
 {
-	
-	
+	//Inputs	
 	if (App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT)
 	{
 		left_flipper->body->ApplyForce({ 10, 80 }, { 0, 0 }, true);
@@ -627,9 +625,8 @@ update_status ModuleSceneIntro::Update()
 void ModuleSceneIntro::OnCollision(PhysBody* bodyA, PhysBody* bodyB)
 {
 	if (bodyA == App->player->ball || bodyB == App->player->ball) {
-
+		//Piece2
 		if (bodyA == left_piece2_action || bodyB == left_piece2_action) {
-
 			left_piece2_activated = true;
 			App->audio->PlayFx(flipper_sound);
 		}
@@ -637,7 +634,6 @@ void ModuleSceneIntro::OnCollision(PhysBody* bodyA, PhysBody* bodyB)
 			right_piece2_activated = true;
 			App->audio->PlayFx(flipper_sound);
 		}else if (bodyA == left_piece2_bot_action || bodyB == left_piece2_bot_action) {
-			
 			left_piece2_bot_activated = true;
 			App->audio->PlayFx(flipper_sound);
 		}else if (bodyA == right_piece2_bot_action || bodyB == right_piece2_bot_action) {

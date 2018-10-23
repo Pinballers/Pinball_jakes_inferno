@@ -4,6 +4,7 @@
 #include "p2Point.h"
 
 struct SDL_Texture;
+class b2MouseJoint;
 
 class ModulePlayer : public Module
 {
@@ -16,13 +17,16 @@ public:
 	bool CleanUp();
 
 public:
-	SDL_Texture *	ball_tex = nullptr;
-	uint			ball_sound;
-	int				ball_position_x;
-	int				ball_position_y;
+	SDL_Texture *		ball_tex = nullptr;
+	uint				ball_sound;
+	int					ball_position_x;
+	int					ball_position_y;
 
-	PhysBody*		ball;
-	bool			ball_created = false;
+	PhysBody*			ball = nullptr;
+	bool				ball_created = false;
 
+	//Springy
+	PhysBody*			springy = nullptr;
+	b2MouseJoint*		springy_joint = nullptr;
 	
 };

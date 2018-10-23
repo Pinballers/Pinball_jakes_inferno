@@ -54,13 +54,14 @@ public:
 	// b2ContactListener ---
 	void BeginContact(b2Contact* contact);
 	b2World*		world = nullptr;
+	b2Body*			ground = nullptr;
 
 private:
 
 	bool			debug;
 	
 	b2MouseJoint*	mouse_joint = nullptr;
-	b2Body*			ground = nullptr;
+	
 	b2Body*			clicked = nullptr;
 	b2Vec2			mouse_position;
 };
