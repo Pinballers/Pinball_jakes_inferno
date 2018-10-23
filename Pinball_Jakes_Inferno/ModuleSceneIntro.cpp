@@ -43,6 +43,9 @@ bool ModuleSceneIntro::Start()
 	piece3_tex = App->textures->Load("Sprites/piece3.png");
 	piece3_on_tex = App->textures->Load("Sprites/piece3_on.png");
 
+	circle_tex_green = App->textures->Load("Sprites/green_light_off.png");
+	circle_tex_green_on = App->textures->Load("Sprites/green_light_on.png");
+
 	left_flipper_tex = App->textures->Load("Sprites/left_flipper.png");
 	right_flipper_tex = App->textures->Load("Sprites/right_flipper.png");
 
@@ -92,6 +95,31 @@ bool ModuleSceneIntro::Start()
 	piece3_6 = App->physics->CreateStaticChain(164, 126, piece3_points, 16);
 	piece3_7 = App->physics->CreateStaticChain(207, 126, piece3_points, 16);
 	piece3_8 = App->physics->CreateStaticChain(235, 141, piece3_points, 16);
+
+	green_light_off_1 = App->physics->CreateCircleSensor(71 + circle_radio_green, 330 + circle_radio_green, circle_radio_green);
+	green_light_off_2 = App->physics->CreateCircleSensor(71 + circle_radio_green, 350 + circle_radio_green, circle_radio_green);
+	green_light_off_3 = App->physics->CreateCircleSensor(71 + circle_radio_green, 370 + circle_radio_green, circle_radio_green);
+
+	green_light_off_4 = App->physics->CreateCircleSensor(282 + circle_radio_green, 330 + circle_radio_green, circle_radio_green);
+	green_light_off_5 = App->physics->CreateCircleSensor(282 + circle_radio_green, 350 + circle_radio_green, circle_radio_green);
+	green_light_off_6 = App->physics->CreateCircleSensor(282 + circle_radio_green, 370 + circle_radio_green, circle_radio_green);
+
+	green_light_off_7 = App->physics->CreateCircleSensor(80 + circle_radio_green, 830 + circle_radio_green, circle_radio_green);
+	green_light_off_8 = App->physics->CreateCircleSensor(80 + circle_radio_green, 850 + circle_radio_green, circle_radio_green);
+	green_light_off_9 = App->physics->CreateCircleSensor(80 + circle_radio_green, 870 + circle_radio_green, circle_radio_green);
+
+	green_light_off_10 = App->physics->CreateCircleSensor(282 + circle_radio_green, 830 + circle_radio_green, circle_radio_green);
+	green_light_off_11 = App->physics->CreateCircleSensor(282 + circle_radio_green, 850 + circle_radio_green, circle_radio_green);
+	green_light_off_12 = App->physics->CreateCircleSensor(282 + circle_radio_green, 870 + circle_radio_green, circle_radio_green);
+
+	green_light_off_13 = App->physics->CreateCircleSensor(179 + circle_radio_green, 695 + circle_radio_green, circle_radio_green);
+	green_light_off_14 = App->physics->CreateCircleSensor(179 + circle_radio_green, 745 + circle_radio_green, circle_radio_green);
+
+	green_light_off_15 = App->physics->CreateCircleSensor(95 + circle_radio_green, 595 + circle_radio_green, circle_radio_green);
+	green_light_off_16 = App->physics->CreateCircleSensor(125 + circle_radio_green, 580 + circle_radio_green, circle_radio_green);
+
+	green_light_off_17 = App->physics->CreateCircleSensor(263 + circle_radio_green, 595 + circle_radio_green, circle_radio_green);
+	green_light_off_18 = App->physics->CreateCircleSensor(227 + circle_radio_green, 580 + circle_radio_green, circle_radio_green);	
 
 
 	left_piece2_action = App->physics->CreateRectangleSensor(100, 446, 11, 35);
@@ -186,7 +214,7 @@ bool ModuleSceneIntro::Start()
 	return ret;
 }
 
-// Load assets
+// UnLoad assets
 bool ModuleSceneIntro::CleanUp()
 {
 	LOG("Unloading Intro scene");
@@ -199,6 +227,7 @@ bool ModuleSceneIntro::CleanUp()
 	App->textures->Unload(right_wheel_piece_tex);
 	App->textures->Unload(left_flipper_tex);
 	App->textures->Unload(right_flipper_tex);
+	App->textures->Unload(circle_tex_green_on);
 
 	return true;
 }
@@ -322,6 +351,226 @@ update_status ModuleSceneIntro::Update()
 	else
 		App->renderer->Blit(right_piece2_tex, METERS_TO_PIXELS(right_piece2_bot->body->GetPosition().x), METERS_TO_PIXELS(right_piece2_bot->body->GetPosition().y));
 
+
+	//SENSOR GREEN LIGHT 1 FALTA CONDICION DE REINICIO DE GREEN ON!!!
+	if (green_light_off_activated_1) {
+		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_1->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_1->body->GetPosition().y) - circle_radio_green);
+		/*cont_green_light_off_1--;
+		if (cont_green_light_off_1 <= 0) {
+			green_light_off_activated_1 = false;
+			cont_green_light_off_1 = 20;
+		}*/
+
+	}
+	else
+		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_1->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_1->body->GetPosition().y) - circle_radio_green);
+	
+	if (green_light_off_activated_2) {
+		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_2->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_2->body->GetPosition().y) - circle_radio_green);
+		/*cont_green_light_off_1--;
+		if (cont_green_light_off_1 <= 0) {
+			green_light_off_activated_1 = false;
+			cont_green_light_off_1 = 20;
+		}*/
+
+	}
+	else
+		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_2->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_2->body->GetPosition().y) - circle_radio_green);
+	
+	if (green_light_off_activated_3) {
+		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_3->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_3->body->GetPosition().y) - circle_radio_green);
+		/*cont_green_light_off_1--;
+		if (cont_green_light_off_1 <= 0) {
+			green_light_off_activated_1 = false;
+			cont_green_light_off_1 = 20;
+		}*/
+
+	}
+	else
+		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_3->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_3->body->GetPosition().y) - circle_radio_green);
+	
+	if (green_light_off_activated_4) {
+		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_4->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_4->body->GetPosition().y) - circle_radio_green);
+		/*cont_green_light_off_1--;
+		if (cont_green_light_off_1 <= 0) {
+			green_light_off_activated_1 = false;
+			cont_green_light_off_1 = 20;
+		}*/
+
+	}
+	else
+		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_4->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_4->body->GetPosition().y) - circle_radio_green);
+	
+	if (green_light_off_activated_5) {
+		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_5->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_5->body->GetPosition().y) - circle_radio_green);
+		/*cont_green_light_off_1--;
+		if (cont_green_light_off_1 <= 0) {
+			green_light_off_activated_1 = false;
+			cont_green_light_off_1 = 20;
+		}*/
+
+	}
+	else
+		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_5->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_5->body->GetPosition().y) - circle_radio_green);
+	
+	if (green_light_off_activated_6) {
+		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_6->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_6->body->GetPosition().y) - circle_radio_green);
+		/*cont_green_light_off_1--;
+		if (cont_green_light_off_1 <= 0) {
+			green_light_off_activated_1 = false;
+			cont_green_light_off_1 = 20;
+		}*/
+
+	}
+	else
+		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_6->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_6->body->GetPosition().y) - circle_radio_green);
+	
+	if (green_light_off_activated_7) {
+		//App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_7>body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_7->body->GetPosition().y) - circle_radio_green);
+		/*cont_green_light_off_1--;
+		if (cont_green_light_off_1 <= 0) {
+			green_light_off_activated_1 = false;
+			cont_green_light_off_1 = 20;
+		}*/
+
+	}
+	else
+		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_7->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_7->body->GetPosition().y) - circle_radio_green);
+	
+	if (green_light_off_activated_8) {
+		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_8->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_8->body->GetPosition().y) - circle_radio_green);
+		/*cont_green_light_off_1--;
+		if (cont_green_light_off_1 <= 0) {
+			green_light_off_activated_1 = false;
+			cont_green_light_off_1 = 20;
+		}*/
+
+	}
+	else
+		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_8->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_8->body->GetPosition().y) - circle_radio_green);
+	
+	if (green_light_off_activated_9) {
+		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_9->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_9->body->GetPosition().y) - circle_radio_green);
+		/*cont_green_light_off_1--;
+		if (cont_green_light_off_1 <= 0) {
+			green_light_off_activated_1 = false;
+			cont_green_light_off_1 = 20;
+		}*/
+
+	}
+	else
+		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_9->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_9->body->GetPosition().y) - circle_radio_green);
+	
+	if (green_light_off_activated_10) {
+		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_10->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_10->body->GetPosition().y) - circle_radio_green);
+		/*cont_green_light_off_1--;
+		if (cont_green_light_off_1 <= 0) {
+			green_light_off_activated_1 = false;
+			cont_green_light_off_1 = 20;
+		}*/
+
+	}
+	else
+		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_10->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_10->body->GetPosition().y) - circle_radio_green);
+	
+	if (green_light_off_activated_11) {
+		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_11->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_11->body->GetPosition().y) - circle_radio_green);
+		/*cont_green_light_off_1--;
+		if (cont_green_light_off_1 <= 0) {
+			green_light_off_activated_1 = false;
+			cont_green_light_off_1 = 20;
+		}*/
+
+	}
+	else
+		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_11->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_11->body->GetPosition().y) - circle_radio_green);
+	
+	if (green_light_off_activated_12) {
+		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_12->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_12->body->GetPosition().y) - circle_radio_green);
+		/*cont_green_light_off_1--;
+		if (cont_green_light_off_1 <= 0) {
+			green_light_off_activated_1 = false;
+			cont_green_light_off_1 = 20;
+		}*/
+
+	}
+	else
+		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_12->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_12->body->GetPosition().y) - circle_radio_green);
+	
+	if (green_light_off_activated_13) {
+		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_13->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_13->body->GetPosition().y) - circle_radio_green);
+		/*cont_green_light_off_1--;
+		if (cont_green_light_off_1 <= 0) {
+			green_light_off_activated_1 = false;
+			cont_green_light_off_1 = 20;
+		}*/
+
+	}
+	else
+		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_13->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_13->body->GetPosition().y) - circle_radio_green);
+	
+	if (green_light_off_activated_14) {
+		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_14->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_14->body->GetPosition().y) - circle_radio_green);
+		/*cont_green_light_off_1--;
+		if (cont_green_light_off_1 <= 0) {
+			green_light_off_activated_1 = false;
+			cont_green_light_off_1 = 20;
+		}*/
+
+	}
+	else
+		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_14->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_14->body->GetPosition().y) - circle_radio_green);
+	
+	if (green_light_off_activated_15) {
+		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_15->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_15->body->GetPosition().y) - circle_radio_green);
+		/*cont_green_light_off_1--;
+		if (cont_green_light_off_1 <= 0) {
+			green_light_off_activated_1 = false;
+			cont_green_light_off_1 = 20;
+		}*/
+
+	}
+	else
+		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_15->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_15->body->GetPosition().y) - circle_radio_green);
+	
+	if (green_light_off_activated_16) {
+		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_16->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_16->body->GetPosition().y) - circle_radio_green);
+		/*cont_green_light_off_1--;
+		if (cont_green_light_off_1 <= 0) {
+			green_light_off_activated_1 = false;
+			cont_green_light_off_1 = 20;
+		}*/
+
+	}
+	else
+		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_16->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_16->body->GetPosition().y) - circle_radio_green);
+	
+	if (green_light_off_activated_17) {
+		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_17->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_17->body->GetPosition().y) - circle_radio_green);
+		/*cont_green_light_off_1--;
+		if (cont_green_light_off_1 <= 0) {
+			green_light_off_activated_1 = false;
+			cont_green_light_off_1 = 20;
+		}*/
+
+	}
+	else
+		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_17->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_17->body->GetPosition().y) - circle_radio_green);
+	
+	if (green_light_off_activated_18) {
+		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_18->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_18->body->GetPosition().y) - circle_radio_green);
+		/*cont_green_light_off_1--;
+		if (cont_green_light_off_1 <= 0) {
+			green_light_off_activated_1 = false;
+			cont_green_light_off_1 = 20;
+		}*/
+
+	}
+	else
+		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_18->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_18->body->GetPosition().y) - circle_radio_green);
+	
+
+
 	App->renderer->Blit(circle_tex, METERS_TO_PIXELS(circle_1->body->GetPosition().x) - circle_radio, METERS_TO_PIXELS(circle_1->body->GetPosition().y) - circle_radio);
 	App->renderer->Blit(circle_tex, METERS_TO_PIXELS(circle_2->body->GetPosition().x) - circle_radio, METERS_TO_PIXELS(circle_2->body->GetPosition().y) - circle_radio);
 	App->renderer->Blit(circle_tex, METERS_TO_PIXELS(circle_3->body->GetPosition().x) - circle_radio, METERS_TO_PIXELS(circle_3->body->GetPosition().y) - circle_radio);
@@ -333,6 +582,26 @@ update_status ModuleSceneIntro::Update()
 	App->renderer->Blit(circle_tex, METERS_TO_PIXELS(circle_9->body->GetPosition().x) - circle_radio, METERS_TO_PIXELS(circle_9->body->GetPosition().y) - circle_radio);
 	App->renderer->Blit(circle_tex, METERS_TO_PIXELS(circle_10->body->GetPosition().x) - circle_radio, METERS_TO_PIXELS(circle_10->body->GetPosition().y) - circle_radio);
 	App->renderer->Blit(circle_tex, METERS_TO_PIXELS(circle_11->body->GetPosition().x) - circle_radio, METERS_TO_PIXELS(circle_11->body->GetPosition().y) - circle_radio);
+
+	/*App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_1->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_1->body->GetPosition().y) - circle_radio_green);
+	App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_2->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_2->body->GetPosition().y) - circle_radio_green);
+	App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_3->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_3->body->GetPosition().y) - circle_radio_green);
+	App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_4->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_4->body->GetPosition().y) - circle_radio_green);
+	App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_5->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_5->body->GetPosition().y) - circle_radio_green);
+	App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_6->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_6->body->GetPosition().y) - circle_radio_green);
+	App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_7->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_7->body->GetPosition().y) - circle_radio_green);
+	App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_8->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_8->body->GetPosition().y) - circle_radio_green);
+	App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_9->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_9->body->GetPosition().y) - circle_radio_green);
+	App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_10->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_10->body->GetPosition().y) - circle_radio_green);
+	App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_11->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_11->body->GetPosition().y) - circle_radio_green);
+	App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_12->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_12->body->GetPosition().y) - circle_radio_green);
+	App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_13->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_13->body->GetPosition().y) - circle_radio_green);
+	App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_14->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_14->body->GetPosition().y) - circle_radio_green);
+	App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_15->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_15->body->GetPosition().y) - circle_radio_green);
+	App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_16->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_16->body->GetPosition().y) - circle_radio_green);
+	App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_17->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_17->body->GetPosition().y) - circle_radio_green);
+	App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_18->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_18->body->GetPosition().y) - circle_radio_green);*/
+
 
 	App->renderer->Blit(piece3_tex, METERS_TO_PIXELS(piece3_1->body->GetPosition().x), METERS_TO_PIXELS(piece3_1->body->GetPosition().y));
 	App->renderer->Blit(piece3_tex, METERS_TO_PIXELS(piece3_2->body->GetPosition().x), METERS_TO_PIXELS(piece3_2->body->GetPosition().y));
@@ -374,7 +643,79 @@ void ModuleSceneIntro::OnCollision(PhysBody* bodyA, PhysBody* bodyB)
 		}else if (bodyA == right_piece2_bot_action || bodyB == right_piece2_bot_action) {
 			right_piece2_bot_activated = true;
 			App->audio->PlayFx(flipper_sound);
+		}//Green lights--------------------------------
+		else if (bodyA == green_light_off_1 || bodyB == green_light_off_1) {
+			green_light_off_activated_1 = true;
+			App->audio->PlayFx(flipper_sound);
 		}
+		else if (bodyA == green_light_off_2 || bodyB == green_light_off_2) {
+			green_light_off_activated_2 = true;
+			App->audio->PlayFx(flipper_sound);
+		}
+		else if (bodyA == green_light_off_3 || bodyB == green_light_off_3) {
+			green_light_off_activated_3 = true;
+			App->audio->PlayFx(flipper_sound);
+		}
+		else if (bodyA == green_light_off_4 || bodyB == green_light_off_4) {
+			green_light_off_activated_4 = true;
+			App->audio->PlayFx(flipper_sound);
+		}
+		else if (bodyA == green_light_off_5 || bodyB == green_light_off_5) {
+			green_light_off_activated_5 = true;
+			App->audio->PlayFx(flipper_sound);
+		}
+		else if (bodyA == green_light_off_6 || bodyB == green_light_off_6) {
+			green_light_off_activated_6 = true;
+			App->audio->PlayFx(flipper_sound);
+		}
+		else if (bodyA == green_light_off_7 || bodyB == green_light_off_7) {
+			green_light_off_activated_7 = true;
+			App->audio->PlayFx(flipper_sound);
+		}
+		else if (bodyA == green_light_off_8 || bodyB == green_light_off_8) {
+			green_light_off_activated_8 = true;
+			App->audio->PlayFx(flipper_sound);
+		}
+		else if (bodyA == green_light_off_9 || bodyB == green_light_off_9) {
+			green_light_off_activated_9 = true;
+			App->audio->PlayFx(flipper_sound);
+		}
+		else if (bodyA == green_light_off_10 || bodyB == green_light_off_10) {
+			green_light_off_activated_10 = true;
+			App->audio->PlayFx(flipper_sound);
+		}
+		else if (bodyA == green_light_off_11 || bodyB == green_light_off_11) {
+			green_light_off_activated_11 = true;
+			App->audio->PlayFx(flipper_sound);
+		}
+		else if (bodyA == green_light_off_12 || bodyB == green_light_off_12) {
+			green_light_off_activated_12 = true;
+			App->audio->PlayFx(flipper_sound);
+		}
+		else if (bodyA == green_light_off_13 || bodyB == green_light_off_13) {
+			green_light_off_activated_13 = true;
+			App->audio->PlayFx(flipper_sound);
+		}
+		else if (bodyA == green_light_off_14 || bodyB == green_light_off_14) {
+			green_light_off_activated_14 = true;
+			App->audio->PlayFx(flipper_sound);
+		}
+		else if (bodyA == green_light_off_15 || bodyB == green_light_off_15) {
+			green_light_off_activated_15 = true;
+			App->audio->PlayFx(flipper_sound);
+		}
+		else if (bodyA == green_light_off_16 || bodyB == green_light_off_16) {
+			green_light_off_activated_16 = true;
+			App->audio->PlayFx(flipper_sound);
+		}
+		else if (bodyA == green_light_off_17 || bodyB == green_light_off_17) {
+			green_light_off_activated_17 = true;
+			App->audio->PlayFx(flipper_sound);
+		}
+		else if (bodyA == green_light_off_18 || bodyB == green_light_off_18) {
+			green_light_off_activated_18 = true;
+			App->audio->PlayFx(flipper_sound);
+		}//--------------------------------
 		
 		
 	}

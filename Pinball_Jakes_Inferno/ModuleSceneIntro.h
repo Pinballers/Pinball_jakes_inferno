@@ -63,6 +63,25 @@ public:
 	PhysBody*			left_piece2_bot_action = nullptr;
 	PhysBody*			right_piece2_bot_action = nullptr;
 
+	PhysBody*			green_light_off_1 = nullptr;
+	PhysBody*			green_light_off_2 = nullptr;
+	PhysBody*			green_light_off_3 = nullptr;
+	PhysBody*			green_light_off_4 = nullptr;
+	PhysBody*			green_light_off_5 = nullptr;
+	PhysBody*			green_light_off_6 = nullptr;
+	PhysBody*			green_light_off_7 = nullptr;
+	PhysBody*			green_light_off_8 = nullptr;
+	PhysBody*			green_light_off_9 = nullptr;
+	PhysBody*			green_light_off_10 = nullptr;
+	PhysBody*			green_light_off_11 = nullptr;
+	PhysBody*			green_light_off_12 = nullptr;
+	PhysBody*			green_light_off_13 = nullptr;
+	PhysBody*			green_light_off_14 = nullptr;
+	PhysBody*			green_light_off_15 = nullptr;
+	PhysBody*			green_light_off_16 = nullptr;
+	PhysBody*			green_light_off_17 = nullptr;
+	PhysBody*			green_light_off_18 = nullptr;
+
 	//Flippers
 	PhysBody*			left_flipper = nullptr;
 	PhysBody*			right_flipper = nullptr;
@@ -84,8 +103,13 @@ public:
 	SDL_Texture*		right_piece2_on_tex = nullptr;
 	SDL_Texture*		left_wheel_piece_tex = nullptr;
 	SDL_Texture*		right_wheel_piece_tex = nullptr;
+	
 
 	SDL_Texture*		circle_tex = nullptr;
+
+	SDL_Texture*		circle_tex_green = nullptr; 
+	SDL_Texture*		circle_tex_green_on = nullptr;
+
 	SDL_Texture*		piece3_tex = nullptr;
 	SDL_Texture*		piece3_on_tex = nullptr;
 
@@ -98,16 +122,38 @@ public:
 
 private:
 	int					circle_radio = 13;
+	int					circle_radio_green = 8;
 
 	bool				left_piece2_activated = false;
 	bool				right_piece2_activated = false;
 	bool				left_piece2_bot_activated = false;
 	bool				right_piece2_bot_activated = false;
 
+	bool				green_light_off_activated_1 = false;
+	bool				green_light_off_activated_2 = false;
+	bool				green_light_off_activated_3 = false;
+	bool				green_light_off_activated_4 = false;
+	bool				green_light_off_activated_5 = false;
+	bool				green_light_off_activated_6 = false;
+	bool				green_light_off_activated_7 = false;
+	bool				green_light_off_activated_8 = false;
+	bool				green_light_off_activated_9 = false;
+	bool				green_light_off_activated_10 = false;
+	bool				green_light_off_activated_11 = false;
+	bool				green_light_off_activated_12 = false;
+	bool				green_light_off_activated_13 = false;
+	bool				green_light_off_activated_14 = false;
+	bool				green_light_off_activated_15 = false;
+	bool				green_light_off_activated_16 = false;
+	bool				green_light_off_activated_17 = false;
+	bool				green_light_off_activated_18 = false;
+
 	int					cont_left_piece2 = 20;
 	int					cont_right_piece2 = 20;
 	int					cont_left_piece2_bot = 20;
 	int					cont_right_piece2_bot = 20;
+
+	//int					cont_green_light_off_1 = 20;
 
 };
 
