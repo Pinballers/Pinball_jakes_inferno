@@ -3,7 +3,7 @@
 int elements = 3;
 
 // Pivot -25, -34
-int background_points[174] = {
+int background_points[172] = {
 	15, 1024,
 	15, 886,
 	49, 854,
@@ -89,12 +89,11 @@ int background_points[174] = {
 	43, 993,
 	38, 993,
 	33, 996,
-	33, 1024,
-	15, 1024
+	33, 1024
 };
 
 // Pivot 0, 0
-int ball[16] = {
+int ball[14] = {
 	0, 2,
 	6, 0,
 	11, 1,
@@ -102,7 +101,6 @@ int ball[16] = {
 	11, 11,
 	4, 12,
 	0, 8,
-	0, 2
 };
 
 // Pivot 0, 0
@@ -121,29 +119,27 @@ int circle_points[22] = {
 };
 
 // Pivot 0, 0
-int close_piece[14] = {
+int close_piece[12] = {
 	1, 15,
 	14, 1,
 	19, 0,
 	19, 5,
 	7, 19,
-	1, 20,
-	1, 15
+	1, 20
 };
 
 // Pivot 0, 0
-int close_piece2[14] = {
+int close_piece2[12] = {
 	19, 20,
 	12, 19,
 	1, 6,
 	1, 0,
 	7, 1,
-	18, 14,
-	19, 20
+	18, 14
 };
 
 // Pivot 0, 0
-int empty_hole[20] = {
+int empty_hole[18] = {
 	1, 4,
 	7, 0,
 	14, 0,
@@ -152,17 +148,15 @@ int empty_hole[20] = {
 	19, 19,
 	11, 22,
 	3, 19,
-	0, 10,
-	1, 4
+	0, 10
 };
 
 // Pivot 0, 0
-int Eyes_dragon_on[10] = {
+int Eyes_dragon_on[8] = {
 	0, 19,
 	0, 0,
 	66, 0,
-	66, 20,
-	0, 19
+	66, 20
 };
 
 
@@ -218,7 +212,7 @@ int left_piece2_points[18] = {
 };
 
 // Pivot 0, 0
-int left_wheel_piece_points[50] = {
+int left_wheel_piece_points[48] = {
 	7, 131,
 	15, 154,
 	41, 141,
@@ -242,8 +236,7 @@ int left_wheel_piece_points[50] = {
 	2, 92,
 	0, 108,
 	0, 127,
-	3, 130,
-	7, 131
+	3, 130
 };
 
 
@@ -256,7 +249,7 @@ int piece3_points[16] = {
 	11, -1,
 	14, 3,
 	14, 26,
-	11, 31,
+	11, 31
 };
 
 // Pivot 0, 0
@@ -268,7 +261,7 @@ int right_piece1_points[16] = {
 	65, 2,
 	65, 60,
 	6, 86,
-	1, 86,
+	1, 86
 };
 
 // Pivot 0, 0
@@ -281,12 +274,12 @@ int right_piece2_points[18] = {
 	35, 0,
 	40, 0,
 	43, 4,
-	43, 48,
+	43, 48
 };
 
 
 // Pivot 0, 0
-int right_wheel_piece_points[52] = {
+int right_wheel_piece_points[50] = {
 	1, 7,
 	11, 19,
 	20, 34,
@@ -311,8 +304,7 @@ int right_wheel_piece_points[52] = {
 	19, 7,
 	10, 1,
 	5, 0,
-	1, 3,
-	1, 7
+	1, 3
 };
 
 
