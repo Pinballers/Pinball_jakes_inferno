@@ -124,14 +124,6 @@ bool ModuleSceneIntro::Start()
 	left_piece2_bot_action = App->physics->CreateCircleSensor(105, 965, 18);
 	right_piece2_bot_action = App->physics->CreateCircleSensor(270, 965, 18);
 	
-	
-	
-
-	
-
-
-
-
 
 
 	return ret;
@@ -509,8 +501,11 @@ update_status ModuleSceneIntro::Update()
 	return UPDATE_CONTINUE;
 }
 
-void ModuleSceneIntro::OnCollision(PhysBody* bodyA, PhysBody* bodyB)
+void ModuleSceneIntro::OnCollision(PhysBody* bodyA, PhysBody* bodyB, b2Contact* contact)
 {
+	b2WorldManifold worldManifold;
+	contact->GetWorldManifold(&worldManifold);
+
 	if (bodyA == App->player->ball || bodyB == App->player->ball) {
 		//Piece2----------------------------------
 		if (bodyA == left_piece2_action || bodyB == left_piece2_action) {
@@ -601,6 +596,7 @@ void ModuleSceneIntro::OnCollision(PhysBody* bodyA, PhysBody* bodyB)
 		}//Bumpers--------------------------------
 		else if (bodyA == circle_1 || bodyB == circle_1) {
 			circle_1_activated = true;
+			bodyA->body->ApplyForce(100 * worldManifold.normal, worldManifold.points[0], true);
 			App->audio->PlayFx(bumper_sound);
 		}
 		
