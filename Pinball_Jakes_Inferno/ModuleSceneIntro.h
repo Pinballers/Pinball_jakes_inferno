@@ -160,6 +160,11 @@ private:
 	int					cont_piece3_7 = 20;
 	int					cont_piece3_8 = 20;
 
+
+	uint				circle_force = 20;
+	uint				piece3_force = 5;
+	uint				piece2_force = 5;
+
 	//int					cont_green_light_off_1 = 20;
 
 };
