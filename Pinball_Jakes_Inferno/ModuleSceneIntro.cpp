@@ -54,15 +54,15 @@ bool ModuleSceneIntro::Start()
 
 
 	//Adding physic Background 
-	background = App->physics->CreateStaticChain(25, 34, background_points, 238);
+	background = App->physics->CreateStaticChain(25, 34, background_points, 174);
 
 	//top static elements
 	left_piece1 = App->physics->CreateStaticChain(59, 441, left_piece1_points, 18);
 	right_piece1 = App->physics->CreateStaticChain(247, 441, right_piece1_points, 16);
 	left_piece2 = App->physics->CreateStaticChain(82, 436, left_piece2_points, 18);
 	right_piece2 = App->physics->CreateStaticChain(247, 436, right_piece2_points, 18);
-	left_wheel_piece = App->physics->CreateStaticChain(67, 90, left_wheel_piece_points, 52);
-	right_wheel_piece = App->physics->CreateStaticChain(235, 90, right_wheel_piece_points, 54);
+	left_wheel_piece = App->physics->CreateStaticChain(67, 90, left_wheel_piece_points, 50);
+	right_wheel_piece = App->physics->CreateStaticChain(235, 90, right_wheel_piece_points, 52);
 
 	//bot static elements
 	left_piece1_bot = App->physics->CreateStaticChain(59, 939, left_piece1_points, 18);
