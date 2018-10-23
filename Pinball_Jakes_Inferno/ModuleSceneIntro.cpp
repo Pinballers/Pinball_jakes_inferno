@@ -49,7 +49,7 @@ bool ModuleSceneIntro::Start()
 
 
 	//Audio
-	bumper_sound = App->audio->LoadFx("Audio/bumper_sound.wav");
+	bumper_sound = App->audio->LoadFx("Audio/flipper_sound.wav");
 	
 
 	//Adding physic Background 
@@ -307,7 +307,7 @@ update_status ModuleSceneIntro::Update()
 		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_6->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_6->body->GetPosition().y) - circle_radio_green);
 	
 	if (green_light_off_activated_7) {
-		//App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_7>body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_7->body->GetPosition().y) - circle_radio_green);
+		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_7->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_7->body->GetPosition().y) - circle_radio_green);
 		/*cont_green_light_off_1--;
 		if (cont_green_light_off_1 <= 0) {
 			green_light_off_activated_1 = false;
@@ -449,6 +449,14 @@ update_status ModuleSceneIntro::Update()
 	}
 	else
 		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_18->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_18->body->GetPosition().y) - circle_radio_green);
+
+	if (circle_1_activated) {
+		App->renderer->Blit(circle_tex, METERS_TO_PIXELS(circle_1->body->GetPosition().x) - circle_radio, METERS_TO_PIXELS(circle_1->body->GetPosition().y) - circle_radio);
+		
+
+	}
+	else
+		App->renderer->Blit(circle_tex, METERS_TO_PIXELS(circle_1->body->GetPosition().x) - circle_radio, METERS_TO_PIXELS(circle_1->body->GetPosition().y) - circle_radio);
 	
 
 
@@ -504,7 +512,7 @@ update_status ModuleSceneIntro::Update()
 void ModuleSceneIntro::OnCollision(PhysBody* bodyA, PhysBody* bodyB)
 {
 	if (bodyA == App->player->ball || bodyB == App->player->ball) {
-		//Piece2
+		//Piece2----------------------------------
 		if (bodyA == left_piece2_action || bodyB == left_piece2_action) {
 			left_piece2_activated = true;
 			App->audio->PlayFx(bumper_sound);
@@ -590,8 +598,11 @@ void ModuleSceneIntro::OnCollision(PhysBody* bodyA, PhysBody* bodyB)
 		else if (bodyA == green_light_off_18 || bodyB == green_light_off_18) {
 			green_light_off_activated_18 = true;
 			App->audio->PlayFx(bumper_sound);
-		}//--------------------------------
-		
+		}//Bumpers--------------------------------
+		else if (bodyA == circle_1 || bodyB == circle_1) {
+			circle_1_activated = true;
+			App->audio->PlayFx(bumper_sound);
+		}
 		
 	}
 }
