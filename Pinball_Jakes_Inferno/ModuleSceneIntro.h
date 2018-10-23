@@ -137,18 +137,6 @@ private:
 	bool				green_light_off_activated_17 = false;
 	bool				green_light_off_activated_18 = false;
 
-	bool				circle_1_activated = false;
-	bool				circle_2_activated = false;
-	bool				circle_3_activated = false;
-	bool				circle_4_activated = false;
-	bool				circle_5_activated = false;
-	bool				circle_6_activated = false;
-	bool				circle_7_activated = false;
-	bool				circle_8_activated = false;
-	bool				circle_9_activated = false;
-	bool				circle_10_activated = false;
-	bool				circle_11_activated = false;
-
 	int					cont_left_piece2 = 20;
 	int					cont_right_piece2 = 20;
 	int					cont_left_piece2_bot = 20;

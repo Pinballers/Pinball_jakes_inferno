@@ -118,11 +118,11 @@ bool ModuleSceneIntro::Start()
 	green_light_off_18 = App->physics->CreateCircleSensor(227 + circle_radio_green, 580 + circle_radio_green, circle_radio_green);	
 
 
-	left_piece2_action = App->physics->CreateCircleSensor(105, 465, 18);
-	right_piece2_action = App->physics->CreateCircleSensor(270, 465, 18);
+	left_piece2_action = App->physics->CreateCircleSensor(107, 465, 16);
+	right_piece2_action = App->physics->CreateCircleSensor(270, 465, 16);
 
-	left_piece2_bot_action = App->physics->CreateCircleSensor(105, 965, 18);
-	right_piece2_bot_action = App->physics->CreateCircleSensor(270, 965, 18);
+	left_piece2_bot_action = App->physics->CreateCircleSensor(107, 965, 16);
+	right_piece2_bot_action = App->physics->CreateCircleSensor(270, 965, 16);
 	
 
 
@@ -442,13 +442,6 @@ update_status ModuleSceneIntro::Update()
 	else
 		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_18->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_18->body->GetPosition().y) - circle_radio_green);
 
-	if (circle_1_activated) {
-		App->renderer->Blit(circle_tex, METERS_TO_PIXELS(circle_1->body->GetPosition().x) - circle_radio, METERS_TO_PIXELS(circle_1->body->GetPosition().y) - circle_radio);
-		
-
-	}
-	else
-		App->renderer->Blit(circle_tex, METERS_TO_PIXELS(circle_1->body->GetPosition().x) - circle_radio, METERS_TO_PIXELS(circle_1->body->GetPosition().y) - circle_radio);
 	
 
 
@@ -509,16 +502,24 @@ void ModuleSceneIntro::OnCollision(PhysBody* bodyA, PhysBody* bodyB, b2Contact* 
 	if (bodyA == App->player->ball || bodyB == App->player->ball) {
 		//Piece2----------------------------------
 		if (bodyA == left_piece2_action || bodyB == left_piece2_action) {
+			bodyA->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
+			bodyB->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
 			left_piece2_activated = true;
 			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == right_piece2_action || bodyB == right_piece2_action) {
+			bodyA->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
+			bodyB->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
 			right_piece2_activated = true;
 			App->audio->PlayFx(bumper_sound);
 		}else if (bodyA == left_piece2_bot_action || bodyB == left_piece2_bot_action) {
+			bodyA->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
+			bodyB->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
 			left_piece2_bot_activated = true;
 			App->audio->PlayFx(bumper_sound);
 		}else if (bodyA == right_piece2_bot_action || bodyB == right_piece2_bot_action) {
+			bodyA->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
+			bodyB->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
 			right_piece2_bot_activated = true;
 			App->audio->PlayFx(bumper_sound);
 		}//Green lights--------------------------------
@@ -595,10 +596,66 @@ void ModuleSceneIntro::OnCollision(PhysBody* bodyA, PhysBody* bodyB, b2Contact* 
 			App->audio->PlayFx(bumper_sound);
 		}//Bumpers--------------------------------
 		else if (bodyA == circle_1 || bodyB == circle_1) {
-			circle_1_activated = true;
-			bodyA->body->ApplyForce(100 * worldManifold.normal, worldManifold.points[0], true);
+			bodyA->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
+			bodyB->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
 			App->audio->PlayFx(bumper_sound);
 		}
+		else if (bodyA == circle_2 || bodyB == circle_2) {
+			bodyA->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
+			bodyB->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
+			App->audio->PlayFx(bumper_sound);
+		}
+		else if (bodyA == circle_3 || bodyB == circle_3) {
+			bodyA->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
+			bodyB->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
+			App->audio->PlayFx(bumper_sound);
+		}
+		else if (bodyA == circle_3 || bodyB == circle_3) {
+			bodyA->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
+			bodyB->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
+			App->audio->PlayFx(bumper_sound);
+		}
+		else if (bodyA == circle_4 || bodyB == circle_4) {
+			bodyA->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
+			bodyB->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
+			App->audio->PlayFx(bumper_sound);
+		}
+		else if (bodyA == circle_5 || bodyB == circle_5) {
+			bodyA->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
+			bodyB->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
+			App->audio->PlayFx(bumper_sound);
+		}
+		else if (bodyA == circle_6 || bodyB == circle_6) {
+			bodyA->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
+			bodyB->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
+			App->audio->PlayFx(bumper_sound);
+		}
+		else if (bodyA == circle_7 || bodyB == circle_7) {
+			bodyA->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
+			bodyB->body->ApplyForce(0.1 * worldManifold.normal, worldManifold.points[0], true);
+			App->audio->PlayFx(bumper_sound);
+		}
+		else if (bodyA == circle_8 || bodyB == circle_8) {
+			bodyA->body->ApplyForce(10 * worldManifold.normal, worldManifold.points[0], true);
+			bodyB->body->ApplyForce(10 * worldManifold.normal, worldManifold.points[0], true);
+			App->audio->PlayFx(bumper_sound);
+		}
+		else if (bodyA == circle_9 || bodyB == circle_9) {
+			bodyA->body->ApplyForce(10 * worldManifold.normal, worldManifold.points[0], true);
+			bodyB->body->ApplyForce(10 * worldManifold.normal, worldManifold.points[0], true);
+			App->audio->PlayFx(bumper_sound);
+		}
+		else if (bodyA == circle_10 || bodyB == circle_10) {
+			bodyA->body->ApplyForce(10 * worldManifold.normal, worldManifold.points[0], true);
+			bodyB->body->ApplyForce(10 * worldManifold.normal, worldManifold.points[0], true);
+			App->audio->PlayFx(bumper_sound);
+		}
+		else if (bodyA == circle_11 || bodyB == circle_11) {
+			bodyA->body->ApplyForce(10 * worldManifold.normal, worldManifold.points[0], true);
+			bodyB->body->ApplyForce(10 * worldManifold.normal, worldManifold.points[0], true);
+			App->audio->PlayFx(bumper_sound);
+		}
+
 		
 	}
 }
