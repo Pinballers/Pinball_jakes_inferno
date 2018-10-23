@@ -24,12 +24,12 @@ bool ModulePlayer::Start()
 
 
 	//Springy
-	springy = App->physics->CreateRectangle(347, 992, 14, 18);
+	springy = App->physics->CreateRectangle(344, 994, 8, 18);
 
 	b2MouseJointDef def;
 	def.bodyA = App->physics->ground;
 	def.bodyB = springy->body;
-	def.target = { PIXEL_TO_METERS(347), PIXEL_TO_METERS(992) };
+	def.target = { PIXEL_TO_METERS(344), PIXEL_TO_METERS(994) };
 	def.dampingRatio = 3.0f;
 	def.maxForce = 1000.0f * springy->body->GetMass();
 	springy_joint = (b2MouseJoint*)App->physics->world->CreateJoint(&def);
@@ -51,19 +51,19 @@ update_status ModulePlayer::Update()
 	//Inputs
 	if (App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_DOWN)
 	{
-		springy_joint->SetTarget({ PIXEL_TO_METERS(347), PIXEL_TO_METERS(1052) });
+		springy_joint->SetTarget({ PIXEL_TO_METERS(344), PIXEL_TO_METERS(1040) });
 		springy_joint->SetFrequency(1.0f);
 	}
 	else if (App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_UP)
 	{
-		springy_joint->SetTarget({ PIXEL_TO_METERS(347), PIXEL_TO_METERS(992) });
+		springy_joint->SetTarget({ PIXEL_TO_METERS(344), PIXEL_TO_METERS(994) });
 		springy_joint->SetFrequency(20.0f);
 	}
 
 
 	if (!ball_created) {
 		App->audio->PlayFx(ball_sound);
-		ball = App->physics->CreateCircle(338, 990, 6);
+		ball = App->physics->CreateCircle(340, 980, 6);
 		ball->listener = App->scene_intro;
 		b2Filter filter;
 		ball->body->GetFixtureList()->SetFilterData(filter);
