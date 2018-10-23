@@ -196,12 +196,12 @@ update_status ModulePlayer::Update()
 	if (ball_position_y > 1042 && ball_position_x < 328) {
 
 		App->audio->PlayFx(ball_sound);
-		if (dead_cont > 180) {
+		if (dead_cont <= 0) {
 			App->physics->world->DestroyBody(ball->body);
 			ball_created = false;
-			dead_cont = 0;
+			dead_cont = 120;
 		}
-		dead_cont++;
+		dead_cont--;
 		
 	}
 	App->renderer->Blit(ball_tex, ball_position_x, ball_position_y, NULL, 1.0f, ball->GetRotation());

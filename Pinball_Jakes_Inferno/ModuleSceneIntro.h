@@ -179,9 +179,9 @@ private:
 	int					cont_green_light_18 = 2000;
 
 
-	uint				circle_force = 20;
-	uint				piece3_force = 5;
-	uint				piece2_force = 5;
+	int					circle_force = 20;
+	int					piece3_force = 5;
+	float				piece2_force = 50;
 
 	//int					cont_green_light_off_1 = 20;
 

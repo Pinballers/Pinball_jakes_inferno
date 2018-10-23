@@ -118,11 +118,11 @@ bool ModuleSceneIntro::Start()
 	green_light_off_18 = App->physics->CreateCircleSensor(227 + circle_radio_green, 580 + circle_radio_green, circle_radio_green);	
 
 
-	left_piece2_action = App->physics->CreateCircleSensor(107, 465, 16);
-	right_piece2_action = App->physics->CreateCircleSensor(270, 465, 16);
+	left_piece2_action = App->physics->CreateStaticCircle(107, 465, 16);
+	right_piece2_action = App->physics->CreateStaticCircle(270, 465, 16);
 
-	left_piece2_bot_action = App->physics->CreateCircleSensor(107, 965, 16);
-	right_piece2_bot_action = App->physics->CreateCircleSensor(270, 965, 16);
+	left_piece2_bot_action = App->physics->CreateStaticCircle(107, 965, 16);
+	right_piece2_bot_action = App->physics->CreateStaticCircle(270, 965, 16);
 	
 
 
@@ -540,24 +540,20 @@ void ModuleSceneIntro::OnCollision(PhysBody* bodyA, PhysBody* bodyB, b2Contact* 
 	if (bodyA == App->player->ball || bodyB == App->player->ball) {
 		//Piece2----------------------------------
 		if (bodyA == left_piece2_action || bodyB == left_piece2_action) {
-			bodyA->body->ApplyForce(piece3_force * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(piece3_force * worldManifold.normal, worldManifold.points[0], true);
+			
 			left_piece2_activated = true;
 			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == right_piece2_action || bodyB == right_piece2_action) {
-			bodyA->body->ApplyForce(piece3_force * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(piece3_force * worldManifold.normal, worldManifold.points[0], true);
+			App->player->ball->body->ApplyForceToCenter(piece2_force * worldManifold.normal, true);
 			right_piece2_activated = true;
 			App->audio->PlayFx(bumper_sound);
 		}else if (bodyA == left_piece2_bot_action || bodyB == left_piece2_bot_action) {
-			bodyA->body->ApplyForce(piece3_force * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(piece3_force * worldManifold.normal, worldManifold.points[0], true);
+			App->player->ball->body->ApplyForceToCenter(piece2_force * worldManifold.normal, true);
 			left_piece2_bot_activated = true;
 			App->audio->PlayFx(bumper_sound);
 		}else if (bodyA == right_piece2_bot_action || bodyB == right_piece2_bot_action) {
-			bodyA->body->ApplyForce(piece3_force * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(piece3_force * worldManifold.normal, worldManifold.points[0], true);
+			App->player->ball->body->ApplyForceToCenter(piece2_force * worldManifold.normal, true);
 			right_piece2_bot_activated = true;
 			App->audio->PlayFx(bumper_sound);
 		}//Green lights--------------------------------
@@ -634,106 +630,87 @@ void ModuleSceneIntro::OnCollision(PhysBody* bodyA, PhysBody* bodyB, b2Contact* 
 			App->audio->PlayFx(bumper_sound);
 		}//Bumpers--------------------------------
 		else if (bodyA == circle_1 || bodyB == circle_1) {
-			bodyA->body->ApplyForce(circle_force * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(circle_force * worldManifold.normal, worldManifold.points[0], true);
+			App->player->ball->body->ApplyForceToCenter(circle_force * worldManifold.normal, true);
 			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == circle_2 || bodyB == circle_2) {
-			bodyA->body->ApplyForce(circle_force * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(circle_force * worldManifold.normal, worldManifold.points[0], true);
+			App->player->ball->body->ApplyForceToCenter(circle_force * worldManifold.normal, true);
 			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == circle_3 || bodyB == circle_3) {
-			bodyA->body->ApplyForce(circle_force * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(circle_force * worldManifold.normal, worldManifold.points[0], true);
+			App->player->ball->body->ApplyForceToCenter(circle_force * worldManifold.normal, true);
 			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == circle_4 || bodyB == circle_4) {
-			bodyA->body->ApplyForce(circle_force * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(circle_force * worldManifold.normal, worldManifold.points[0], true);
+			App->player->ball->body->ApplyForceToCenter(circle_force * worldManifold.normal, true);
 			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == circle_5 || bodyB == circle_5) {
-			bodyA->body->ApplyForce(circle_force * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(circle_force * worldManifold.normal, worldManifold.points[0], true);
+			App->player->ball->body->ApplyForceToCenter(circle_force * worldManifold.normal, true);
 			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == circle_6 || bodyB == circle_6) {
-			bodyA->body->ApplyForce(circle_force * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(circle_force * worldManifold.normal, worldManifold.points[0], true);
+			App->player->ball->body->ApplyForceToCenter(circle_force * worldManifold.normal, true);
 			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == circle_7 || bodyB == circle_7) {
-			bodyA->body->ApplyForce(circle_force * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(circle_force * worldManifold.normal, worldManifold.points[0], true);
+			App->player->ball->body->ApplyForceToCenter(circle_force * worldManifold.normal, true);
 			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == circle_8 || bodyB == circle_8) {
-			bodyA->body->ApplyForce(circle_force * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(circle_force * worldManifold.normal, worldManifold.points[0], true);
+			App->player->ball->body->ApplyForceToCenter(circle_force * worldManifold.normal, true);
 			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == circle_9 || bodyB == circle_9) {
-			bodyA->body->ApplyForce(circle_force * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(circle_force * worldManifold.normal, worldManifold.points[0], true);
+			App->player->ball->body->ApplyForceToCenter(circle_force * worldManifold.normal, true);
 			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == circle_10 || bodyB == circle_10) {
-			bodyA->body->ApplyForce(circle_force * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(circle_force * worldManifold.normal, worldManifold.points[0], true);
+			App->player->ball->body->ApplyForceToCenter(circle_force * worldManifold.normal, true);
 			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == circle_11 || bodyB == circle_11) {
-			bodyA->body->ApplyForce(circle_force * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(circle_force * worldManifold.normal, worldManifold.points[0], true);
+			App->player->ball->body->ApplyForceToCenter(circle_force * worldManifold.normal, true);
 			App->audio->PlayFx(bumper_sound);
 		}//Piece3-------------------------------
 		else if (bodyA == piece3_1 || bodyB == piece3_1) {
 			piece3_1_activated = true;
-			bodyA->body->ApplyForce(piece3_force * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(piece3_force * worldManifold.normal, worldManifold.points[0], true);
+			App->player->ball->body->ApplyForceToCenter(piece3_force * worldManifold.normal, true);
 			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == piece3_2 || bodyB == piece3_2) {
 			piece3_2_activated = true;
-			bodyA->body->ApplyForce(piece3_force * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(piece3_force * worldManifold.normal, worldManifold.points[0], true);
+			App->player->ball->body->ApplyForceToCenter(piece3_force * worldManifold.normal, true);
 			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == piece3_3 || bodyB == piece3_3) {
 			piece3_3_activated = true;
-			bodyA->body->ApplyForce(piece3_force * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(piece3_force * worldManifold.normal, worldManifold.points[0], true);
+			App->player->ball->body->ApplyForceToCenter(piece3_force * worldManifold.normal, true);
 			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == piece3_4 || bodyB == piece3_4) {
 			piece3_4_activated = true;
-			bodyA->body->ApplyForce(piece3_force * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(piece3_force * worldManifold.normal, worldManifold.points[0], true);
+			App->player->ball->body->ApplyForceToCenter(piece3_force * worldManifold.normal, true);
 			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == piece3_5 || bodyB == piece3_5) {
 			piece3_5_activated = true;
-			bodyA->body->ApplyForce(piece3_force * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(piece3_force * worldManifold.normal, worldManifold.points[0], true);
+			App->player->ball->body->ApplyForceToCenter(piece3_force * worldManifold.normal, true);
 			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == piece3_6 || bodyB == piece3_6) {
 			piece3_6_activated = true;
-			bodyA->body->ApplyForce(piece3_force * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(piece3_force * worldManifold.normal, worldManifold.points[0], true);
+			App->player->ball->body->ApplyForceToCenter(piece3_force * worldManifold.normal, true);
 			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == piece3_7 || bodyB == piece3_7) {
 			piece3_7_activated = true;
-			bodyA->body->ApplyForce(piece3_force * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(piece3_force * worldManifold.normal, worldManifold.points[0], true);
+			App->player->ball->body->ApplyForceToCenter(piece3_force * worldManifold.normal, true);
 			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == piece3_8 || bodyB == piece3_8) {
 			piece3_8_activated = true;
-			bodyA->body->ApplyForce(piece3_force * worldManifold.normal, worldManifold.points[0], true);
-			bodyB->body->ApplyForce(piece3_force * worldManifold.normal, worldManifold.points[0], true);
+			App->player->ball->body->ApplyForceToCenter(piece3_force * worldManifold.normal, true);
 			App->audio->PlayFx(bumper_sound);
 		}
 
