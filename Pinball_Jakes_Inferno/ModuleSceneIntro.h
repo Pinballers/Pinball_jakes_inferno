@@ -135,7 +135,6 @@ public:
 	
 	int					score = 0;
 	int					life_ball = 3;
-	int					extra_ball = 0;
 
 
 private:

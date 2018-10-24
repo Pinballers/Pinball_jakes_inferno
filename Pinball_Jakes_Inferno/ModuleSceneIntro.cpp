@@ -940,7 +940,7 @@ update_status ModuleSceneIntro::Update()
 	if (green_cont_bot == 12 && ball_in_hole_bot == true)
 	{
 		score += 48000;
-		extra_ball++;
+		life_ball++;
 		//light_eyes_activated = true;
 	
 	}
@@ -956,20 +956,17 @@ update_status ModuleSceneIntro::Update()
 	//if(red_cont_left == 4 && button_left_pressed == true) score += 10000;
 	//if (red_cont_right == 4 && button_right_pressed == true) score += 10000;
 
-	//if(red_cont_mid == 5 && ball_in_hole_top == true)
-	//{
-	//	score += 100000;
+	if(red_cont_mid == 5 && ball_in_hole_top == true)
+	{
+		score += 100000;
 	//	boss_hit++;
-	//	extra_ball++;
-	//}
+		life_ball++;
+	}
 
 	//if (red_cont_mid == 5 && ball_in_hole_top == true && boss_hit == 3) 
 	//{
 
-	//	score += 200000;
-	//	// YOU WIN!! press ENTER to try again...
-
-	//}
+	
 		
 	
 
@@ -981,7 +978,9 @@ update_status ModuleSceneIntro::Update()
 
 	//Set title as Score-------------------------------------------------
 
-	p2SString title("Score: %i ", score);
+	p2SString title("Score: %i  Lifes: %i", score, life_ball);
+	if(score > 100000)
+		title = ("YOU WIN!! press F3 to try again...");
 	App->window->SetTitle(title.GetString());
 
 	return UPDATE_CONTINUE;
