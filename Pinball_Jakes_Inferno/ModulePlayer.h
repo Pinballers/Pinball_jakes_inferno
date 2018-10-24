@@ -18,14 +18,22 @@ public:
 	update_status Update();
 	bool CleanUp();
 
+	void StopBall(int type);
+	void PlayBall(int type);
+
 public:
 	
 	
-	int					ball_position_x;
-	int					ball_position_y;
+	int					ball_position_x = 340;
+	int					ball_position_y = 980;
+	int					random = 2;
 
 	PhysBody*			ball = nullptr;
 	bool				ball_created = false;
+
+	//Close_Piece
+	PhysBody*			close_piece = nullptr;
+	bool				close_piece_created = false;
 
 	//Springy
 	PhysBody*			springy = nullptr;
@@ -44,9 +52,10 @@ public:
 
 
 	//Textures
-	SDL_Texture *		ball_tex = nullptr;
+	SDL_Texture*		ball_tex = nullptr;
 	SDL_Texture*		left_flipper_tex = nullptr;
 	SDL_Texture*		right_flipper_tex = nullptr;
+	SDL_Texture*		close_piece_tex = nullptr;
 	
 
 

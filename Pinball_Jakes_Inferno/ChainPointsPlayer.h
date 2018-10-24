@@ -33,7 +33,15 @@ int right_flipper_points[14] = {
 	7, 23,
 };
 
-
+// Pivot 0, 0
+int close_piece_points[12] = {
+	1, 15,
+	14, 1,
+	19, 0,
+	19, 5,
+	7, 19,
+	1, 20
+};
 
 
 

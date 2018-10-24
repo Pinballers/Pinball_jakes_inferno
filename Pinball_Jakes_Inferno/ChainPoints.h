@@ -105,15 +105,7 @@ int circle_points[22] = {
 	0, 7,
 };
 
-// Pivot 0, 0
-int close_piece[12] = {
-	1, 15,
-	14, 1,
-	19, 0,
-	19, 5,
-	7, 19,
-	1, 20
-};
+
 
 // Pivot 0, 0
 int close_piece2[12] = {

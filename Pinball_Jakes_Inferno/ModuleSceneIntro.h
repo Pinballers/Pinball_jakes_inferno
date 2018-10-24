@@ -3,6 +3,7 @@
 #include "p2List.h"
 #include "p2Point.h"
 #include "Globals.h"
+#include "p2SString.h"
 
 class PhysBody;
 class b2Contact;
@@ -127,8 +128,9 @@ public:
 	SDL_Texture*		piece3_tex = nullptr;
 	SDL_Texture*		piece3_on_tex = nullptr;
 
-	SDL_Texture*			hole_tex = nullptr;
-	SDL_Texture*			hole_ball_tex = nullptr;
+	SDL_Texture*		hole_tex = nullptr;
+	SDL_Texture*		hole_ball_tex = nullptr;
+
 
 	//Audio
 	uint				bumper_sound;
@@ -243,13 +245,9 @@ private:
 
 	int					hole_bot_cont = 150;
 	int					hole_top_cont = 150;
-	int					hole_left_cont = 150;
-	int					hole_right_cont = 150;
 
 	bool				ball_in_hole_bot = false;
 	bool				ball_in_hole_top = false;
-	bool				ball_in_hole_left = false;
-	bool				ball_in_hole_right = false;
 
 
 	int					circle_force = 20;

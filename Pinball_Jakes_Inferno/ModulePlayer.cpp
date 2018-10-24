@@ -23,10 +23,15 @@ bool ModulePlayer::Start()
 	ball_tex = App->textures->Load("Sprites/ball.png");
 	left_flipper_tex = App->textures->Load("Sprites/left_flipper.png");
 	right_flipper_tex = App->textures->Load("Sprites/right_flipper.png");
+	close_piece_tex = App->textures->Load("Sprites/close_piece.png");
 
 	
 	ball_sound = App->audio->LoadFx("Audio/ball_sound.wav");
 	flipper_sound = App->audio->LoadFx("Audio/flipper_sound.wav");
+
+
+	//Close piece
+	
 
 	//Springy
 	springy = App->physics->CreateRectangle(344, 994, 8, 18);
@@ -54,6 +59,8 @@ bool ModulePlayer::Start()
 	b2BodyDef bd;
 	bd.type = b2_dynamicBody;
 	b2Body* b = App->physics->world->CreateBody(&bd);
+	b->SetTransform({ -200,-200 }, 0);
+
 
 	b2PolygonShape dshape;
 	dshape.SetAsBox(PIXEL_TO_METERS(32), PIXEL_TO_METERS(16));
@@ -125,6 +132,7 @@ bool ModulePlayer::CleanUp()
 	App->textures->Unload(ball_tex);
 	App->textures->Unload(left_flipper_tex);
 	App->textures->Unload(right_flipper_tex);
+	App->textures->Unload(close_piece_tex);
 	return true;
 }
 
@@ -179,16 +187,15 @@ update_status ModulePlayer::Update()
 		App->audio->PlayFx(flipper_sound);
 	}
 
-
+	
 	if (!ball_created) {
 		App->audio->PlayFx(ball_sound);
-		ball = App->physics->CreateCircle(340, 980, 6);
+		ball = App->physics->CreateCircle(ball_position_x, ball_position_y, 6);
 		ball->listener = App->scene_intro;
 		b2Filter filter;
 		ball->body->GetFixtureList()->SetFilterData(filter);
 		ball->body->SetBullet(true);
 		ball_created = true;
-
 	}
 
 	
@@ -198,22 +205,58 @@ update_status ModulePlayer::Update()
 		App->audio->PlayFx(ball_sound);
 		if (dead_cont <= 0) {
 			App->physics->world->DestroyBody(ball->body);
+			App->physics->world->DestroyBody(close_piece->body);
 			ball_created = false;
+			close_piece_created = false;
 			dead_cont = 120;
+			ball_position_x = 340;
+			ball_position_y = 980;
 		}
 		dead_cont--;
-		
 	}
+	
+	if (ball_position_y < 700 && !close_piece_created) {
+		close_piece = App->physics->CreateStaticChain(334, 782, close_piece_points, 12);
+		close_piece_created = true;
+	}
+
+	//Blit
 	App->renderer->Blit(ball_tex, ball_position_x, ball_position_y, NULL, 1.0f, ball->GetRotation());
+
+	//Close_Piece
+	App->renderer->Blit(close_piece_tex, 334, 782, NULL, 1.0F, right_flipper_bot->GetRotation(), PIXEL_TO_METERS(1), PIXEL_TO_METERS(1));
 
 	//Flippers
 	App->renderer->Blit(left_flipper_tex, METERS_TO_PIXELS(left_flipper->body->GetPosition().x), METERS_TO_PIXELS(left_flipper->body->GetPosition().y), NULL, 1.0F, left_flipper->GetRotation(), PIXEL_TO_METERS(1), PIXEL_TO_METERS(1));
 	App->renderer->Blit(right_flipper_tex, METERS_TO_PIXELS(right_flipper->body->GetPosition().x), METERS_TO_PIXELS(right_flipper->body->GetPosition().y), NULL, 1.0F, right_flipper->GetRotation(), PIXEL_TO_METERS(1), PIXEL_TO_METERS(1));
 	App->renderer->Blit(left_flipper_tex, METERS_TO_PIXELS(left_flipper_bot->body->GetPosition().x), METERS_TO_PIXELS(left_flipper_bot->body->GetPosition().y), NULL, 1.0F, left_flipper_bot->GetRotation(), PIXEL_TO_METERS(1), PIXEL_TO_METERS(1));
 	App->renderer->Blit(right_flipper_tex, METERS_TO_PIXELS(right_flipper_bot->body->GetPosition().x), METERS_TO_PIXELS(right_flipper_bot->body->GetPosition().y), NULL, 1.0F, right_flipper_bot->GetRotation(), PIXEL_TO_METERS(1), PIXEL_TO_METERS(1));
+	
 
 
 	return UPDATE_CONTINUE;
+}
+
+void ModulePlayer::StopBall(int type) {
+	if (type == 1) {
+		ball->body->SetTransform({ App->scene_intro->hole_bot->body->GetPosition().x, App->scene_intro->hole_bot->body->GetPosition().y }, 0);
+	}
+	else if(type == 2){
+		ball->body->SetTransform({ App->scene_intro->hole_top->body->GetPosition().x, App->scene_intro->hole_top->body->GetPosition().y }, 0);
+	}
+}
+
+void ModulePlayer::PlayBall(int type) {
+	if (type == 1) {
+		random++;
+		if (random % 2 == 0)
+			ball->body->SetTransform({ App->scene_intro->hole_right->body->GetPosition().x, App->scene_intro->hole_right->body->GetPosition().y }, 0);
+		else
+			ball->body->SetTransform({ App->scene_intro->hole_left->body->GetPosition().x, App->scene_intro->hole_left->body->GetPosition().y }, 0);
+	}
+	else if (type == 2) {
+		ball->body->SetTransform({ App->scene_intro->hole_top->body->GetPosition().x, App->scene_intro->hole_top->body->GetPosition().y }, 0);
+	}
 }
 
 
