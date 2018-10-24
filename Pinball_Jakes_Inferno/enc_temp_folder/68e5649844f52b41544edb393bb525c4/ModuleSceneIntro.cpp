@@ -59,12 +59,8 @@ bool ModuleSceneIntro::Start()
 
 
 	//Audio
-	piece2_sound = App->audio->LoadFx("Audio/flipper_sound.wav");
-	piece3_sound = App->audio->LoadFx("Audio/flipper_sound.wav");
 	bumper_sound = App->audio->LoadFx("Audio/flipper_sound.wav");
-	hole_sound = App->audio->LoadFx("Audio/flipper_sound.wav");
-	green_light_sound = App->audio->LoadFx("Audio/flipper_sound.wav");
-	red_light_sound = App->audio->LoadFx("Audio/flipper_sound.wav");
+	
 
 	//Adding physic Background 
 	background = App->physics->CreateStaticChain(25, 34, background_points, 172);
@@ -374,7 +370,9 @@ update_status ModuleSceneIntro::Update()
 	if (ball_in_hole_bot) {
 		App->renderer->Blit(hole_ball_tex, METERS_TO_PIXELS(hole_bot->body->GetPosition().x) - circle_hole, METERS_TO_PIXELS(hole_bot->body->GetPosition().y) - circle_hole);
 		App->player->StopBall(1);
-		if (hole_bot_cont <= 0) {
+		if (hole_bot_cont == 150) {
+			score += 200;
+		}else if (hole_bot_cont <= 0) {
 			ball_in_hole_bot = false;
 			App->player->PlayBall(1);
 			hole_bot_cont = 150;
@@ -387,7 +385,9 @@ update_status ModuleSceneIntro::Update()
 	if (ball_in_hole_top) {
 		App->renderer->Blit(hole_ball_tex, METERS_TO_PIXELS(hole_top->body->GetPosition().x) - circle_hole, METERS_TO_PIXELS(hole_top->body->GetPosition().y) - circle_hole);
 		App->player->StopBall(2);
-		if (hole_top_cont <= 0) {
+		if (hole_top_cont == 150) {
+			score += 200;
+		}else if (hole_top_cont <= 0) {
 			ball_in_hole_top = false;
 			App->player->PlayBall(2);
 			hole_top_cont = 150;
@@ -398,7 +398,6 @@ update_status ModuleSceneIntro::Update()
 		App->renderer->Blit(hole_tex, METERS_TO_PIXELS(hole_top->body->GetPosition().x) - circle_hole, METERS_TO_PIXELS(hole_top->body->GetPosition().y) - circle_hole);
 
 	//Green Light-----------------------
-	//Top
 	if (green_light_off_activated_1) {
 		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_1->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_1->body->GetPosition().y) - circle_radio_green);
 		if (cont_green_light_1 == 2000) {
@@ -499,7 +498,7 @@ update_status ModuleSceneIntro::Update()
 	}
 	else
 		App->renderer->Blit(circle_tex_green, METERS_TO_PIXELS(green_light_off_6->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_6->body->GetPosition().y) - circle_radio_green);
-	//Bot
+	
 	if (green_light_off_activated_7) {
 		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_7->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_7->body->GetPosition().y) - circle_radio_green);
 		if (cont_green_light_7 == 2000) {
@@ -710,220 +709,169 @@ update_status ModuleSceneIntro::Update()
 	//Left
 	if (red_light_off_activated_1) {
 		App->renderer->Blit(circle_tex_red_on, METERS_TO_PIXELS(red_light_off_1->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_1->body->GetPosition().y) - circle_radio_green);
-		if (cont_red_light_1 == 2000) {
-			App->audio->PlayFx(red_light_sound);
-			red_cont_left++;
-			score += 200;
-		}else if (cont_red_light_1 <= 0) {
+		cont_red_light_1--;
+		red_cont_left++;
+		score += 200;
+		if (cont_red_light_1 <= 0) {
 			red_light_off_activated_1 = false;
-			red_cont_left--;
 			cont_red_light_1 = 2000;
 		}
-		cont_red_light_1--;
 	}
 	else
 		App->renderer->Blit(circle_tex_red, METERS_TO_PIXELS(red_light_off_1->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_1->body->GetPosition().y) - circle_radio_green);
 
 	if (red_light_off_activated_2) {
 		App->renderer->Blit(circle_tex_red_on, METERS_TO_PIXELS(red_light_off_2->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_2->body->GetPosition().y) - circle_radio_green);
-		if (cont_red_light_2 == 2000) {
-			App->audio->PlayFx(red_light_sound);
-			red_cont_left++;
-			score += 200;
-		}
-		else if (cont_red_light_2 <= 0) {
+		cont_red_light_2--;
+		red_cont_left++;
+		score += 200;
+		if (cont_red_light_2 <= 0) {
 			red_light_off_activated_2 = false;
-			red_cont_left--;
 			cont_red_light_2 = 2000;
 		}
-		cont_red_light_2--;
 	}
 	else
 		App->renderer->Blit(circle_tex_red, METERS_TO_PIXELS(red_light_off_2->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_2->body->GetPosition().y) - circle_radio_green);
 
 	if (red_light_off_activated_3) {
 		App->renderer->Blit(circle_tex_red_on, METERS_TO_PIXELS(red_light_off_3->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_3->body->GetPosition().y) - circle_radio_green);
-		if (cont_red_light_3 == 2000) {
-			App->audio->PlayFx(red_light_sound);
-			red_cont_left++;
-			score += 200;
-		}
-		else if (cont_red_light_3 <= 0) {
+		cont_red_light_3--;
+		red_cont_left++;
+		score += 200;
+		if (cont_red_light_3 <= 0) {
 			red_light_off_activated_3 = false;
-			red_cont_left--;
 			cont_red_light_3 = 2000;
 		}
-		cont_red_light_3--;
 	}
 	else
 		App->renderer->Blit(circle_tex_red, METERS_TO_PIXELS(red_light_off_3->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_3->body->GetPosition().y) - circle_radio_green);
 
 	if (red_light_off_activated_4) {
 		App->renderer->Blit(circle_tex_red_on, METERS_TO_PIXELS(red_light_off_4->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_4->body->GetPosition().y) - circle_radio_green);
-		if (cont_red_light_4 == 2000) {
-			App->audio->PlayFx(red_light_sound);
-			red_cont_left++;
-			score += 200;
-		}
-		else if (cont_red_light_4 <= 0) {
-			red_light_off_activated_4 = false;
-			red_cont_left--;
+		cont_red_light_4--;
+		red_cont_left++;
+		score += 200;
+		if (cont_red_light_4 <= 0) {
+			red_light_off_activated_1 = false;
 			cont_red_light_4 = 2000;
 		}
-		cont_red_light_4--;
 	}
 	else
 		App->renderer->Blit(circle_tex_red, METERS_TO_PIXELS(red_light_off_4->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_4->body->GetPosition().y) - circle_radio_green);
 	//Right
 	if (red_light_off_activated_5) {
 		App->renderer->Blit(circle_tex_red_on, METERS_TO_PIXELS(red_light_off_5->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_5->body->GetPosition().y) - circle_radio_green);
-		if (cont_red_light_5 == 2000) {
-			App->audio->PlayFx(red_light_sound);
-			red_cont_right++;
-			score += 200;
-		}
-		else if (cont_red_light_5 <= 0) {
+		cont_red_light_5--;
+		red_cont_right++;
+		score += 200;
+		if (cont_red_light_5 <= 0) {
 			red_light_off_activated_5 = false;
-			red_cont_right--;
 			cont_red_light_5 = 2000;
 		}
-		cont_red_light_5--;
 	}
 	else
 		App->renderer->Blit(circle_tex_red, METERS_TO_PIXELS(red_light_off_5->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_5->body->GetPosition().y) - circle_radio_green);
 
 	if (red_light_off_activated_6) {
 		App->renderer->Blit(circle_tex_red_on, METERS_TO_PIXELS(red_light_off_6->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_6->body->GetPosition().y) - circle_radio_green);
-		if (cont_red_light_6 == 2000) {
-			App->audio->PlayFx(red_light_sound);
-			red_cont_right++;
-			score += 200;
-		}
-		else if (cont_red_light_6 <= 0) {
+		cont_red_light_6--;
+		red_cont_right++;
+		score += 200;
+		if (cont_red_light_6 <= 0) {
 			red_light_off_activated_6 = false;
-			red_cont_right--;
 			cont_red_light_6 = 2000;
 		}
-		cont_red_light_6--;
 	}
 	else
 		App->renderer->Blit(circle_tex_red, METERS_TO_PIXELS(red_light_off_6->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_6->body->GetPosition().y) - circle_radio_green);
 
 	if (red_light_off_activated_7) {
 		App->renderer->Blit(circle_tex_red_on, METERS_TO_PIXELS(red_light_off_7->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_7->body->GetPosition().y) - circle_radio_green);
-		if (cont_red_light_7 == 2000) {
-			App->audio->PlayFx(red_light_sound);
-			red_cont_right++;
-			score += 200;
-		}
-		else if (cont_red_light_7 <= 0) {
+		cont_red_light_7--;
+		red_cont_right++;
+		score += 200;
+		if (cont_red_light_7 <= 0) {
 			red_light_off_activated_7 = false;
-			red_cont_right--;
 			cont_red_light_7 = 2000;
 		}
-		cont_red_light_7--;
 	}
 	else
 		App->renderer->Blit(circle_tex_red, METERS_TO_PIXELS(red_light_off_7->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_7->body->GetPosition().y) - circle_radio_green);
 
 	if (red_light_off_activated_8) {
 		App->renderer->Blit(circle_tex_red_on, METERS_TO_PIXELS(red_light_off_8->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_8->body->GetPosition().y) - circle_radio_green);
-		if (cont_red_light_8 == 2000) {
-			App->audio->PlayFx(red_light_sound);
-			red_cont_right++;
-			score += 200;
-		}
-		else if (cont_red_light_8 <= 0) {
+		cont_red_light_8--;
+		red_cont_right++;
+		score += 200;
+		if (cont_red_light_8 <= 0) {
 			red_light_off_activated_8 = false;
-			red_cont_right--;
 			cont_red_light_8 = 2000;
 		}
-		cont_red_light_8--;
 	}
 	else
 		App->renderer->Blit(circle_tex_red, METERS_TO_PIXELS(red_light_off_8->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_8->body->GetPosition().y) - circle_radio_green);
 	//Mid
 	if (red_light_off_activated_9) {
 		App->renderer->Blit(circle_tex_red_on, METERS_TO_PIXELS(red_light_off_9->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_9->body->GetPosition().y) - circle_radio_green);
-		if (cont_red_light_9 == 2000) {
-			App->audio->PlayFx(red_light_sound);
-			red_cont_mid++;
-			score += 200;
-		}
-		else if (cont_red_light_9 <= 0) {
+		cont_red_light_9--;
+		red_cont_mid++;
+		score += 200;
+		if (cont_red_light_9 <= 0) {
 			red_light_off_activated_9 = false;
-			red_cont_mid--;
 			cont_red_light_9 = 2000;
 		}
-		cont_red_light_9--;
 	}
 	else
 		App->renderer->Blit(circle_tex_red, METERS_TO_PIXELS(red_light_off_9->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_9->body->GetPosition().y) - circle_radio_green);
 
 	if (red_light_off_activated_10) {
 		App->renderer->Blit(circle_tex_red_on, METERS_TO_PIXELS(red_light_off_10->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_10->body->GetPosition().y) - circle_radio_green);
-		if (cont_red_light_10 == 2000) {
-			App->audio->PlayFx(red_light_sound);
-			red_cont_mid++;
-			score += 200;
-		}
-		else if (cont_red_light_10 <= 0) {
+		cont_red_light_10--;
+		red_cont_mid++;
+		score += 200;
+		if (cont_red_light_10 <= 0) {
 			red_light_off_activated_10 = false;
-			red_cont_mid--;
 			cont_red_light_10 = 2000;
 		}
-		cont_red_light_10--;
 	}
 	else
 		App->renderer->Blit(circle_tex_red, METERS_TO_PIXELS(red_light_off_10->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_10->body->GetPosition().y) - circle_radio_green);
 
 	if (red_light_off_activated_11) {
 		App->renderer->Blit(circle_tex_red_on, METERS_TO_PIXELS(red_light_off_11->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_11->body->GetPosition().y) - circle_radio_green);
-		if (cont_red_light_11 == 2000) {
-			App->audio->PlayFx(red_light_sound);
-			red_cont_mid++;
-			score += 200;
-		}
-		else if (cont_red_light_11 <= 0) {
+		cont_red_light_11--;
+		red_cont_mid++;
+		score += 200;
+		if (cont_red_light_11 <= 0) {
 			red_light_off_activated_11 = false;
-			red_cont_mid--;
 			cont_red_light_11 = 2000;
 		}
-		cont_red_light_11--;
 	}
 	else
 		App->renderer->Blit(circle_tex_red, METERS_TO_PIXELS(red_light_off_11->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_11->body->GetPosition().y) - circle_radio_green);
 
 	if (red_light_off_activated_12) {
 		App->renderer->Blit(circle_tex_red_on, METERS_TO_PIXELS(red_light_off_12->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_12->body->GetPosition().y) - circle_radio_green);
-		if (cont_red_light_12 == 2000) {
-			App->audio->PlayFx(red_light_sound);
-			red_cont_mid++;
-			score += 200;
-		}
-		else if (cont_red_light_12 <= 0) {
+		cont_red_light_12--;
+		red_cont_mid++;
+		score += 200;
+		if (cont_red_light_12 <= 0) {
 			red_light_off_activated_12 = false;
-			red_cont_mid--;
 			cont_red_light_12 = 2000;
 		}
-		cont_red_light_12--;
 	}
 	else
 		App->renderer->Blit(circle_tex_red, METERS_TO_PIXELS(red_light_off_12->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_12->body->GetPosition().y) - circle_radio_green);
 	
 	if (red_light_off_activated_13) {
 		App->renderer->Blit(circle_tex_red_on, METERS_TO_PIXELS(red_light_off_13->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_13->body->GetPosition().y) - circle_radio_green);
-		if (cont_red_light_13 == 2000) {
-			App->audio->PlayFx(red_light_sound);
-			red_cont_mid++;
-			score += 200;
-		}
-		else if (cont_red_light_13 <= 0) {
+		cont_red_light_13--;
+		red_cont_mid++;
+		score += 200;
+		if (cont_red_light_13 <= 0) {
 			red_light_off_activated_13 = false;
-			red_cont_mid--;
 			cont_red_light_13 = 2000;
 		}
-		cont_red_light_13--;
 	}
 	else
 		App->renderer->Blit(circle_tex_red, METERS_TO_PIXELS(red_light_off_13->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_13->body->GetPosition().y) - circle_radio_green);
@@ -1121,16 +1069,6 @@ void ModuleSceneIntro::OnCollision(PhysBody* bodyA, PhysBody* bodyB, b2Contact* 
 			App->player->ball->body->ApplyForceToCenter(circle_force * worldManifold.normal, true);
 			App->audio->PlayFx(bumper_sound);
 			score += 100;
-		}//Hole----------------------------------
-		else if (bodyA == hole_bot || bodyB == hole_bot) {
-			ball_in_hole_bot = true;
-			App->audio->PlayFx(bumper_sound);
-			score += 200;
-		}
-		else if (bodyA == hole_top || bodyB == hole_top) {
-			ball_in_hole_top = true;
-			App->audio->PlayFx(bumper_sound);
-			score += 200;
 		}//Green lights--------------------------------
 		else if (bodyA == green_light_off_1 || bodyB == green_light_off_1) {
 			green_light_off_activated_1 = true;
@@ -1185,45 +1123,68 @@ void ModuleSceneIntro::OnCollision(PhysBody* bodyA, PhysBody* bodyB, b2Contact* 
 		}
 		else if (bodyA == green_light_off_18 || bodyB == green_light_off_18) {
 			green_light_off_activated_18 = true;
+		}//Hole----------------------------------
+		else if (bodyA == hole_bot || bodyB == hole_bot) {
+			ball_in_hole_bot = true;
+			//App->player->ball->body->ApplyForceToCenter(piece3_force * worldManifold.normal, true);
+			App->audio->PlayFx(bumper_sound);
+		}
+		else if (bodyA == hole_top || bodyB == hole_top) {
+			ball_in_hole_top = true;
+			//App->player->ball->body->ApplyForceToCenter(piece3_force * worldManifold.normal, true);
+			App->audio->PlayFx(bumper_sound);
 		}//Red lights activation-------------------------------------
 		else if (bodyA == red_light_off_1 || bodyB == red_light_off_1) {
 			red_light_off_activated_1 = true;
+			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == red_light_off_2 || bodyB == red_light_off_2) {
 			red_light_off_activated_2 = true;
+			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == red_light_off_3 || bodyB == red_light_off_3) {
 			red_light_off_activated_3 = true;
+			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == red_light_off_4 || bodyB == red_light_off_4) {
 			red_light_off_activated_4 = true;
+			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == red_light_off_5 || bodyB == red_light_off_5) {
 			red_light_off_activated_5 = true;
+			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == red_light_off_6 || bodyB == red_light_off_6) {
 			red_light_off_activated_6 = true;
+			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == red_light_off_7 || bodyB == red_light_off_7) {
 			red_light_off_activated_7 = true;
+			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == red_light_off_8 || bodyB == red_light_off_8) {
 			red_light_off_activated_8 = true;
+			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == red_light_off_9 || bodyB == red_light_off_9) {
 			red_light_off_activated_9 = true;
+			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == red_light_off_10 || bodyB == red_light_off_10) {
 			red_light_off_activated_10 = true;
+			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == red_light_off_11 || bodyB == red_light_off_11) {
 			red_light_off_activated_11 = true;
+			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == red_light_off_12 || bodyB == red_light_off_12) {
 			red_light_off_activated_12 = true;
+			App->audio->PlayFx(bumper_sound);
 		}
 		else if (bodyA == red_light_off_13 || bodyB == red_light_off_13) {
 			red_light_off_activated_13 = true;
+			App->audio->PlayFx(bumper_sound);
 		}
 
 

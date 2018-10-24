@@ -20,6 +20,8 @@ public:
 
 	void StopBall(int type);
 	void PlayBall(int type);
+	void RestartBall();
+	void RestartGame();
 
 public:
 	

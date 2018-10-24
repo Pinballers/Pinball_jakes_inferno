@@ -186,7 +186,18 @@ update_status ModulePlayer::Update()
 	{
 		App->audio->PlayFx(flipper_sound);
 	}
+	if (App->input->GetKey(SDL_SCANCODE_F2) == KEY_DOWN)
+	{
+		RestartBall();
+	}
+	if (App->input->GetKey(SDL_SCANCODE_F3) == KEY_DOWN)
+	{
+		RestartGame();
+	}
 
+	if (App->scene_intro->life_ball == 0) {
+		RestartGame();
+	}
 	
 	if (!ball_created) {
 		App->audio->PlayFx(ball_sound);
@@ -204,18 +215,13 @@ update_status ModulePlayer::Update()
 
 		App->audio->PlayFx(ball_sound);
 		if (dead_cont <= 0) {
-			App->physics->world->DestroyBody(ball->body);
-			App->physics->world->DestroyBody(close_piece->body);
-			ball_created = false;
-			close_piece_created = false;
-			dead_cont = 120;
-			ball_position_x = 340;
-			ball_position_y = 980;
+			App->scene_intro->life_ball--;
+			RestartBall();
 		}
 		dead_cont--;
 	}
 	
-	if (ball_position_y < 700 && !close_piece_created) {
+	if (ball_position_y < 750 && !close_piece_created) {
 		close_piece = App->physics->CreateStaticChain(334, 782, close_piece_points, 12);
 		close_piece_created = true;
 	}
@@ -224,7 +230,7 @@ update_status ModulePlayer::Update()
 	App->renderer->Blit(ball_tex, ball_position_x, ball_position_y, NULL, 1.0f, ball->GetRotation());
 
 	//Close_Piece
-	App->renderer->Blit(close_piece_tex, 334, 782, NULL, 1.0F, right_flipper_bot->GetRotation(), PIXEL_TO_METERS(1), PIXEL_TO_METERS(1));
+	App->renderer->Blit(close_piece_tex, 334, 782);
 
 	//Flippers
 	App->renderer->Blit(left_flipper_tex, METERS_TO_PIXELS(left_flipper->body->GetPosition().x), METERS_TO_PIXELS(left_flipper->body->GetPosition().y), NULL, 1.0F, left_flipper->GetRotation(), PIXEL_TO_METERS(1), PIXEL_TO_METERS(1));
@@ -258,6 +264,22 @@ void ModulePlayer::PlayBall(int type) {
 		ball->body->SetTransform({ App->scene_intro->hole_top->body->GetPosition().x, App->scene_intro->hole_top->body->GetPosition().y }, 0);
 	}
 }
+
+void ModulePlayer::RestartBall() {
+	App->physics->world->DestroyBody(ball->body);
+	App->physics->world->DestroyBody(close_piece->body);
+	ball_created = false;
+	close_piece_created = false;
+	dead_cont = 120;
+	ball_position_x = 340;
+	ball_position_y = 980;
+}
+
+void ModulePlayer::RestartGame() {
+	RestartBall();
+	App->scene_intro->score = 0;
+}
+
 
 
 

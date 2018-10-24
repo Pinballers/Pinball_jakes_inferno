@@ -132,7 +132,8 @@ public:
 	SDL_Texture*		hole_ball_tex = nullptr;
 
 
-	
+	//Audio
+	uint				bumper_sound;
 	int					score = 0;
 	int					life_ball = 3;
 	int					extra_ball = 0;
@@ -255,14 +256,7 @@ private:
 	int					piece3_force = 5;
 	float				piece2_force = 50;
 
-	//Audio
-	uint				piece2_sound;
-	uint				piece3_sound;
-	uint				bumper_sound;
-	uint				hole_sound;
-	uint				green_light_sound;
-	uint				red_light_sound;
-	
+	//int					cont_green_light_off_1 = 20;
 
 };
 
