@@ -136,6 +136,12 @@ public:
 	int					score = 0;
 	int					life_ball = 3;
 
+	int					green_cont_bot = 0;
+	int					green_cont_top = 0;
+	int					red_cont_left = 0;
+	int					red_cont_right = 0;
+	int					red_cont_mid = 0;
+
 
 private:
 	int					circle_radio = 13;
@@ -237,11 +243,7 @@ private:
 	int					cont_red_light_12 = 2000;
 	int					cont_red_light_13 = 2000;
 
-	int					green_cont_bot = 0;
-	int					green_cont_top = 0;
-	int					red_cont_left = 0;
-	int					red_cont_right = 0;
-	int					red_cont_mid = 0;
+	
 
 	int					hole_bot_cont = 150;
 	int					hole_top_cont = 150;

@@ -288,6 +288,11 @@ void ModulePlayer::RestartBall() {
 void ModulePlayer::RestartGame() {
 	App->scene_intro->life_ball = 4;
 	App->scene_intro->score = 0;
+	App->scene_intro->green_cont_bot = 0;
+	App->scene_intro->green_cont_top = 0;
+	App->scene_intro->red_cont_left = 0;
+	App->scene_intro->red_cont_right = 0;
+	App->scene_intro->red_cont_mid = 0;
 	RestartBall();
 }
 

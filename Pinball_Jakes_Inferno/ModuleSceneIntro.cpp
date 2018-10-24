@@ -192,10 +192,6 @@ update_status ModuleSceneIntro::Update()
 	mouse.x = App->input->GetMouseX();
 	mouse.y = App->input->GetMouseY();
 
-	// Set balls aviables ------------------------------------------------------
-
-	life_ball = life_ball + extra_ball;
-
 	// All draw functions ------------------------------------------------------
 	//Background 
 	App->renderer->Blit(background_tex, METERS_TO_PIXELS(background->body->GetPosition().x) - 25, METERS_TO_PIXELS(background->body->GetPosition().y) - 34);
@@ -397,7 +393,7 @@ update_status ModuleSceneIntro::Update()
 	//Top
 	if (green_light_off_activated_1) {
 		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_1->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_1->body->GetPosition().y) - circle_radio_green);
-		if (cont_green_light_1 == 2000) {
+		if (cont_green_light_1 == 1999) {
 			score += 200;
 			green_cont_top++;
 			App->audio->PlayFx(green_light_sound);
@@ -413,7 +409,7 @@ update_status ModuleSceneIntro::Update()
 	
 	if (green_light_off_activated_2) {
 		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_2->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_2->body->GetPosition().y) - circle_radio_green);
-		if (cont_green_light_2 == 2000) {
+		if (cont_green_light_2 == 1999) {
 			score += 200;
 			green_cont_top++;
 			App->audio->PlayFx(green_light_sound);
@@ -430,7 +426,7 @@ update_status ModuleSceneIntro::Update()
 	
 	if (green_light_off_activated_3) {
 		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_3->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_3->body->GetPosition().y) - circle_radio_green);
-		if (cont_green_light_3 == 2000) {
+		if (cont_green_light_3 == 1999) {
 			score += 200;
 			green_cont_top++;
 			App->audio->PlayFx(green_light_sound);
@@ -447,7 +443,7 @@ update_status ModuleSceneIntro::Update()
 	
 	if (green_light_off_activated_4) {
 		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_4->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_4->body->GetPosition().y) - circle_radio_green);
-		if (cont_green_light_4 == 2000) {
+		if (cont_green_light_4 == 1999) {
 			score += 200;
 			green_cont_top++;
 			App->audio->PlayFx(green_light_sound);
@@ -464,7 +460,7 @@ update_status ModuleSceneIntro::Update()
 	
 	if (green_light_off_activated_5) {
 		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_5->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_5->body->GetPosition().y) - circle_radio_green);
-		if (cont_green_light_5 == 2000) {
+		if (cont_green_light_5 == 1999) {
 			score += 200;
 			green_cont_top++;
 			App->audio->PlayFx(green_light_sound);
@@ -481,7 +477,7 @@ update_status ModuleSceneIntro::Update()
 	
 	if (green_light_off_activated_6) {
 		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_6->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_6->body->GetPosition().y) - circle_radio_green);
-		if (cont_green_light_6 == 2000) {
+		if (cont_green_light_6 == 1999) {
 			score += 200;
 			green_cont_top++;
 			App->audio->PlayFx(green_light_sound);
@@ -498,7 +494,7 @@ update_status ModuleSceneIntro::Update()
 	//Bot
 	if (green_light_off_activated_7) {
 		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_7->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_7->body->GetPosition().y) - circle_radio_green);
-		if (cont_green_light_7 == 2000) {
+		if (cont_green_light_7 == 1999) {
 			score += 200;
 			green_cont_bot++;
 			App->audio->PlayFx(green_light_sound);
@@ -515,7 +511,7 @@ update_status ModuleSceneIntro::Update()
 	
 	if (green_light_off_activated_8) {
 		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_8->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_8->body->GetPosition().y) - circle_radio_green);
-		if (cont_green_light_8 == 2000) {
+		if (cont_green_light_8 == 1999) {
 			score += 200;
 			green_cont_bot++;
 			App->audio->PlayFx(green_light_sound);
@@ -532,7 +528,7 @@ update_status ModuleSceneIntro::Update()
 	
 	if (green_light_off_activated_9) {
 		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_9->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_9->body->GetPosition().y) - circle_radio_green);
-		if (cont_green_light_9 == 2000) {
+		if (cont_green_light_9 == 1999) {
 			score += 200;
 			green_cont_bot++;
 			App->audio->PlayFx(green_light_sound);
@@ -549,7 +545,7 @@ update_status ModuleSceneIntro::Update()
 	
 	if (green_light_off_activated_10) {
 		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_10->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_10->body->GetPosition().y) - circle_radio_green);
-		if (cont_green_light_10 == 2000) {
+		if (cont_green_light_10 == 1999) {
 			score += 200;
 			green_cont_bot++;
 			App->audio->PlayFx(green_light_sound);
@@ -566,7 +562,7 @@ update_status ModuleSceneIntro::Update()
 	
 	if (green_light_off_activated_11) {
 		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_11->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_11->body->GetPosition().y) - circle_radio_green);
-		if (cont_green_light_11 == 2000) {
+		if (cont_green_light_11 == 1999) {
 			score += 200;
 			green_cont_bot++;
 			App->audio->PlayFx(green_light_sound);
@@ -583,7 +579,7 @@ update_status ModuleSceneIntro::Update()
 	
 	if (green_light_off_activated_12) {
 		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_12->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_12->body->GetPosition().y) - circle_radio_green);
-		if (cont_green_light_12 == 2000) {
+		if (cont_green_light_12 == 1999) {
 			score += 200;
 			green_cont_bot++;
 			App->audio->PlayFx(green_light_sound);
@@ -600,7 +596,7 @@ update_status ModuleSceneIntro::Update()
 	
 	if (green_light_off_activated_13) {
 		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_13->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_13->body->GetPosition().y) - circle_radio_green);
-		if (cont_green_light_13 == 2000) {
+		if (cont_green_light_13 == 1999) {
 			score += 200;
 			green_cont_bot++;
 			App->audio->PlayFx(green_light_sound);
@@ -617,7 +613,7 @@ update_status ModuleSceneIntro::Update()
 	
 	if (green_light_off_activated_14) {
 		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_14->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_14->body->GetPosition().y) - circle_radio_green);
-		if (cont_green_light_14 == 2000) {
+		if (cont_green_light_14 == 1999) {
 			score += 200;
 			green_cont_bot++;
 			App->audio->PlayFx(green_light_sound);
@@ -634,7 +630,7 @@ update_status ModuleSceneIntro::Update()
 	
 	if (green_light_off_activated_15) {
 		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_15->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_15->body->GetPosition().y) - circle_radio_green);
-		if (cont_green_light_15 == 2000) {
+		if (cont_green_light_15 == 1999) {
 			score += 200;
 			green_cont_bot++;
 			App->audio->PlayFx(green_light_sound);
@@ -651,7 +647,7 @@ update_status ModuleSceneIntro::Update()
 	
 	if (green_light_off_activated_16) {
 		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_16->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_16->body->GetPosition().y) - circle_radio_green);
-		if (cont_green_light_16 == 2000) {
+		if (cont_green_light_16 == 1999) {
 			score += 200;
 			green_cont_bot++;
 			App->audio->PlayFx(green_light_sound);
@@ -668,7 +664,7 @@ update_status ModuleSceneIntro::Update()
 	
 	if (green_light_off_activated_17) {
 		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_17->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_17->body->GetPosition().y) - circle_radio_green);
-		if (cont_green_light_17 == 2000) {
+		if (cont_green_light_17 == 1999) {
 			score += 200;
 			green_cont_bot++;
 			App->audio->PlayFx(green_light_sound);
@@ -685,7 +681,7 @@ update_status ModuleSceneIntro::Update()
 	
 	if (green_light_off_activated_18) {
 		App->renderer->Blit(circle_tex_green_on, METERS_TO_PIXELS(green_light_off_18->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(green_light_off_18->body->GetPosition().y) - circle_radio_green);
-		if (cont_green_light_18 == 2000) {
+		if (cont_green_light_18 == 1999) {
 			score += 200;
 			green_cont_bot++;
 			App->audio->PlayFx(green_light_sound);
@@ -706,7 +702,7 @@ update_status ModuleSceneIntro::Update()
 	//Left
 	if (red_light_off_activated_1) {
 		App->renderer->Blit(circle_tex_red_on, METERS_TO_PIXELS(red_light_off_1->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_1->body->GetPosition().y) - circle_radio_green);
-		if (cont_red_light_1 == 2000) {
+		if (cont_red_light_1 == 1999) {
 			App->audio->PlayFx(red_light_sound);
 			red_cont_left++;
 			score += 200;
@@ -722,7 +718,7 @@ update_status ModuleSceneIntro::Update()
 
 	if (red_light_off_activated_2) {
 		App->renderer->Blit(circle_tex_red_on, METERS_TO_PIXELS(red_light_off_2->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_2->body->GetPosition().y) - circle_radio_green);
-		if (cont_red_light_2 == 2000) {
+		if (cont_red_light_2 == 1999) {
 			App->audio->PlayFx(red_light_sound);
 			red_cont_left++;
 			score += 200;
@@ -739,7 +735,7 @@ update_status ModuleSceneIntro::Update()
 
 	if (red_light_off_activated_3) {
 		App->renderer->Blit(circle_tex_red_on, METERS_TO_PIXELS(red_light_off_3->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_3->body->GetPosition().y) - circle_radio_green);
-		if (cont_red_light_3 == 2000) {
+		if (cont_red_light_3 == 1999) {
 			App->audio->PlayFx(red_light_sound);
 			red_cont_left++;
 			score += 200;
@@ -756,7 +752,7 @@ update_status ModuleSceneIntro::Update()
 
 	if (red_light_off_activated_4) {
 		App->renderer->Blit(circle_tex_red_on, METERS_TO_PIXELS(red_light_off_4->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_4->body->GetPosition().y) - circle_radio_green);
-		if (cont_red_light_4 == 2000) {
+		if (cont_red_light_4 == 1999) {
 			App->audio->PlayFx(red_light_sound);
 			red_cont_left++;
 			score += 200;
@@ -773,7 +769,7 @@ update_status ModuleSceneIntro::Update()
 	//Right
 	if (red_light_off_activated_5) {
 		App->renderer->Blit(circle_tex_red_on, METERS_TO_PIXELS(red_light_off_5->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_5->body->GetPosition().y) - circle_radio_green);
-		if (cont_red_light_5 == 2000) {
+		if (cont_red_light_5 == 1999) {
 			App->audio->PlayFx(red_light_sound);
 			red_cont_right++;
 			score += 200;
@@ -790,7 +786,7 @@ update_status ModuleSceneIntro::Update()
 
 	if (red_light_off_activated_6) {
 		App->renderer->Blit(circle_tex_red_on, METERS_TO_PIXELS(red_light_off_6->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_6->body->GetPosition().y) - circle_radio_green);
-		if (cont_red_light_6 == 2000) {
+		if (cont_red_light_6 == 1999) {
 			App->audio->PlayFx(red_light_sound);
 			red_cont_right++;
 			score += 200;
@@ -807,7 +803,7 @@ update_status ModuleSceneIntro::Update()
 
 	if (red_light_off_activated_7) {
 		App->renderer->Blit(circle_tex_red_on, METERS_TO_PIXELS(red_light_off_7->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_7->body->GetPosition().y) - circle_radio_green);
-		if (cont_red_light_7 == 2000) {
+		if (cont_red_light_7 == 1999) {
 			App->audio->PlayFx(red_light_sound);
 			red_cont_right++;
 			score += 200;
@@ -824,7 +820,7 @@ update_status ModuleSceneIntro::Update()
 
 	if (red_light_off_activated_8) {
 		App->renderer->Blit(circle_tex_red_on, METERS_TO_PIXELS(red_light_off_8->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_8->body->GetPosition().y) - circle_radio_green);
-		if (cont_red_light_8 == 2000) {
+		if (cont_red_light_8 == 1999) {
 			App->audio->PlayFx(red_light_sound);
 			red_cont_right++;
 			score += 200;
@@ -841,7 +837,7 @@ update_status ModuleSceneIntro::Update()
 	//Mid
 	if (red_light_off_activated_9) {
 		App->renderer->Blit(circle_tex_red_on, METERS_TO_PIXELS(red_light_off_9->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_9->body->GetPosition().y) - circle_radio_green);
-		if (cont_red_light_9 == 2000) {
+		if (cont_red_light_9 == 1999) {
 			App->audio->PlayFx(red_light_sound);
 			red_cont_mid++;
 			score += 200;
@@ -858,7 +854,7 @@ update_status ModuleSceneIntro::Update()
 
 	if (red_light_off_activated_10) {
 		App->renderer->Blit(circle_tex_red_on, METERS_TO_PIXELS(red_light_off_10->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_10->body->GetPosition().y) - circle_radio_green);
-		if (cont_red_light_10 == 2000) {
+		if (cont_red_light_10 == 1999) {
 			App->audio->PlayFx(red_light_sound);
 			red_cont_mid++;
 			score += 200;
@@ -875,7 +871,7 @@ update_status ModuleSceneIntro::Update()
 
 	if (red_light_off_activated_11) {
 		App->renderer->Blit(circle_tex_red_on, METERS_TO_PIXELS(red_light_off_11->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_11->body->GetPosition().y) - circle_radio_green);
-		if (cont_red_light_11 == 2000) {
+		if (cont_red_light_11 == 1999) {
 			App->audio->PlayFx(red_light_sound);
 			red_cont_mid++;
 			score += 200;
@@ -892,7 +888,7 @@ update_status ModuleSceneIntro::Update()
 
 	if (red_light_off_activated_12) {
 		App->renderer->Blit(circle_tex_red_on, METERS_TO_PIXELS(red_light_off_12->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_12->body->GetPosition().y) - circle_radio_green);
-		if (cont_red_light_12 == 2000) {
+		if (cont_red_light_12 == 1999) {
 			App->audio->PlayFx(red_light_sound);
 			red_cont_mid++;
 			score += 200;
@@ -909,7 +905,7 @@ update_status ModuleSceneIntro::Update()
 	
 	if (red_light_off_activated_13) {
 		App->renderer->Blit(circle_tex_red_on, METERS_TO_PIXELS(red_light_off_13->body->GetPosition().x) - circle_radio_green, METERS_TO_PIXELS(red_light_off_13->body->GetPosition().y) - circle_radio_green);
-		if (cont_red_light_13 == 2000) {
+		if (cont_red_light_13 == 1999) {
 			App->audio->PlayFx(red_light_sound);
 			red_cont_mid++;
 			score += 200;
@@ -934,7 +930,8 @@ update_status ModuleSceneIntro::Update()
 
 	//Green score combos
 
-	if (green_cont_bot == 6 && ball_in_hole_bot == true) score += 12000;
+	if (green_cont_bot == 6 && ball_in_hole_bot == true) 
+		score += 12000;
 	//if (green_cont_bot < 6 && button_bot_pressed == true) score += (500 * green_cont_bot);
 
 	if (green_cont_bot == 12 && ball_in_hole_bot == true)
@@ -979,7 +976,7 @@ update_status ModuleSceneIntro::Update()
 	//Set title as Score-------------------------------------------------
 
 	p2SString title("Score: %i  Lifes: %i", score, life_ball);
-	if(score > 100000)
+	if(score > 200000)
 		title = ("YOU WIN!! press F3 to try again...");
 	App->window->SetTitle(title.GetString());
 
