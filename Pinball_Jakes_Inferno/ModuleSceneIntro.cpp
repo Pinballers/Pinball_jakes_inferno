@@ -27,10 +27,6 @@ bool ModuleSceneIntro::Start()
 
 	App->renderer->camera.x = App->renderer->camera.y = 0;
 
-	// Load Aviable Balls
-
-	life_ball = 6;
-	score = 0;
 
 	//Load Textures
 	background_tex = App->textures->Load("Sprites/out_structure_1.png");

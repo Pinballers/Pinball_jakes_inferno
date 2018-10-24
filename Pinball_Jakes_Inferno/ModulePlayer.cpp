@@ -188,7 +188,10 @@ update_status ModulePlayer::Update()
 	}
 	if (App->input->GetKey(SDL_SCANCODE_F2) == KEY_DOWN)
 	{
-		RestartBall();
+		if (App->scene_intro->life_ball == 0) {
+			RestartGame();
+		}else
+			RestartBall();
 	}
 	if (App->input->GetKey(SDL_SCANCODE_F3) == KEY_DOWN)
 	{
@@ -215,7 +218,6 @@ update_status ModulePlayer::Update()
 
 		App->audio->PlayFx(ball_sound);
 		if (dead_cont <= 0) {
-			App->scene_intro->life_ball--;
 			RestartBall();
 		}
 		dead_cont--;
@@ -225,6 +227,8 @@ update_status ModulePlayer::Update()
 		close_piece = App->physics->CreateStaticChain(334, 782, close_piece_points, 12);
 		close_piece_created = true;
 	}
+
+	
 
 	//Blit
 	App->renderer->Blit(ball_tex, ball_position_x, ball_position_y, NULL, 1.0f, ball->GetRotation());
@@ -266,18 +270,25 @@ void ModulePlayer::PlayBall(int type) {
 }
 
 void ModulePlayer::RestartBall() {
-	App->physics->world->DestroyBody(ball->body);
-	App->physics->world->DestroyBody(close_piece->body);
-	ball_created = false;
-	close_piece_created = false;
+	if (ball_created) {
+		App->physics->world->DestroyBody(ball->body);
+		ball_created = false;
+	}
+		
+	if (close_piece_created) {
+		App->physics->world->DestroyBody(close_piece->body);
+		close_piece_created = false;
+	}
 	dead_cont = 120;
 	ball_position_x = 340;
 	ball_position_y = 980;
+	App->scene_intro->life_ball--;
 }
 
 void ModulePlayer::RestartGame() {
-	RestartBall();
+	App->scene_intro->life_ball = 4;
 	App->scene_intro->score = 0;
+	RestartBall();
 }
 
 
