@@ -25,7 +25,7 @@ bool ModulePlayer::Start()
 	right_flipper_tex = App->textures->Load("Sprites/right_flipper.png");
 	close_piece_tex = App->textures->Load("Sprites/close_piece.png");
 
-	
+	dead_sound = App->audio->LoadFx("Audio/flipper_sound.wav");
 	ball_sound = App->audio->LoadFx("Audio/ball_sound.wav");
 	flipper_sound = App->audio->LoadFx("Audio/flipper_sound.wav");
 
@@ -215,8 +215,7 @@ update_status ModulePlayer::Update()
 	
 	ball->GetPosition(ball_position_x,ball_position_y);
 	if (ball_position_y > 1042 && ball_position_x < 328) {
-
-		App->audio->PlayFx(ball_sound);
+		App->audio->PlayFx(dead_sound);
 		if (dead_cont <= 0) {
 			RestartBall();
 		}
@@ -283,6 +282,7 @@ void ModulePlayer::RestartBall() {
 	ball_position_x = 340;
 	ball_position_y = 980;
 	App->scene_intro->life_ball--;
+	App->audio->PlayFx(ball_sound);
 }
 
 void ModulePlayer::RestartGame() {

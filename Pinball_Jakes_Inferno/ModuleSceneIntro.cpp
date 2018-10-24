@@ -400,7 +400,7 @@ update_status ModuleSceneIntro::Update()
 		if (cont_green_light_1 == 2000) {
 			score += 200;
 			green_cont_top++;
-			App->audio->PlayFx(bumper_sound);
+			App->audio->PlayFx(green_light_sound);
 		}else if (cont_green_light_1 <= 0) {
 			green_light_off_activated_1 = false;
 			green_cont_top--;
@@ -416,7 +416,7 @@ update_status ModuleSceneIntro::Update()
 		if (cont_green_light_2 == 2000) {
 			score += 200;
 			green_cont_top++;
-			App->audio->PlayFx(bumper_sound);
+			App->audio->PlayFx(green_light_sound);
 		}
 		else if (cont_green_light_2 <= 0) {
 			green_light_off_activated_2 = false;
@@ -433,7 +433,7 @@ update_status ModuleSceneIntro::Update()
 		if (cont_green_light_3 == 2000) {
 			score += 200;
 			green_cont_top++;
-			App->audio->PlayFx(bumper_sound);
+			App->audio->PlayFx(green_light_sound);
 		}
 		else if (cont_green_light_3 <= 0) {
 			green_light_off_activated_3 = false;
@@ -450,7 +450,7 @@ update_status ModuleSceneIntro::Update()
 		if (cont_green_light_4 == 2000) {
 			score += 200;
 			green_cont_top++;
-			App->audio->PlayFx(bumper_sound);
+			App->audio->PlayFx(green_light_sound);
 		}
 		else if (cont_green_light_4 <= 0) {
 			green_light_off_activated_4 = false;
@@ -467,7 +467,7 @@ update_status ModuleSceneIntro::Update()
 		if (cont_green_light_5 == 2000) {
 			score += 200;
 			green_cont_top++;
-			App->audio->PlayFx(bumper_sound);
+			App->audio->PlayFx(green_light_sound);
 		}
 		else if (cont_green_light_5 <= 0) {
 			green_light_off_activated_5 = false;
@@ -484,7 +484,7 @@ update_status ModuleSceneIntro::Update()
 		if (cont_green_light_6 == 2000) {
 			score += 200;
 			green_cont_top++;
-			App->audio->PlayFx(bumper_sound);
+			App->audio->PlayFx(green_light_sound);
 		}
 		else if (cont_green_light_6 <= 0) {
 			green_light_off_activated_6 = false;
@@ -501,7 +501,7 @@ update_status ModuleSceneIntro::Update()
 		if (cont_green_light_7 == 2000) {
 			score += 200;
 			green_cont_bot++;
-			App->audio->PlayFx(bumper_sound);
+			App->audio->PlayFx(green_light_sound);
 		}
 		else if (cont_green_light_7 <= 0) {
 			green_light_off_activated_7 = false;
@@ -518,7 +518,7 @@ update_status ModuleSceneIntro::Update()
 		if (cont_green_light_8 == 2000) {
 			score += 200;
 			green_cont_bot++;
-			App->audio->PlayFx(bumper_sound);
+			App->audio->PlayFx(green_light_sound);
 		}
 		else if (cont_green_light_8 <= 0) {
 			green_light_off_activated_8 = false;
@@ -535,7 +535,7 @@ update_status ModuleSceneIntro::Update()
 		if (cont_green_light_9 == 2000) {
 			score += 200;
 			green_cont_bot++;
-			App->audio->PlayFx(bumper_sound);
+			App->audio->PlayFx(green_light_sound);
 		}
 		else if (cont_green_light_9 <= 0) {
 			green_light_off_activated_9 = false;
@@ -552,7 +552,7 @@ update_status ModuleSceneIntro::Update()
 		if (cont_green_light_10 == 2000) {
 			score += 200;
 			green_cont_bot++;
-			App->audio->PlayFx(bumper_sound);
+			App->audio->PlayFx(green_light_sound);
 		}
 		else if (cont_green_light_10 <= 0) {
 			green_light_off_activated_10 = false;
@@ -569,7 +569,7 @@ update_status ModuleSceneIntro::Update()
 		if (cont_green_light_11 == 2000) {
 			score += 200;
 			green_cont_bot++;
-			App->audio->PlayFx(bumper_sound);
+			App->audio->PlayFx(green_light_sound);
 		}
 		else if (cont_green_light_11 <= 0) {
 			green_light_off_activated_11 = false;
@@ -586,7 +586,7 @@ update_status ModuleSceneIntro::Update()
 		if (cont_green_light_12 == 2000) {
 			score += 200;
 			green_cont_bot++;
-			App->audio->PlayFx(bumper_sound);
+			App->audio->PlayFx(green_light_sound);
 		}
 		else if (cont_green_light_12 <= 0) {
 			green_light_off_activated_12 = false;
@@ -603,7 +603,7 @@ update_status ModuleSceneIntro::Update()
 		if (cont_green_light_13 == 2000) {
 			score += 200;
 			green_cont_bot++;
-			App->audio->PlayFx(bumper_sound);
+			App->audio->PlayFx(green_light_sound);
 		}
 		else if (cont_green_light_13 <= 0) {
 			green_light_off_activated_13 = false;
@@ -620,7 +620,7 @@ update_status ModuleSceneIntro::Update()
 		if (cont_green_light_14 == 2000) {
 			score += 200;
 			green_cont_bot++;
-			App->audio->PlayFx(bumper_sound);
+			App->audio->PlayFx(green_light_sound);
 		}
 		else if (cont_green_light_14 <= 0) {
 			green_light_off_activated_14 = false;
@@ -637,7 +637,7 @@ update_status ModuleSceneIntro::Update()
 		if (cont_green_light_15 == 2000) {
 			score += 200;
 			green_cont_bot++;
-			App->audio->PlayFx(bumper_sound);
+			App->audio->PlayFx(green_light_sound);
 		}
 		else if (cont_green_light_15 <= 0) {
 			green_light_off_activated_15 = false;
@@ -654,7 +654,7 @@ update_status ModuleSceneIntro::Update()
 		if (cont_green_light_16 == 2000) {
 			score += 200;
 			green_cont_bot++;
-			App->audio->PlayFx(bumper_sound);
+			App->audio->PlayFx(green_light_sound);
 		}
 		else if (cont_green_light_16 <= 0) {
 			green_light_off_activated_16 = false;
@@ -671,7 +671,7 @@ update_status ModuleSceneIntro::Update()
 		if (cont_green_light_17 == 2000) {
 			score += 200;
 			green_cont_bot++;
-			App->audio->PlayFx(bumper_sound);
+			App->audio->PlayFx(green_light_sound);
 		}
 		else if (cont_green_light_17 <= 0) {
 			green_light_off_activated_17 = false;
@@ -688,7 +688,7 @@ update_status ModuleSceneIntro::Update()
 		if (cont_green_light_18 == 2000) {
 			score += 200;
 			green_cont_bot++;
-			App->audio->PlayFx(bumper_sound);
+			App->audio->PlayFx(green_light_sound);
 		}
 		else if (cont_green_light_18 <= 0) {
 			green_light_off_activated_18 = false;
@@ -997,70 +997,70 @@ void ModuleSceneIntro::OnCollision(PhysBody* bodyA, PhysBody* bodyB, b2Contact* 
 		if (bodyA == left_piece2_action || bodyB == left_piece2_action) {
 			App->player->ball->body->ApplyForceToCenter(piece2_force * worldManifold.normal, true);
 			left_piece2_activated = true;
-			App->audio->PlayFx(bumper_sound);
+			App->audio->PlayFx(piece2_sound);
 			score += 100;
 		}else if (bodyA == right_piece2_action || bodyB == right_piece2_action) {
 			App->player->ball->body->ApplyForceToCenter(piece2_force * worldManifold.normal, true);
 			right_piece2_activated = true;
-			App->audio->PlayFx(bumper_sound);
+			App->audio->PlayFx(piece2_sound);
 			score += 100;
 		}else if (bodyA == left_piece2_bot_action || bodyB == left_piece2_bot_action) {
 			App->player->ball->body->ApplyForceToCenter(piece2_force * worldManifold.normal, true);
 			left_piece2_bot_activated = true;
-			App->audio->PlayFx(bumper_sound);
+			App->audio->PlayFx(piece2_sound);
 			score += 100;
 		}else if (bodyA == right_piece2_bot_action || bodyB == right_piece2_bot_action) {
 			App->player->ball->body->ApplyForceToCenter(piece2_force * worldManifold.normal, true);
 			right_piece2_bot_activated = true;
-			App->audio->PlayFx(bumper_sound);
+			App->audio->PlayFx(piece2_sound);
 			score += 100;
 		}//Piece3-------------------------------
 		else if (bodyA == piece3_1 || bodyB == piece3_1) {
 			piece3_1_activated = true;
 			App->player->ball->body->ApplyForceToCenter(piece3_force * worldManifold.normal, true);
-			App->audio->PlayFx(bumper_sound);
+			App->audio->PlayFx(piece3_sound);
 			score += 100;
 		}
 		else if (bodyA == piece3_2 || bodyB == piece3_2) {
 			piece3_2_activated = true;
 			App->player->ball->body->ApplyForceToCenter(piece3_force * worldManifold.normal, true);
-			App->audio->PlayFx(bumper_sound);
+			App->audio->PlayFx(piece3_sound);
 			score += 100;
 		}
 		else if (bodyA == piece3_3 || bodyB == piece3_3) {
 			piece3_3_activated = true;
 			App->player->ball->body->ApplyForceToCenter(piece3_force * worldManifold.normal, true);
-			App->audio->PlayFx(bumper_sound);
+			App->audio->PlayFx(piece3_sound);
 			score += 100;
 		}
 		else if (bodyA == piece3_4 || bodyB == piece3_4) {
 			piece3_4_activated = true;
 			App->player->ball->body->ApplyForceToCenter(piece3_force * worldManifold.normal, true);
-			App->audio->PlayFx(bumper_sound);
+			App->audio->PlayFx(piece3_sound);
 			score += 100;
 		}
 		else if (bodyA == piece3_5 || bodyB == piece3_5) {
 			piece3_5_activated = true;
 			App->player->ball->body->ApplyForceToCenter(piece3_force * worldManifold.normal, true);
-			App->audio->PlayFx(bumper_sound);
+			App->audio->PlayFx(piece3_sound);
 			score += 100;
 		}
 		else if (bodyA == piece3_6 || bodyB == piece3_6) {
 			piece3_6_activated = true;
 			App->player->ball->body->ApplyForceToCenter(piece3_force * worldManifold.normal, true);
-			App->audio->PlayFx(bumper_sound);
+			App->audio->PlayFx(piece3_sound);
 			score += 100;
 		}
 		else if (bodyA == piece3_7 || bodyB == piece3_7) {
 			piece3_7_activated = true;
 			App->player->ball->body->ApplyForceToCenter(piece3_force * worldManifold.normal, true);
-			App->audio->PlayFx(bumper_sound);
+			App->audio->PlayFx(piece3_sound);
 			score += 100;
 		}
 		else if (bodyA == piece3_8 || bodyB == piece3_8) {
 			piece3_8_activated = true;
 			App->player->ball->body->ApplyForceToCenter(piece3_force * worldManifold.normal, true);
-			App->audio->PlayFx(bumper_sound);
+			App->audio->PlayFx(piece3_sound);
 			score += 100;
 		}//Bumpers--------------------------------
 		else if (bodyA == circle_1 || bodyB == circle_1) {
@@ -1120,12 +1120,12 @@ void ModuleSceneIntro::OnCollision(PhysBody* bodyA, PhysBody* bodyB, b2Contact* 
 		}//Hole----------------------------------
 		else if (bodyA == hole_bot || bodyB == hole_bot) {
 			ball_in_hole_bot = true;
-			App->audio->PlayFx(bumper_sound);
+			App->audio->PlayFx(hole_sound);
 			score += 200;
 		}
 		else if (bodyA == hole_top || bodyB == hole_top) {
 			ball_in_hole_top = true;
-			App->audio->PlayFx(bumper_sound);
+			App->audio->PlayFx(hole_sound);
 			score += 200;
 		}//Green lights--------------------------------
 		else if (bodyA == green_light_off_1 || bodyB == green_light_off_1) {
