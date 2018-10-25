@@ -40,19 +40,19 @@ F3-> ReStart game
 
 3 - When 6 green lights of the upper area are lit and the ball is put in the upper hole, it adds 12000 points.
 
-4 - When 5 red fire lights of the upper area are lit and the ball is put in the upper hole, it adds 30000 points and the boss receives a hit.
+4 - When 5 red fire lights of the upper area are lit and the ball is put in the upper hole, it adds 30000 points recibe an extra ball and the boss receives a hit.
 
-5 - When 13 red lights of the upper area are lit and the ball is put in the upper hole, it adds 100000 points, recibe an extra ball and the boss receives a hit.
+5 - When 4 red lights of the upper left or right area are lit and the ball is put in the upper hole, it adds 12000 points.
 
 ## Clear the game:
 
-The game is won when the boss receives three hits. 
+The game is won when the boss receives two hits. 
 
 YOU'RE THE BEST!! :)
 
 
 ## Find this project solution in:
-https://github.com/Pinballers/Pinball_jakes_inferno/releases/tag/0.9
+https://github.com/Pinballers/Pinball_jakes_inferno/releases/tag/1.0
 
 ## Credits
 Programming: Cere Venteo 
