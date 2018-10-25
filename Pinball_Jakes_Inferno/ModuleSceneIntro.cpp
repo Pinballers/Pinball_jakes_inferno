@@ -32,6 +32,8 @@ bool ModuleSceneIntro::Start()
 
 	//Load Textures
 	background_tex = App->textures->Load("Sprites/clean_background.png");
+	background_win_tex = App->textures->Load("Sprites/finalstagewin.png");
+	background_lose_tex = App->textures->Load("Sprites/finalstagelose.png");
 	left_piece1_tex = App->textures->Load("Sprites/left_piece1.png");
 	right_piece1_tex = App->textures->Load("Sprites/right_piece1.png");
 	left_piece2_tex = App->textures->Load("Sprites/left_piece2.png");
@@ -1006,7 +1008,6 @@ update_status ModuleSceneIntro::Update()
 	if (red_cont_mid == 5 && ball_in_hole_top == true && boss_hit == 3)
 	{
 		// CAMBIA A ESCENA WIN !!
-		background_win_tex = App->textures->Load("Sprites/finalstagewin.png");
 		App->renderer->Blit(background_win_tex, METERS_TO_PIXELS(background->body->GetPosition().x) - 25, METERS_TO_PIXELS(background->body->GetPosition().y) - 34);
 		endwin = true;
 		App->physics->debug = false;
@@ -1024,7 +1025,6 @@ update_status ModuleSceneIntro::Update()
 	}
 	if (endlose) {
 		// CAMBIA A ESCENA LOSE !!
-		background_lose_tex = App->textures->Load("Sprites/finalstagelose.png");
 		App->renderer->Blit(background_lose_tex, METERS_TO_PIXELS(background->body->GetPosition().x) - 25, METERS_TO_PIXELS(background->body->GetPosition().y) - 34);
 		endlose = true;
 		App->physics->debug = false;
