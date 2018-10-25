@@ -63,12 +63,10 @@ bool ModuleSceneIntro::Start()
 	hole_sound = App->audio->LoadFx("Audio/hole.wav");
 	green_light_sound = App->audio->LoadFx("Audio/green_and_red.wav");
 	red_light_sound = App->audio->LoadFx("Audio/green_and_red.wav");
-	
 	music_sound = App->audio->LoadFx("Audio/music.wav");
 	
 	//Music
-
-	App->audio->PlayFx(music_sound);
+	//App->audio->PlayMusic(music_sound);
 
 	//Adding physic Background 
 	background = App->physics->CreateStaticChain(25, 34, background_points, 172);
@@ -937,11 +935,14 @@ update_status ModuleSceneIntro::Update()
 
 	//SCORE CONDITIONS
 
+	//Set title as Score-------------------------------------------------
+
+	p2SString title("Score: %i  Lifes: %i", score, life_ball);
+
 	//Green score combos
 
 	if (green_cont_bot == 6 && ball_in_hole_bot == true) 
 		score += 12000;
-	//if (green_cont_bot < 6 && button_bot_pressed == true) score += (500 * green_cont_bot);
 
 	if (green_cont_bot == 12 && ball_in_hole_bot == true)
 	{
@@ -951,43 +952,33 @@ update_status ModuleSceneIntro::Update()
 	
 	}
 
-	if (green_cont_top == 6 && ball_in_hole_top == true) score += 48000;
+	if (green_cont_top == 6 && ball_in_hole_top == true) score += 12000;
 		
-	//if (green_cont_top < 6 && button_top_pressed == true) score += (500 * green_cont_top);
-
-
-
 	//Red score combos
 
-	//if(red_cont_left == 4 && button_left_pressed == true) score += 10000;
-	//if (red_cont_right == 4 && button_right_pressed == true) score += 10000;
-
-	if(red_cont_mid == 5 && ball_in_hole_top == true)
+	if(red_cont_mid == 13 && ball_in_hole_top == true)
 	{
 		score += 100000;
-	//	boss_hit++;
+		boss_hit++;
 		life_ball++;
 	}
 
-	//if (red_cont_mid == 5 && ball_in_hole_top == true && boss_hit == 3) 
-	//{
+	if (red_cont_mid == 5 && ball_in_hole_top == true)
+	{
+		score += 30000;
+		boss_hit++;
+		life_ball++;
+	}
 
-	
-		
-	
-
-	
-
-	
-
-	
-
-	//Set title as Score-------------------------------------------------
-
-	p2SString title("Score: %i  Lifes: %i", score, life_ball);
-	if(score > 200000)
+	if (red_cont_mid == 5 && ball_in_hole_top == true && boss_hit == 3) 
+	{
+	  // CAMBIA A ESCENA WIN !!
 		title = ("YOU WIN!! press F3 to try again...");
+
+	}
+
 	App->window->SetTitle(title.GetString());
+		
 
 	return UPDATE_CONTINUE;
 }

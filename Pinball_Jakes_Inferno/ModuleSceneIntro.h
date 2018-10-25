@@ -252,6 +252,7 @@ private:
 	bool				ball_in_hole_bot = false;
 	bool				ball_in_hole_top = false;
 	
+	int					boss_hit = 0;
 
 
 	int					circle_force = 20;
