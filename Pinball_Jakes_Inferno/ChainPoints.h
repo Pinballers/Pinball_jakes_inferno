@@ -264,5 +264,14 @@ int right_wheel_piece_points[50] = {
 	1, 3
 };
 
+// Pivot 0, 0
+int lancer[10] = {
+	0, 69,
+	0, 0,
+	12, 0,
+	12, 68,
+	0, 68
+};
+
 
 

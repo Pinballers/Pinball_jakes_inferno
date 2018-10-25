@@ -24,6 +24,7 @@ bool ModulePlayer::Start()
 	left_flipper_tex = App->textures->Load("Sprites/left_flipper.png");
 	right_flipper_tex = App->textures->Load("Sprites/right_flipper.png");
 	close_piece_tex = App->textures->Load("Sprites/close_piece.png");
+	springy_tex = App->textures->Load("Sprites/lancer.png");
 
 	dead_sound = App->audio->LoadFx("Audio/flipper_sound.wav");
 	ball_sound = App->audio->LoadFx("Audio/ball_sound.wav");
@@ -47,13 +48,13 @@ bool ModulePlayer::Start()
 
 
 	//Flippers
-	left_flipper = App->physics->CreateChain(115, 521, left_flipper_points, 14);
+	left_flipper = App->physics->CreateChain(115, 520, left_flipper_points, 14);
 	left_flipper->body->SetGravityScale(0.0f);
-	right_flipper = App->physics->CreateChain(205, 521, right_flipper_points, 14);
+	right_flipper = App->physics->CreateChain(205, 519, right_flipper_points, 14);
 	right_flipper->body->SetGravityScale(0.0f);
-	left_flipper_bot = App->physics->CreateChain(115, 1019, left_flipper_points, 14);
+	left_flipper_bot = App->physics->CreateChain(115, 1018, left_flipper_points, 14);
 	left_flipper_bot->body->SetGravityScale(0.0f);
-	right_flipper_bot = App->physics->CreateChain(205, 1019, right_flipper_points, 14);
+	right_flipper_bot = App->physics->CreateChain(205, 1017, right_flipper_points, 14);
 	right_flipper_bot->body->SetGravityScale(0.0f);
 
 	b2BodyDef bd;
@@ -81,12 +82,12 @@ bool ModulePlayer::Start()
 	b2RevoluteJointDef left_flipper_def;
 	left_flipper_def.bodyA = App->scene_intro->background->body;
 	left_flipper_def.bodyB = left_flipper->body;
-	left_flipper_def.Initialize(left_flipper_def.bodyA, left_flipper_def.bodyB, { PIXEL_TO_METERS(120), PIXEL_TO_METERS(520) });
+	left_flipper_def.Initialize(left_flipper_def.bodyA, left_flipper_def.bodyB, { PIXEL_TO_METERS(115), PIXEL_TO_METERS(520) });
 	left_flipper_def.enableLimit = true;
-	left_flipper_def.lowerAngle = -0.15f * b2_pi;
+	left_flipper_def.lowerAngle = -0.19f * b2_pi;
 	left_flipper_def.enableMotor = true;
-	left_flipper_def.maxMotorTorque = 10.0f;
-	left_flipper_def.motorSpeed = 10.0f;
+	left_flipper_def.maxMotorTorque = 5.0f;
+	left_flipper_def.motorSpeed = 5.0f;
 	left_flipper_joint = (b2RevoluteJoint*)App->physics->world->CreateJoint(&left_flipper_def);
 
 	b2RevoluteJointDef right_flipper_def;
@@ -103,12 +104,12 @@ bool ModulePlayer::Start()
 	b2RevoluteJointDef left_flipper_bot_def;
 	left_flipper_bot_def.bodyA = App->scene_intro->background->body;
 	left_flipper_bot_def.bodyB = left_flipper_bot->body;
-	left_flipper_bot_def.Initialize(left_flipper_bot_def.bodyA, left_flipper_bot_def.bodyB, { PIXEL_TO_METERS(120), PIXEL_TO_METERS(1018) });
+	left_flipper_bot_def.Initialize(left_flipper_bot_def.bodyA, left_flipper_bot_def.bodyB, { PIXEL_TO_METERS(115), PIXEL_TO_METERS(1018) });
 	left_flipper_bot_def.enableLimit = true;
-	left_flipper_bot_def.lowerAngle = -0.15f * b2_pi;
+	left_flipper_bot_def.lowerAngle = -0.19f * b2_pi;
 	left_flipper_bot_def.enableMotor = true;
-	left_flipper_bot_def.maxMotorTorque = 10.0f;
-	left_flipper_bot_def.motorSpeed = 10.0f;
+	left_flipper_bot_def.maxMotorTorque = 5.0f;
+	left_flipper_bot_def.motorSpeed = 5.0f;
 	left_flipper_bot_joint = (b2RevoluteJoint*)App->physics->world->CreateJoint(&left_flipper_bot_def);
 
 	b2RevoluteJointDef right_flipper_bot_def;
@@ -133,6 +134,7 @@ bool ModulePlayer::CleanUp()
 	App->textures->Unload(left_flipper_tex);
 	App->textures->Unload(right_flipper_tex);
 	App->textures->Unload(close_piece_tex);
+	App->textures->Unload(springy_tex);
 	return true;
 }
 
@@ -241,6 +243,8 @@ update_status ModulePlayer::Update()
 	App->renderer->Blit(left_flipper_tex, METERS_TO_PIXELS(left_flipper_bot->body->GetPosition().x), METERS_TO_PIXELS(left_flipper_bot->body->GetPosition().y), NULL, 1.0F, left_flipper_bot->GetRotation(), PIXEL_TO_METERS(1), PIXEL_TO_METERS(1));
 	App->renderer->Blit(right_flipper_tex, METERS_TO_PIXELS(right_flipper_bot->body->GetPosition().x), METERS_TO_PIXELS(right_flipper_bot->body->GetPosition().y), NULL, 1.0F, right_flipper_bot->GetRotation(), PIXEL_TO_METERS(1), PIXEL_TO_METERS(1));
 	
+	//springy
+	App->renderer->Blit(springy_tex, METERS_TO_PIXELS(springy->body->GetPosition().x) - 6, METERS_TO_PIXELS(springy->body->GetPosition().y) - 16);
 
 
 	return UPDATE_CONTINUE;
@@ -252,6 +256,12 @@ void ModulePlayer::StopBall(int type) {
 	}
 	else if(type == 2){
 		ball->body->SetTransform({ App->scene_intro->hole_top->body->GetPosition().x, App->scene_intro->hole_top->body->GetPosition().y }, 0);
+	}
+	else if (type == 3) {
+		ball->body->SetTransform({ App->scene_intro->hole_left->body->GetPosition().x, App->scene_intro->hole_left->body->GetPosition().y }, 0);
+	}
+	else if (type == 4) {
+		ball->body->SetTransform({ App->scene_intro->hole_right->body->GetPosition().x, App->scene_intro->hole_right->body->GetPosition().y }, 0);
 	}
 }
 

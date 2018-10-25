@@ -29,7 +29,7 @@ bool ModuleSceneIntro::Start()
 
 
 	//Load Textures
-	background_tex = App->textures->Load("Sprites/out_structure_1.png");
+	background_tex = App->textures->Load("Sprites/clean_background.png");
 	left_piece1_tex = App->textures->Load("Sprites/left_piece1.png");
 	right_piece1_tex = App->textures->Load("Sprites/right_piece1.png");
 	left_piece2_tex = App->textures->Load("Sprites/left_piece2.png");
@@ -66,7 +66,7 @@ bool ModuleSceneIntro::Start()
 	background = App->physics->CreateStaticChain(25, 34, background_points, 172);
 
 	//top static elements
-	left_piece1 = App->physics->CreateStaticChain(59, 441, left_piece1_points, 18);
+	left_piece1 = App->physics->CreateStaticChain(60, 441, left_piece1_points, 18);
 	right_piece1 = App->physics->CreateStaticChain(247, 441, right_piece1_points, 16);
 	left_piece2 = App->physics->CreateStaticChain(82, 436, left_piece2_points, 18);
 	right_piece2 = App->physics->CreateStaticChain(247, 436, right_piece2_points, 18);
@@ -74,80 +74,80 @@ bool ModuleSceneIntro::Start()
 	right_wheel_piece = App->physics->CreateStaticChain(235, 90, right_wheel_piece_points, 50);
 
 	//bot static elements
-	left_piece1_bot = App->physics->CreateStaticChain(59, 939, left_piece1_points, 18);
-	right_piece1_bot = App->physics->CreateStaticChain(247, 939, right_piece1_points, 16);
-	left_piece2_bot = App->physics->CreateStaticChain(82, 934, left_piece2_points, 18);
-	right_piece2_bot = App->physics->CreateStaticChain(247, 934, right_piece2_points, 18);
+	left_piece1_bot = App->physics->CreateStaticChain(59, 940, left_piece1_points, 18);
+	right_piece1_bot = App->physics->CreateStaticChain(246, 940, right_piece1_points, 16);
+	left_piece2_bot = App->physics->CreateStaticChain(82, 935, left_piece2_points, 18);
+	right_piece2_bot = App->physics->CreateStaticChain(247, 935, right_piece2_points, 18);
 	
 
 	//Actions elements
-	circle_1 = App->physics->CreateStaticCircle(78 + circle_radio, 711 + circle_radio, circle_radio);
-	circle_2 = App->physics->CreateStaticCircle(132 + circle_radio, 656 + circle_radio, circle_radio);
-	circle_3 = App->physics->CreateStaticCircle(132 + circle_radio, 774 + circle_radio, circle_radio);
-	circle_4 = App->physics->CreateStaticCircle(212 + circle_radio, 656 + circle_radio, circle_radio);
-	circle_5 = App->physics->CreateStaticCircle(212 + circle_radio, 774 + circle_radio, circle_radio);
-	circle_6 = App->physics->CreateStaticCircle(265 + circle_radio, 711 + circle_radio, circle_radio);
-	circle_7 = App->physics->CreateStaticCircle(99 + circle_radio, 395 + circle_radio, circle_radio);
-	circle_8 = App->physics->CreateStaticCircle(123 + circle_radio, 204 + circle_radio, circle_radio);
-	circle_9 = App->physics->CreateStaticCircle(171 + circle_radio, 319 + circle_radio, circle_radio);
-	circle_10 = App->physics->CreateStaticCircle(221 + circle_radio, 204 + circle_radio, circle_radio);
-	circle_11 = App->physics->CreateStaticCircle(243 + circle_radio, 395 + circle_radio, circle_radio);
+	circle_1 = App->physics->CreateStaticCircle(79 + circle_radio, 711 + circle_radio, circle_radio);
+	circle_2 = App->physics->CreateStaticCircle(133 + circle_radio, 656 + circle_radio, circle_radio);
+	circle_3 = App->physics->CreateStaticCircle(133 + circle_radio, 774 + circle_radio, circle_radio);
+	circle_4 = App->physics->CreateStaticCircle(213 + circle_radio, 656 + circle_radio, circle_radio);
+	circle_5 = App->physics->CreateStaticCircle(213 + circle_radio, 774 + circle_radio, circle_radio);
+	circle_6 = App->physics->CreateStaticCircle(266 + circle_radio, 711 + circle_radio, circle_radio);
+	circle_7 = App->physics->CreateStaticCircle(100 + circle_radio, 395 + circle_radio, circle_radio);
+	circle_8 = App->physics->CreateStaticCircle(124 + circle_radio, 204 + circle_radio, circle_radio);
+	circle_9 = App->physics->CreateStaticCircle(172 + circle_radio, 319 + circle_radio, circle_radio);
+	circle_10 = App->physics->CreateStaticCircle(222 + circle_radio, 204 + circle_radio, circle_radio);
+	circle_11 = App->physics->CreateStaticCircle(244 + circle_radio, 395 + circle_radio, circle_radio);
 
-	piece3_1 = App->physics->CreateStaticChain(83, 632, piece3_points, 16);
-	piece3_2 = App->physics->CreateStaticChain(112, 608, piece3_points, 16);
-	piece3_3 = App->physics->CreateStaticChain(245, 608, piece3_points, 16);
-	piece3_4 = App->physics->CreateStaticChain(274, 632, piece3_points, 16);
-	piece3_5 = App->physics->CreateStaticChain(136, 141, piece3_points, 16);
+	piece3_1 = App->physics->CreateStaticChain(84, 633, piece3_points, 16);
+	piece3_2 = App->physics->CreateStaticChain(113, 609, piece3_points, 16);
+	piece3_3 = App->physics->CreateStaticChain(246, 609, piece3_points, 16);
+	piece3_4 = App->physics->CreateStaticChain(275, 633, piece3_points, 16);
+	piece3_5 = App->physics->CreateStaticChain(137, 142, piece3_points, 16);
 	piece3_6 = App->physics->CreateStaticChain(164, 126, piece3_points, 16);
 	piece3_7 = App->physics->CreateStaticChain(207, 126, piece3_points, 16);
-	piece3_8 = App->physics->CreateStaticChain(235, 141, piece3_points, 16);
+	piece3_8 = App->physics->CreateStaticChain(236, 142, piece3_points, 16);
 
-	green_light_off_1 = App->physics->CreateCircleSensor(71 + circle_radio_green, 330 + circle_radio_green, circle_radio_green);
-	green_light_off_2 = App->physics->CreateCircleSensor(71 + circle_radio_green, 350 + circle_radio_green, circle_radio_green);
-	green_light_off_3 = App->physics->CreateCircleSensor(71 + circle_radio_green, 370 + circle_radio_green, circle_radio_green);
+	green_light_off_1 = App->physics->CreateCircleSensor(73 + circle_radio_green, 333 + circle_radio_green, circle_radio_green);
+	green_light_off_2 = App->physics->CreateCircleSensor(73 + circle_radio_green, 352 + circle_radio_green, circle_radio_green);
+	green_light_off_3 = App->physics->CreateCircleSensor(73 + circle_radio_green, 372 + circle_radio_green, circle_radio_green);
 
-	green_light_off_4 = App->physics->CreateCircleSensor(282 + circle_radio_green, 330 + circle_radio_green, circle_radio_green);
-	green_light_off_5 = App->physics->CreateCircleSensor(282 + circle_radio_green, 350 + circle_radio_green, circle_radio_green);
-	green_light_off_6 = App->physics->CreateCircleSensor(282 + circle_radio_green, 370 + circle_radio_green, circle_radio_green);
+	green_light_off_4 = App->physics->CreateCircleSensor(280 + circle_radio_green, 333 + circle_radio_green, circle_radio_green);
+	green_light_off_5 = App->physics->CreateCircleSensor(280 + circle_radio_green, 352 + circle_radio_green, circle_radio_green);
+	green_light_off_6 = App->physics->CreateCircleSensor(280 + circle_radio_green, 372 + circle_radio_green, circle_radio_green);
 
-	green_light_off_7 = App->physics->CreateCircleSensor(80 + circle_radio_green, 830 + circle_radio_green, circle_radio_green);
-	green_light_off_8 = App->physics->CreateCircleSensor(80 + circle_radio_green, 850 + circle_radio_green, circle_radio_green);
-	green_light_off_9 = App->physics->CreateCircleSensor(80 + circle_radio_green, 870 + circle_radio_green, circle_radio_green);
+	green_light_off_7 = App->physics->CreateCircleSensor(81 + circle_radio_green, 832 + circle_radio_green, circle_radio_green);
+	green_light_off_8 = App->physics->CreateCircleSensor(81 + circle_radio_green, 852 + circle_radio_green, circle_radio_green);
+	green_light_off_9 = App->physics->CreateCircleSensor(81 + circle_radio_green, 872 + circle_radio_green, circle_radio_green);
 
-	green_light_off_10 = App->physics->CreateCircleSensor(282 + circle_radio_green, 830 + circle_radio_green, circle_radio_green);
-	green_light_off_11 = App->physics->CreateCircleSensor(282 + circle_radio_green, 850 + circle_radio_green, circle_radio_green);
-	green_light_off_12 = App->physics->CreateCircleSensor(282 + circle_radio_green, 870 + circle_radio_green, circle_radio_green);
+	green_light_off_10 = App->physics->CreateCircleSensor(280 + circle_radio_green, 832 + circle_radio_green, circle_radio_green);
+	green_light_off_11 = App->physics->CreateCircleSensor(280 + circle_radio_green, 852 + circle_radio_green, circle_radio_green);
+	green_light_off_12 = App->physics->CreateCircleSensor(280 + circle_radio_green, 872 + circle_radio_green, circle_radio_green);
 
-	green_light_off_13 = App->physics->CreateCircleSensor(179 + circle_radio_green, 695 + circle_radio_green, circle_radio_green);
-	green_light_off_14 = App->physics->CreateCircleSensor(179 + circle_radio_green, 745 + circle_radio_green, circle_radio_green);
+	green_light_off_13 = App->physics->CreateCircleSensor(178 + circle_radio_green, 695 + circle_radio_green, circle_radio_green);
+	green_light_off_14 = App->physics->CreateCircleSensor(178 + circle_radio_green, 750 + circle_radio_green, circle_radio_green);
 
-	green_light_off_15 = App->physics->CreateCircleSensor(95 + circle_radio_green, 595 + circle_radio_green, circle_radio_green);
+	green_light_off_15 = App->physics->CreateCircleSensor(95 + circle_radio_green, 600 + circle_radio_green, circle_radio_green);
 	green_light_off_16 = App->physics->CreateCircleSensor(125 + circle_radio_green, 580 + circle_radio_green, circle_radio_green);
 
-	green_light_off_17 = App->physics->CreateCircleSensor(263 + circle_radio_green, 595 + circle_radio_green, circle_radio_green);
-	green_light_off_18 = App->physics->CreateCircleSensor(227 + circle_radio_green, 580 + circle_radio_green, circle_radio_green);	
+	green_light_off_17 = App->physics->CreateCircleSensor(261 + circle_radio_green, 598 + circle_radio_green, circle_radio_green);
+	green_light_off_18 = App->physics->CreateCircleSensor(230 + circle_radio_green, 580 + circle_radio_green, circle_radio_green);	
 
-	hole_bot = App->physics->CreateCircleSensor(178 + circle_hole, 620 + circle_hole, circle_hole);
-	hole_top = App->physics->CreateCircleSensor(178 + circle_hole, 170 + circle_hole, circle_hole);
+	hole_bot = App->physics->CreateCircleSensor(175 + circle_hole, 618 + circle_hole, circle_hole);
+	hole_top = App->physics->CreateCircleSensor(181 + circle_hole, 152 + circle_hole, circle_hole);
 
-	hole_left = App->physics->CreateCircleSensor(65 + circle_hole, 400 + circle_hole, circle_hole);
-	hole_right = App->physics->CreateCircleSensor(280 + circle_hole, 400 + circle_hole, circle_hole);
+	hole_left = App->physics->CreateCircleSensor(63 + circle_hole, 406 + circle_hole, circle_hole);
+	hole_right = App->physics->CreateCircleSensor(285 + circle_hole, 406 + circle_hole, circle_hole);
 
-	red_light_off_1 = App->physics->CreateCircleSensor(52 + circle_radio_green, 170 + circle_radio_green, circle_radio_green);
-	red_light_off_2 = App->physics->CreateCircleSensor(60 + circle_radio_green, 140 + circle_radio_green, circle_radio_green);
-	red_light_off_3 = App->physics->CreateCircleSensor(82 + circle_radio_green, 110 + circle_radio_green, circle_radio_green);
-	red_light_off_4 = App->physics->CreateCircleSensor(120 + circle_radio_green, 80 + circle_radio_green, circle_radio_green);
+	red_light_off_1 = App->physics->CreateCircleSensor(55 + circle_radio_green, 173 + circle_radio_green, circle_radio_green);
+	red_light_off_2 = App->physics->CreateCircleSensor(63 + circle_radio_green, 143 + circle_radio_green, circle_radio_green);
+	red_light_off_3 = App->physics->CreateCircleSensor(77 + circle_radio_green, 118 + circle_radio_green, circle_radio_green);
+	red_light_off_4 = App->physics->CreateCircleSensor(98 + circle_radio_green, 100 + circle_radio_green, circle_radio_green);
 
-	red_light_off_5 = App->physics->CreateCircleSensor(315 + circle_radio_green, 170 + circle_radio_green, circle_radio_green);
-	red_light_off_6 = App->physics->CreateCircleSensor(307 + circle_radio_green, 140 + circle_radio_green, circle_radio_green);
-	red_light_off_7 = App->physics->CreateCircleSensor(285 + circle_radio_green, 110 + circle_radio_green, circle_radio_green);
-	red_light_off_8 = App->physics->CreateCircleSensor(247 + circle_radio_green, 80 + circle_radio_green, circle_radio_green);
+	red_light_off_5 = App->physics->CreateCircleSensor(313 + circle_radio_green, 173 + circle_radio_green, circle_radio_green);
+	red_light_off_6 = App->physics->CreateCircleSensor(303 + circle_radio_green, 143 + circle_radio_green, circle_radio_green);
+	red_light_off_7 = App->physics->CreateCircleSensor(288 + circle_radio_green, 118 + circle_radio_green, circle_radio_green);
+	red_light_off_8 = App->physics->CreateCircleSensor(267 + circle_radio_green, 100 + circle_radio_green, circle_radio_green);
 
-	red_light_off_9 = App->physics->CreateCircleSensor(122 + circle_radio_green, 280 + circle_radio_green, circle_radio_green);
-	red_light_off_10 = App->physics->CreateCircleSensor(142 + circle_radio_green, 250 + circle_radio_green, circle_radio_green);
-	red_light_off_11 = App->physics->CreateCircleSensor(182 + circle_radio_green, 230 + circle_radio_green, circle_radio_green);
-	red_light_off_12 = App->physics->CreateCircleSensor(222 + circle_radio_green, 250 + circle_radio_green, circle_radio_green);
-	red_light_off_13 = App->physics->CreateCircleSensor(242 + circle_radio_green, 280 + circle_radio_green, circle_radio_green);
+	red_light_off_9 = App->physics->CreateCircleSensor(115 + circle_radio_green, 289 + circle_radio_green, circle_radio_green);
+	red_light_off_10 = App->physics->CreateCircleSensor(133 + circle_radio_green, 249 + circle_radio_green, circle_radio_green);
+	red_light_off_11 = App->physics->CreateCircleSensor(178 + circle_radio_green, 231 + circle_radio_green, circle_radio_green);
+	red_light_off_12 = App->physics->CreateCircleSensor(218 + circle_radio_green, 249 + circle_radio_green, circle_radio_green);
+	red_light_off_13 = App->physics->CreateCircleSensor(235 + circle_radio_green, 289 + circle_radio_green, circle_radio_green);
 
 
 	left_piece2_action = App->physics->CreateStaticCircle(107, 465, 16);
@@ -388,6 +388,33 @@ update_status ModuleSceneIntro::Update()
 	}
 	else
 		App->renderer->Blit(hole_tex, METERS_TO_PIXELS(hole_top->body->GetPosition().x) - circle_hole, METERS_TO_PIXELS(hole_top->body->GetPosition().y) - circle_hole);
+
+	if (ball_in_hole_left) {
+		App->renderer->Blit(hole_ball_tex, METERS_TO_PIXELS(hole_left->body->GetPosition().x) - circle_hole, METERS_TO_PIXELS(hole_left->body->GetPosition().y) - circle_hole);
+		App->player->StopBall(3);
+		if (hole_left_cont <= 0) {
+			ball_in_hole_left = false;
+			App->player->PlayBall(1);
+			hole_left_cont = 150;
+		}
+		hole_left_cont--;
+	}
+	else
+		App->renderer->Blit(hole_tex, METERS_TO_PIXELS(hole_left->body->GetPosition().x) - circle_hole, METERS_TO_PIXELS(hole_left->body->GetPosition().y) - circle_hole);
+	
+	if (ball_in_hole_right) {
+		App->renderer->Blit(hole_ball_tex, METERS_TO_PIXELS(hole_right->body->GetPosition().x) - circle_hole, METERS_TO_PIXELS(hole_right->body->GetPosition().y) - circle_hole);
+		App->player->StopBall(4);
+		if (hole_right_cont <= 0) {
+			ball_in_hole_right = false;
+			App->player->PlayBall(1);
+			hole_right_cont = 150;
+		}
+		hole_right_cont--;
+	}
+	else
+		App->renderer->Blit(hole_tex, METERS_TO_PIXELS(hole_right->body->GetPosition().x) - circle_hole, METERS_TO_PIXELS(hole_right->body->GetPosition().y) - circle_hole);
+
 
 	//Green Light-----------------------
 	//Top
@@ -1123,6 +1150,16 @@ void ModuleSceneIntro::OnCollision(PhysBody* bodyA, PhysBody* bodyB, b2Contact* 
 			ball_in_hole_top = true;
 			App->audio->PlayFx(hole_sound);
 			score += 200;
+		}
+		else if (bodyA == hole_left || bodyB == hole_left) {
+		ball_in_hole_left = true;
+		App->audio->PlayFx(hole_sound);
+		score += 200;
+		}
+		else if (bodyA == hole_right || bodyB == hole_right) {
+		ball_in_hole_right = true;
+		App->audio->PlayFx(hole_sound);
+		score += 200;
 		}//Green lights--------------------------------
 		else if (bodyA == green_light_off_1 || bodyB == green_light_off_1) {
 			green_light_off_activated_1 = true;

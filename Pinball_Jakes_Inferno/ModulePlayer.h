@@ -58,6 +58,7 @@ public:
 	SDL_Texture*		left_flipper_tex = nullptr;
 	SDL_Texture*		right_flipper_tex = nullptr;
 	SDL_Texture*		close_piece_tex = nullptr;
+	SDL_Texture*		springy_tex = nullptr;
 	
 
 
