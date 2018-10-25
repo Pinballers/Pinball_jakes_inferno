@@ -289,6 +289,10 @@ void ModulePlayer::PlayBall(int type) {
 	else if (type == 2) {
 		ball->body->SetTransform({ App->scene_intro->hole_top->body->GetPosition().x, App->scene_intro->hole_top->body->GetPosition().y }, 0);
 	}
+	else if (type == 3) {
+		ball_position_x = 340;
+		ball_position_y = 980;
+	}
 }
 
 void ModulePlayer::RestartBall() {
@@ -324,6 +328,7 @@ void ModulePlayer::RestartGame() {
 	App->scene_intro->endwin = false;
 	App->scene_intro->endlose = false;
 	App->physics->debug = true;
+	App->audio->PlayMusic("Audio/music.ogg");
 	RestartBall();
 }
 

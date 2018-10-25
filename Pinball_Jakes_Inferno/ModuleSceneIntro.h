@@ -117,6 +117,8 @@ public:
 	SDL_Texture*		right_piece2_on_tex = nullptr;
 	SDL_Texture*		left_wheel_piece_tex = nullptr;
 	SDL_Texture*		right_wheel_piece_tex = nullptr;
+	SDL_Texture*		eye_dragon_on_tex = nullptr;
+	SDL_Texture*		eye_boss_on_tex = nullptr;
 	
 
 	SDL_Texture*		circle_tex = nullptr;

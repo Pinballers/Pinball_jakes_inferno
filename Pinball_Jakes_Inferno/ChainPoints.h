@@ -130,14 +130,6 @@ int empty_hole[18] = {
 	0, 10
 };
 
-// Pivot 0, 0
-int Eyes_dragon_on[8] = {
-	0, 19,
-	0, 0,
-	66, 0,
-	66, 20
-};
-
 
 
 

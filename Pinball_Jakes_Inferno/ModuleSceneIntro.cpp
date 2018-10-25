@@ -57,6 +57,10 @@ bool ModuleSceneIntro::Start()
 	hole_tex = App->textures->Load("Sprites/empty_hole.png");
 	hole_ball_tex = App->textures->Load("Sprites/full_hole.png");
 
+	eye_dragon_on_tex = App->textures->Load("Sprites/Eyes_dragon_on.png");
+	eye_boss_on_tex = App->textures->Load("Sprites/Eyes_boss_on.png");
+	
+
 
 	//Audio
 	piece2_sound = App->audio->LoadFx("Audio/piece2.wav");
@@ -185,6 +189,8 @@ bool ModuleSceneIntro::CleanUp()
 	App->textures->Unload(circle_tex_red_on);
 	App->textures->Unload(hole_tex);
 	App->textures->Unload(hole_ball_tex);
+	App->textures->Unload(eye_dragon_on_tex);
+	App->textures->Unload(eye_boss_on_tex);
 
 	return true;
 }
@@ -379,6 +385,9 @@ update_status ModuleSceneIntro::Update()
 				App->player->PlayBall(1);
 				hole_bot_cont = 150;
 			}
+			if (hole_bot_cont % 10 == 0) {
+				App->renderer->Blit(eye_dragon_on_tex, 151,582);
+			}
 			hole_bot_cont--;
 		}
 		else
@@ -391,6 +400,9 @@ update_status ModuleSceneIntro::Update()
 				ball_in_hole_top = false;
 				App->player->PlayBall(2);
 				hole_top_cont = 150;
+			}
+			if (hole_top_cont % 10 == 0) {
+				App->renderer->Blit(eye_boss_on_tex, 166, 80);
 			}
 			hole_top_cont--;
 		}
@@ -1005,12 +1017,13 @@ update_status ModuleSceneIntro::Update()
 		cont_red_light_8 = 0;
 	}
 	
-	if (red_cont_mid == 5 && ball_in_hole_top == true && boss_hit == 3)
+	if (red_cont_mid == 5 && ball_in_hole_top == true && boss_hit == 2)
 	{
 		// CAMBIA A ESCENA WIN !!
 		App->renderer->Blit(background_win_tex, METERS_TO_PIXELS(background->body->GetPosition().x) - 25, METERS_TO_PIXELS(background->body->GetPosition().y) - 34);
 		endwin = true;
 		App->physics->debug = false;
+		App->player->PlayBall(3);
 
 	}else if (red_cont_mid == 5 && ball_in_hole_top == true)
 	{
@@ -1028,6 +1041,7 @@ update_status ModuleSceneIntro::Update()
 		App->renderer->Blit(background_lose_tex, METERS_TO_PIXELS(background->body->GetPosition().x) - 25, METERS_TO_PIXELS(background->body->GetPosition().y) - 34);
 		endlose = true;
 		App->physics->debug = false;
+		
 	}
 
 	
