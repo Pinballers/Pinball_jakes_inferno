@@ -27,6 +27,8 @@ bool ModuleSceneIntro::Start()
 
 	App->renderer->camera.x = App->renderer->camera.y = 0;
 
+	
+
 
 	//Load Textures
 	background_tex = App->textures->Load("Sprites/clean_background.png");
@@ -55,12 +57,18 @@ bool ModuleSceneIntro::Start()
 
 
 	//Audio
-	piece2_sound = App->audio->LoadFx("Audio/flipper_sound.wav");
-	piece3_sound = App->audio->LoadFx("Audio/flipper_sound.wav");
-	bumper_sound = App->audio->LoadFx("Audio/flipper_sound.wav");
-	hole_sound = App->audio->LoadFx("Audio/flipper_sound.wav");
-	green_light_sound = App->audio->LoadFx("Audio/flipper_sound.wav");
-	red_light_sound = App->audio->LoadFx("Audio/flipper_sound.wav");
+	piece2_sound = App->audio->LoadFx("Audio/piece2.wav");
+	piece3_sound = App->audio->LoadFx("Audio/piece3.wav");
+	bumper_sound = App->audio->LoadFx("Audio/bumper.wav");
+	hole_sound = App->audio->LoadFx("Audio/hole.wav");
+	green_light_sound = App->audio->LoadFx("Audio/green_and_red.wav");
+	red_light_sound = App->audio->LoadFx("Audio/green_and_red.wav");
+	
+	music_sound = App->audio->LoadFx("Audio/music.wav");
+	
+	//Music
+
+	App->audio->PlayFx(music_sound);
 
 	//Adding physic Background 
 	background = App->physics->CreateStaticChain(25, 34, background_points, 172);
@@ -389,33 +397,7 @@ update_status ModuleSceneIntro::Update()
 	else
 		App->renderer->Blit(hole_tex, METERS_TO_PIXELS(hole_top->body->GetPosition().x) - circle_hole, METERS_TO_PIXELS(hole_top->body->GetPosition().y) - circle_hole);
 
-	if (ball_in_hole_left) {
-		App->renderer->Blit(hole_ball_tex, METERS_TO_PIXELS(hole_left->body->GetPosition().x) - circle_hole, METERS_TO_PIXELS(hole_left->body->GetPosition().y) - circle_hole);
-		App->player->StopBall(3);
-		if (hole_left_cont <= 0) {
-			ball_in_hole_left = false;
-			App->player->PlayBall(1);
-			hole_left_cont = 150;
-		}
-		hole_left_cont--;
-	}
-	else
-		App->renderer->Blit(hole_tex, METERS_TO_PIXELS(hole_left->body->GetPosition().x) - circle_hole, METERS_TO_PIXELS(hole_left->body->GetPosition().y) - circle_hole);
 	
-	if (ball_in_hole_right) {
-		App->renderer->Blit(hole_ball_tex, METERS_TO_PIXELS(hole_right->body->GetPosition().x) - circle_hole, METERS_TO_PIXELS(hole_right->body->GetPosition().y) - circle_hole);
-		App->player->StopBall(4);
-		if (hole_right_cont <= 0) {
-			ball_in_hole_right = false;
-			App->player->PlayBall(1);
-			hole_right_cont = 150;
-		}
-		hole_right_cont--;
-	}
-	else
-		App->renderer->Blit(hole_tex, METERS_TO_PIXELS(hole_right->body->GetPosition().x) - circle_hole, METERS_TO_PIXELS(hole_right->body->GetPosition().y) - circle_hole);
-
-
 	//Green Light-----------------------
 	//Top
 	if (green_light_off_activated_1) {
@@ -1150,16 +1132,6 @@ void ModuleSceneIntro::OnCollision(PhysBody* bodyA, PhysBody* bodyB, b2Contact* 
 			ball_in_hole_top = true;
 			App->audio->PlayFx(hole_sound);
 			score += 200;
-		}
-		else if (bodyA == hole_left || bodyB == hole_left) {
-		ball_in_hole_left = true;
-		App->audio->PlayFx(hole_sound);
-		score += 200;
-		}
-		else if (bodyA == hole_right || bodyB == hole_right) {
-		ball_in_hole_right = true;
-		App->audio->PlayFx(hole_sound);
-		score += 200;
 		}//Green lights--------------------------------
 		else if (bodyA == green_light_off_1 || bodyB == green_light_off_1) {
 			green_light_off_activated_1 = true;

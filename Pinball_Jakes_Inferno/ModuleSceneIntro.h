@@ -247,13 +247,11 @@ private:
 
 	int					hole_bot_cont = 150;
 	int					hole_top_cont = 150;
-	int					hole_left_cont = 150;
-	int					hole_right_cont = 150;
+	
 
 	bool				ball_in_hole_bot = false;
 	bool				ball_in_hole_top = false;
-	bool				ball_in_hole_left = false;
-	bool				ball_in_hole_right = false;
+	
 
 
 	int					circle_force = 20;
@@ -267,6 +265,7 @@ private:
 	uint				hole_sound;
 	uint				green_light_sound;
 	uint				red_light_sound;
+	uint				music_sound;
 	
 
 };

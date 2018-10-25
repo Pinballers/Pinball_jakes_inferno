@@ -65,6 +65,7 @@ public:
 	//Audio
 	uint				flipper_sound;
 	uint				ball_sound;
-	uint				dead_sound;
+	uint				die_sound;
+	uint				springy_sound;
 	
 };

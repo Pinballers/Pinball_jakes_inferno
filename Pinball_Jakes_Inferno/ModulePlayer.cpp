@@ -26,9 +26,10 @@ bool ModulePlayer::Start()
 	close_piece_tex = App->textures->Load("Sprites/close_piece.png");
 	springy_tex = App->textures->Load("Sprites/lancer.png");
 
-	dead_sound = App->audio->LoadFx("Audio/flipper_sound.wav");
-	ball_sound = App->audio->LoadFx("Audio/ball_sound.wav");
+	die_sound = App->audio->LoadFx("Audio/die.wav");
+	ball_sound = App->audio->LoadFx("Audio/ball.wav");
 	flipper_sound = App->audio->LoadFx("Audio/flipper_sound.wav");
+	springy_sound = App->audio->LoadFx("Audio/springy.wav");
 
 
 	//Close piece
@@ -217,7 +218,7 @@ update_status ModulePlayer::Update()
 	
 	ball->GetPosition(ball_position_x,ball_position_y);
 	if (ball_position_y > 1042 && ball_position_x < 328) {
-		App->audio->PlayFx(dead_sound);
+		App->audio->PlayFx(die_sound);
 		if (dead_cont <= 0) {
 			RestartBall();
 		}
@@ -269,9 +270,15 @@ void ModulePlayer::PlayBall(int type) {
 	if (type == 1) {
 		random++;
 		if (random % 2 == 0)
+		{
 			ball->body->SetTransform({ App->scene_intro->hole_right->body->GetPosition().x, App->scene_intro->hole_right->body->GetPosition().y }, 0);
+			App->audio->PlayFx(ball_sound);
+		}
 		else
+		{
 			ball->body->SetTransform({ App->scene_intro->hole_left->body->GetPosition().x, App->scene_intro->hole_left->body->GetPosition().y }, 0);
+			App->audio->PlayFx(ball_sound);
+		}
 	}
 	else if (type == 2) {
 		ball->body->SetTransform({ App->scene_intro->hole_top->body->GetPosition().x, App->scene_intro->hole_top->body->GetPosition().y }, 0);
