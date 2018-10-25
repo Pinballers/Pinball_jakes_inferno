@@ -4,7 +4,7 @@ Original Game: http://www.isladejuegos.es/habilidad/jake-s-pinball-inferno
 
 Our Source Code: https://github.com/Pinballers/Pinball_jakes_inferno
 
-##Differences
+## Differences
 
 Combos are completely different in the original game.
 Sound effects are'nt the same as the original.
@@ -12,9 +12,9 @@ Red buttons on the walls are useless in our pinball.
 Win conditions are'nt the same, in our pinball you have to defeat the boss.
 
 
-##Controls
+## Controls
 
-Keyboard:
+### Keyboard:
 
 Flippers are controller by left and right arrows. Kicker with down arrow.
 
@@ -24,7 +24,7 @@ Right Arrow: Right flippers
 
 Down Arrow: Kicker
 
-Debug Keys:
+### Debug Keys:
 
 F1-> Draw all shapes and allow to use a mouse joint.
 
@@ -32,7 +32,7 @@ F2-> ReStart ball
 
 F3-> ReStart game
 
-Our Combos:
+## Our Combos:
 
 1 - When 6 green lights of the lower area are lit and the ball is put in the lower hole, it adds 12000 points.
 
@@ -44,17 +44,17 @@ Our Combos:
 
 5 - When 13 red lights of the upper area are lit and the ball is put in the upper hole, it adds 100000 points, recibe an extra ball and the boss receives a hit.
 
-##Clear the game:
+## Clear the game:
 
 The game is won when the boss receives three hits. 
 
 YOU'RE THE BEST!! :)
 
 
-##Find this project solution in:
+## Find this project solution in:
 https://github.com/Pinballers/Pinball_jakes_inferno/releases/tag/0.9
 
-##Credits
+## Credits
 Programming: Cere Venteo 
 Github: https://github.com/CereVenteo
 
