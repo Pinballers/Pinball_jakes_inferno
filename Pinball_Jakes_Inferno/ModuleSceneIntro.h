@@ -107,6 +107,8 @@ public:
 
 	//Sprites
 	SDL_Texture*		background_tex = nullptr;
+	SDL_Texture*		background_win_tex = nullptr;
+	SDL_Texture*		background_lose_tex = nullptr;
 	SDL_Texture*		left_piece1_tex = nullptr;
 	SDL_Texture*		right_piece1_tex = nullptr;
 	SDL_Texture*		left_piece2_tex = nullptr;
@@ -143,6 +145,9 @@ public:
 	int					red_cont_left = 0;
 	int					red_cont_right = 0;
 	int					red_cont_mid = 0;
+	int					boss_hit = 0;
+	bool				endlose = false;
+	bool				endwin = false;
 
 
 private:
@@ -254,7 +259,7 @@ private:
 	bool				ball_in_hole_bot = false;
 	bool				ball_in_hole_top = false;
 	
-	int					boss_hit = 0;
+	
 
 
 	int					circle_force = 20;

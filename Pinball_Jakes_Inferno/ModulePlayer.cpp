@@ -193,7 +193,7 @@ update_status ModulePlayer::Update()
 	if (App->input->GetKey(SDL_SCANCODE_F2) == KEY_DOWN)
 	{
 		if (App->scene_intro->life_ball == 0) {
-			RestartGame();
+			App->scene_intro->endlose = true;
 		}else
 			RestartBall();
 	}
@@ -203,7 +203,7 @@ update_status ModulePlayer::Update()
 	}
 
 	if (App->scene_intro->life_ball == 0) {
-		RestartGame();
+		App->scene_intro->endlose = true;
 	}
 	
 	if (!ball_created) {
@@ -235,21 +235,23 @@ update_status ModulePlayer::Update()
 	}
 
 	
+	if (!App->scene_intro->endlose && !App->scene_intro->endwin) {
+		//Blit
+		App->renderer->Blit(ball_tex, ball_position_x, ball_position_y, NULL, 1.0f, ball->GetRotation());
 
-	//Blit
-	App->renderer->Blit(ball_tex, ball_position_x, ball_position_y, NULL, 1.0f, ball->GetRotation());
+		//Close_Piece
+		App->renderer->Blit(close_piece_tex, 334, 782);
 
-	//Close_Piece
-	App->renderer->Blit(close_piece_tex, 334, 782);
+		//Flippers
+		App->renderer->Blit(left_flipper_tex, METERS_TO_PIXELS(left_flipper->body->GetPosition().x), METERS_TO_PIXELS(left_flipper->body->GetPosition().y), NULL, 1.0F, left_flipper->GetRotation(), PIXEL_TO_METERS(1), PIXEL_TO_METERS(1));
+		App->renderer->Blit(right_flipper_tex, METERS_TO_PIXELS(right_flipper->body->GetPosition().x), METERS_TO_PIXELS(right_flipper->body->GetPosition().y), NULL, 1.0F, right_flipper->GetRotation(), PIXEL_TO_METERS(1), PIXEL_TO_METERS(1));
+		App->renderer->Blit(left_flipper_tex, METERS_TO_PIXELS(left_flipper_bot->body->GetPosition().x), METERS_TO_PIXELS(left_flipper_bot->body->GetPosition().y), NULL, 1.0F, left_flipper_bot->GetRotation(), PIXEL_TO_METERS(1), PIXEL_TO_METERS(1));
+		App->renderer->Blit(right_flipper_tex, METERS_TO_PIXELS(right_flipper_bot->body->GetPosition().x), METERS_TO_PIXELS(right_flipper_bot->body->GetPosition().y), NULL, 1.0F, right_flipper_bot->GetRotation(), PIXEL_TO_METERS(1), PIXEL_TO_METERS(1));
 
-	//Flippers
-	App->renderer->Blit(left_flipper_tex, METERS_TO_PIXELS(left_flipper->body->GetPosition().x), METERS_TO_PIXELS(left_flipper->body->GetPosition().y), NULL, 1.0F, left_flipper->GetRotation(), PIXEL_TO_METERS(1), PIXEL_TO_METERS(1));
-	App->renderer->Blit(right_flipper_tex, METERS_TO_PIXELS(right_flipper->body->GetPosition().x), METERS_TO_PIXELS(right_flipper->body->GetPosition().y), NULL, 1.0F, right_flipper->GetRotation(), PIXEL_TO_METERS(1), PIXEL_TO_METERS(1));
-	App->renderer->Blit(left_flipper_tex, METERS_TO_PIXELS(left_flipper_bot->body->GetPosition().x), METERS_TO_PIXELS(left_flipper_bot->body->GetPosition().y), NULL, 1.0F, left_flipper_bot->GetRotation(), PIXEL_TO_METERS(1), PIXEL_TO_METERS(1));
-	App->renderer->Blit(right_flipper_tex, METERS_TO_PIXELS(right_flipper_bot->body->GetPosition().x), METERS_TO_PIXELS(right_flipper_bot->body->GetPosition().y), NULL, 1.0F, right_flipper_bot->GetRotation(), PIXEL_TO_METERS(1), PIXEL_TO_METERS(1));
+		//springy
+		App->renderer->Blit(springy_tex, METERS_TO_PIXELS(springy->body->GetPosition().x) - 6, METERS_TO_PIXELS(springy->body->GetPosition().y) - 16);
+	}
 	
-	//springy
-	App->renderer->Blit(springy_tex, METERS_TO_PIXELS(springy->body->GetPosition().x) - 6, METERS_TO_PIXELS(springy->body->GetPosition().y) - 16);
 
 
 	return UPDATE_CONTINUE;
@@ -318,6 +320,10 @@ void ModulePlayer::RestartGame() {
 	App->scene_intro->red_cont_left = 0;
 	App->scene_intro->red_cont_right = 0;
 	App->scene_intro->red_cont_mid = 0;
+	App->scene_intro->boss_hit = 0;
+	App->scene_intro->endwin = false;
+	App->scene_intro->endlose = false;
+	App->physics->debug = true;
 	RestartBall();
 }
 
