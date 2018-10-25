@@ -935,48 +935,89 @@ update_status ModuleSceneIntro::Update()
 
 	//SCORE CONDITIONS
 
-	//Set title as Score-------------------------------------------------
-
-	p2SString title("Score: %i  Lifes: %i", score, life_ball);
+	p2SString title("Score: %i  Previous Score: %i  Highest Score: %i Lifes: %i", score, previous_score, highest_score, life_ball);
 
 	//Green score combos
 
-	if (green_cont_bot == 6 && ball_in_hole_bot == true) 
+	if (green_cont_bot >= 6 && green_cont_bot < 12 && ball_in_hole_bot == true) {
 		score += 12000;
-
-	if (green_cont_bot == 12 && ball_in_hole_bot == true)
+		cont_green_light_8 = 0;
+		cont_green_light_9 = 0;
+		cont_green_light_10 = 0;
+		cont_green_light_11 = 0;
+		cont_green_light_12 = 0;
+		cont_green_light_13 = 0;
+		cont_green_light_14 = 0;
+		cont_green_light_15 = 0;
+		cont_green_light_16 = 0;
+		cont_green_light_17 = 0;
+		cont_green_light_18 = 0;
+	}else if (green_cont_bot == 12 && ball_in_hole_bot == true)
 	{
 		score += 48000;
 		life_ball++;
-		//light_eyes_activated = true;
+		cont_green_light_8 = 0;
+		cont_green_light_9 = 0;
+		cont_green_light_10 = 0;
+		cont_green_light_11 = 0;
+		cont_green_light_12 = 0;
+		cont_green_light_13 = 0;
+		cont_green_light_14 = 0;
+		cont_green_light_15 = 0;
+		cont_green_light_16 = 0;
+		cont_green_light_17 = 0;
+		cont_green_light_18 = 0;
 	
 	}
 
-	if (green_cont_top == 6 && ball_in_hole_top == true) score += 12000;
+	if (green_cont_top == 6 && ball_in_hole_top == true) 
+	{
+		score += 12000;
+		cont_green_light_1 = 0;
+		cont_green_light_2 = 0;
+		cont_green_light_3 = 0;
+		cont_green_light_4 = 0;
+		cont_green_light_5 = 0;
+		cont_green_light_6 = 0;
+	}
 		
 	//Red score combos
-
-	if(red_cont_mid == 13 && ball_in_hole_top == true)
+	if (red_cont_left == 4 && ball_in_hole_top == true)
 	{
-		score += 100000;
-		boss_hit++;
-		life_ball++;
+		score += 12000;
+		cont_red_light_1 = 0;
+		cont_red_light_2 = 0;
+		cont_red_light_3 = 0;
+		cont_red_light_4 = 0;
 	}
+	if (red_cont_right == 4 && ball_in_hole_top == true)
+	{
+		score += 12000;
+		cont_red_light_5 = 0;
+		cont_red_light_6 = 0;
+		cont_red_light_7 = 0;
+		cont_red_light_8 = 0;
+	}
+	
+	if (red_cont_mid == 5 && ball_in_hole_top == true && boss_hit == 3)
+	{
+		// CAMBIA A ESCENA WIN !!
+		title = ("YOU WIN!! press F3 to try again...");
 
-	if (red_cont_mid == 5 && ball_in_hole_top == true)
+	}else if (red_cont_mid == 5 && ball_in_hole_top == true)
 	{
 		score += 30000;
 		boss_hit++;
 		life_ball++;
+		cont_red_light_9 = 0;
+		cont_red_light_10 = 0;
+		cont_red_light_11 = 0;
+		cont_red_light_12 = 0;
+		cont_red_light_13 = 0;
 	}
 
-	if (red_cont_mid == 5 && ball_in_hole_top == true && boss_hit == 3) 
-	{
-	  // CAMBIA A ESCENA WIN !!
-		title = ("YOU WIN!! press F3 to try again...");
-
-	}
-
+	
+	//Set title as Score-------------------------------------------------
 	App->window->SetTitle(title.GetString());
 		
 
@@ -991,22 +1032,18 @@ void ModuleSceneIntro::OnCollision(PhysBody* bodyA, PhysBody* bodyB, b2Contact* 
 	if (bodyA == App->player->ball || bodyB == App->player->ball) {
 		//Piece2----------------------------------
 		if (bodyA == left_piece2_action || bodyB == left_piece2_action) {
-			App->player->ball->body->ApplyForceToCenter(piece2_force * worldManifold.normal, true);
 			left_piece2_activated = true;
 			App->audio->PlayFx(piece2_sound);
 			score += 100;
 		}else if (bodyA == right_piece2_action || bodyB == right_piece2_action) {
-			App->player->ball->body->ApplyForceToCenter(piece2_force * worldManifold.normal, true);
 			right_piece2_activated = true;
 			App->audio->PlayFx(piece2_sound);
 			score += 100;
 		}else if (bodyA == left_piece2_bot_action || bodyB == left_piece2_bot_action) {
-			App->player->ball->body->ApplyForceToCenter(piece2_force * worldManifold.normal, true);
 			left_piece2_bot_activated = true;
 			App->audio->PlayFx(piece2_sound);
 			score += 100;
 		}else if (bodyA == right_piece2_bot_action || bodyB == right_piece2_bot_action) {
-			App->player->ball->body->ApplyForceToCenter(piece2_force * worldManifold.normal, true);
 			right_piece2_bot_activated = true;
 			App->audio->PlayFx(piece2_sound);
 			score += 100;
@@ -1060,57 +1097,46 @@ void ModuleSceneIntro::OnCollision(PhysBody* bodyA, PhysBody* bodyB, b2Contact* 
 			score += 100;
 		}//Bumpers--------------------------------
 		else if (bodyA == circle_1 || bodyB == circle_1) {
-			App->player->ball->body->ApplyForceToCenter(circle_force * worldManifold.normal, true);
 			App->audio->PlayFx(bumper_sound);
 			score += 100;
 		}
 		else if (bodyA == circle_2 || bodyB == circle_2) {
-			App->player->ball->body->ApplyForceToCenter(circle_force * worldManifold.normal, true);
 			App->audio->PlayFx(bumper_sound);
 			score += 100;
 		}
 		else if (bodyA == circle_3 || bodyB == circle_3) {
-			App->player->ball->body->ApplyForceToCenter(circle_force * worldManifold.normal, true);
 			App->audio->PlayFx(bumper_sound);
 			score += 100;
 		}
 		else if (bodyA == circle_4 || bodyB == circle_4) {
-			App->player->ball->body->ApplyForceToCenter(circle_force * worldManifold.normal, true);
 			App->audio->PlayFx(bumper_sound);
 			score += 100;
 		}
 		else if (bodyA == circle_5 || bodyB == circle_5) {
-			App->player->ball->body->ApplyForceToCenter(circle_force * worldManifold.normal, true);
 			App->audio->PlayFx(bumper_sound);
 			score += 100;
 		}
 		else if (bodyA == circle_6 || bodyB == circle_6) {
-			App->player->ball->body->ApplyForceToCenter(circle_force * worldManifold.normal, true);
 			App->audio->PlayFx(bumper_sound);
 			score += 100;
 		}
 		else if (bodyA == circle_7 || bodyB == circle_7) {
-			App->player->ball->body->ApplyForceToCenter(circle_force * worldManifold.normal, true);
 			App->audio->PlayFx(bumper_sound);
 			score += 100;
 		}
 		else if (bodyA == circle_8 || bodyB == circle_8) {
-			App->player->ball->body->ApplyForceToCenter(circle_force * worldManifold.normal, true);
 			App->audio->PlayFx(bumper_sound);
 			score += 100;
 		}
 		else if (bodyA == circle_9 || bodyB == circle_9) {
-			App->player->ball->body->ApplyForceToCenter(circle_force * worldManifold.normal, true);
 			App->audio->PlayFx(bumper_sound);
 			score += 100;
 		}
 		else if (bodyA == circle_10 || bodyB == circle_10) {
-			App->player->ball->body->ApplyForceToCenter(circle_force * worldManifold.normal, true);
 			App->audio->PlayFx(bumper_sound);
 			score += 100;
 		}
 		else if (bodyA == circle_11 || bodyB == circle_11) {
-			App->player->ball->body->ApplyForceToCenter(circle_force * worldManifold.normal, true);
 			App->audio->PlayFx(bumper_sound);
 			score += 100;
 		}//Hole----------------------------------

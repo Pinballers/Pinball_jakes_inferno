@@ -134,6 +134,8 @@ public:
 
 	
 	int					score = 0;
+	int					previous_score = 0;
+	int					highest_score = 0;
 	int					life_ball = 3;
 
 	int					green_cont_bot = 0;

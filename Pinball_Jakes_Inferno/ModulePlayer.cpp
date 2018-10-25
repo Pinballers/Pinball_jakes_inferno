@@ -219,7 +219,10 @@ update_status ModulePlayer::Update()
 	
 	ball->GetPosition(ball_position_x,ball_position_y);
 	if (ball_position_y > 1042 && ball_position_x < 328) {
-		App->audio->PlayFx(die_sound);
+		if (dead_cont == 119) {
+			App->audio->PlayFx(die_sound);
+		}
+		
 		if (dead_cont <= 0) {
 			RestartBall();
 		}
@@ -305,7 +308,11 @@ void ModulePlayer::RestartBall() {
 
 void ModulePlayer::RestartGame() {
 	App->scene_intro->life_ball = 4;
+	App->scene_intro->previous_score = App->scene_intro->score;
+	if (App->scene_intro->score > App->scene_intro->highest_score)
+		App->scene_intro->highest_score = App->scene_intro->score;
 	App->scene_intro->score = 0;
+
 	App->scene_intro->green_cont_bot = 0;
 	App->scene_intro->green_cont_top = 0;
 	App->scene_intro->red_cont_left = 0;
