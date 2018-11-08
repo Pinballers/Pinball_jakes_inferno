@@ -1017,7 +1017,7 @@ update_status ModuleSceneIntro::Update()
 		cont_red_light_8 = 0;
 	}
 	
-	if (red_cont_mid == 5 && ball_in_hole_top == true && boss_hit == 2)
+	if (red_cont_mid == 5 && ball_in_hole_top == true && boss_hit >= 2)
 	{
 		// CAMBIA A ESCENA WIN !!
 		App->renderer->Blit(background_win_tex, METERS_TO_PIXELS(background->body->GetPosition().x) - 25, METERS_TO_PIXELS(background->body->GetPosition().y) - 34);
